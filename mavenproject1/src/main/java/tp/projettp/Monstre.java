@@ -4,8 +4,6 @@
  */
 package tp.projettp;
 
-import org.centrale.objet.WoE.Point2D;
-
 /**
  *
  * @author julda
