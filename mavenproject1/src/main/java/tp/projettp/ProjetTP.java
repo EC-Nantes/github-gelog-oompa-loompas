@@ -11,6 +11,8 @@ package tp.projettp;
 public class ProjetTP {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Point2D pos=new Point2D(5,5);
+        Monstre lapin=new Monstre(10,15,20,20,pos);
+        System.out.println(lapin.getPtVie());
     }
 }
