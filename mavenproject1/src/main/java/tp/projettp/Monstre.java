@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package tp.projettp;
+import java.util.Random;
 
 /**
  *
@@ -71,12 +72,20 @@ public class Monstre {
     public Point2D getPos() {
         return pos;
     }
+    
+    public int getX() {
+        return pos.getX();
+    }
+    public int getY() {
+        return pos.getY();
+    }
 
     public void setPos(Point2D pos) {
         this.pos = pos;
     }
     public void deplace(){
-        this.pos.setPosition(this.pos.getX()+1,this.pos.getY()+1);
+        Random alea= new Random();
+        this.pos.setPosition(this.pos.getX()+alea.nextInt(2),this.pos.getY()+alea.nextInt(2));    
     }
     public void affiche(){
         System.out.println("position du monstre :"+this.pos.getX()+","+this.pos.getX());

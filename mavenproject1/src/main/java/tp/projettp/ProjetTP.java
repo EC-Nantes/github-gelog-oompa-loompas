@@ -11,15 +11,13 @@ package tp.projettp;
 public class ProjetTP {
 
     public static void main(String[] args) {
-        Point2D pos=new Point2D(5,5);
-        Monstre lapin=new Monstre(10,15,20,20,pos);
-        System.out.println(lapin.getPtVie());
-        Personnage p = new Personnage();
-        Point2D pos2=new Point2D(6,6);
-        p.setPos(pos);
-        Personnage p2 = new Personnage(p);
-        p.setPos(pos2);
-        System.out.println(p.getPos());
-        System.out.println(p2.getPos());
+        World map = new World();
+        System.out.println("Robin fait 2 déplacements, voici ses 3 positions");
+        map.robin.affiche();
+        map.robin.deplace();
+        map.robin.affiche();
+        map.robin.deplace();
+        map.robin.affiche();
+        
     }
 }
