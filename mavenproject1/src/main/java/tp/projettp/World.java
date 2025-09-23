@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package tp.projettp;
-import java.utlis.random;
+import java.utli.Random;
 
 /**
  *
@@ -20,11 +20,27 @@ public class World {
         this.bug=new Lapin();
     }
     
-  /*  public void creerMondeAlea(){
-        Random generateur=new Random();
-        int x=generateur.nextInt();
-        int y=generateur.nextInt();
+    /* on refera plus tard
+    public boolean verifierCase(pos){
+        return 
+    }*/
+    
+    public void creerMondeAlea(){
+        Point2D pos=new Point2D();
+        Point2D pos2=new Point2D();
+        Point2D pos3=new Point2D();
         
+        pos.randomPos();
+        pos2.randomPos();
+        pos3.randomPos();
+        while (pos==pos2){
+            pos2.randomPos();
+        }
+        while (pos==pos3 || pos2==pos3){
+            pos3.randomPos();
+        }
+        robin.setPos(pos);
+        peon.setPos(pos2);
+        bug.setPos(pos3);        
     }
-    */
 }
