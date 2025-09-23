@@ -11,6 +11,12 @@ import java.util.Random;
 public class Point2D{
     private int x;
     private int y;
+    
+    public boolean equals(Point2D pos2){
+        return (this.x==pos2.getX() && this.y==pos2.getY());
+    }
+    
+    
     public Point2D(){
         x=0;
         y=0;
