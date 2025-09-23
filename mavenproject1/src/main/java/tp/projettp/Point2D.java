@@ -23,8 +23,8 @@ public class Point2D{
     }
     public void randomPos(){
         Random generateur=new Random();
-        this.x=generateur.nextInt();
-        this.y=generateur.nextInt();
+        this.x=generateur.nextInt(100);
+        this.y=generateur.nextInt(100);
     }
     public Point2D(Point2D pointeur){
         x=pointeur.getX();
