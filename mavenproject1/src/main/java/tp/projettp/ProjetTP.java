@@ -15,9 +15,11 @@ public class ProjetTP {
         Monstre lapin=new Monstre(10,15,20,20,pos);
         System.out.println(lapin.getPtVie());
         Personnage p = new Personnage();
+        Point2D pos2=new Point2D(6,6);
+        p.setPos(pos);
         Personnage p2 = new Personnage(p);
-        p.getPos()= pos;
-        system.out.println(p.getPos());
-        system.out.println(p2.getPos());
+        p.setPos(pos2);
+        System.out.println(p.getPos());
+        System.out.println(p2.getPos());
     }
 }
