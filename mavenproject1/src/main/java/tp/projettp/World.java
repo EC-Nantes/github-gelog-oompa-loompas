@@ -10,9 +10,9 @@ import java.utli.Random;
  * @author nathan
  */
 public class World {
-    private Archer robin;
-    private Paysan peon;
-    private Lapin bug;
+    public Archer robin;
+    public Paysan peon;
+    public Lapin bug;
     
     public World(){
         this.robin= new Archer();
