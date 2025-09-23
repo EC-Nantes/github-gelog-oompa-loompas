@@ -20,11 +20,11 @@ public class World {
         this.bug=new Lapin();
     }
     
-    public void creerMondeAlea(){
+  /*  public void creerMondeAlea(){
         Random generateur=new Random();
         int x=generateur.nextInt();
         int y=generateur.nextInt();
         
     }
-    
+    */
 }
