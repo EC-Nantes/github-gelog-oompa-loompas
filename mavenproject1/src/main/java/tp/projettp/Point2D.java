@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package tp.projettp;
-
+import java.util.Random;
 /**
  *
  * @author julda
@@ -14,6 +14,11 @@ public class Point2D{
     public Point2D(){
         x=0;
         y=0;
+    }
+    public void randomPos(){
+        Random generateur=new Random();
+        this.x=generateur.nextInt();
+        this.y=generateur.nextInt();
     }
     public Point2D(Point2D pointeur){
         x=pointeur.getX();
