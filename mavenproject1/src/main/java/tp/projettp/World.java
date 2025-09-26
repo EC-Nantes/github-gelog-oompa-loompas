@@ -11,12 +11,12 @@ package tp.projettp;
 public class World {
     public Archer robin;
     public Paysan peon;
-    public Lapin bug;
+    public Lapin bugs;
     
     public World(){
         this.robin= new Archer();
         this.peon= new Paysan();
-        this.bug=new Lapin();
+        this.bugs=new Lapin();
     }
     
     /* on refera plus tard
@@ -40,6 +40,6 @@ public class World {
         }
         robin.setPos(pos);
         peon.setPos(pos2);
-        bug.setPos(pos3);        
+        bugs.setPos(pos3);        
     }
 }
