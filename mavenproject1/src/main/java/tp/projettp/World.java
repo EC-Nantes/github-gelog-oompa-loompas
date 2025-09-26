@@ -9,10 +9,25 @@ package tp.projettp;
  * @author nathan
  */
 public class World {
+
+    /**
+     *
+     */
     public Archer robin;
+
+    /**
+     *
+     */
     public Paysan peon;
+
+    /**
+     *
+     */
     public Lapin bugs;
     
+    /**
+     *constructeur
+     */
     public World(){
         this.robin= new Archer();
         this.peon= new Paysan();
@@ -23,6 +38,11 @@ public class World {
     public boolean verifierCase(pos){
         return 
     }*/
+
+    /**
+     * Génère des entités à des emplacement aléatoires dans le monde
+     */
+
     
     public void creerMondeAlea(){
         Point2D pos=new Point2D();
