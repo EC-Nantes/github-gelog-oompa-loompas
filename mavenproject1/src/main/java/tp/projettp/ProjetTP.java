@@ -12,7 +12,8 @@ public class ProjetTP {
 
     public static void main(String[] args) {
         World map = new World();
-        System.out.println("Robin fait 2 déplacements, voici ses 3 positions");
+        map.creerMondeAlea();
+        System.out.println("Robin fait 2 deplacements, voici ses 3 positions");
         map.robin.affiche();
         map.robin.deplace();
         map.robin.affiche();
