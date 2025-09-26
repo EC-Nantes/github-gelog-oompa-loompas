@@ -9,34 +9,7 @@ import java.util.Random;
  *
  * @author julda
  */
-public class Monstre {
-
-    /**
-     *
-     */
-    protected int ptVie;
-
-    /**
-     *
-     */
-    protected int degAtt;
-
-    /**
-     *
-     */
-    protected int pageAtt;
-
-    /**
-     *
-     */
-    protected int PagePar;
-
-    /**
-     *
-     */
-    protected Point2D pos;
-    
-    /*@param  nombre de point de vie, points d'attaque, pageAtt, page Par, position sous la forme d'un Point2D du monstre que l'on souhaite créer x*/
+public class Monstre extends Creature{
 
     /**
      *
@@ -48,38 +21,27 @@ public class Monstre {
      */
 
     public Monstre(int pV,int dA,int paAtt,int paPar,Point2D p){
-        this.ptVie=pV;
-        this.degAtt=dA;
-        this.pageAtt=paAtt;
-        this.PagePar=paPar;
-        this.pos=p;
+        super(pV,dA,paAtt,paPar,p);
     }
-    
+    public Monstre(Monstre m){
+        super(m.getPtVie(),m.getDegAtt(),m.getPageAtt(),m.getPagePar(),new Point2D(m.getPos()));
+    }
+    public Monstre(){
+        super();
+    }
     /**
      *
      * @param m monstre que l'on souhaite copier
      */
 
-    public Monstre(Monstre m){
-        this.ptVie=m.ptVie;
-        this.degAtt=m.degAtt;
-        this.pageAtt=m.pageAtt;
-        this.PagePar=m.PagePar;
-        this.pos=m.pos;
-    }
+    
+    
      
     /**
      *par défaut, 50pV, degAtt=50, pageAtt=50,PagePar=10 et la position est (0,0)
      */
 
-    public Monstre(){
-        Point2D p=new Point2D();
-        this.ptVie=50;
-        this.degAtt=50;
-        this.pageAtt=50;
-        this.PagePar=10;
-        this.pos=p;
-    }
+    
 
     /**
      *
