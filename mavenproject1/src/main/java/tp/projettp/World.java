@@ -26,6 +26,11 @@ public class World {
     public Lapin bugs;
     
     /**
+     * 
+     */
+    public Archer guillaumeT;
+    
+    /**
      *constructeur
      */
     public World(){
@@ -60,6 +65,6 @@ public class World {
         }
         robin.setPos(pos);
         peon.setPos(pos2);
-        bugs.setPos(pos3);        
+        bugs.setPos(pos3); 
     }
 }
