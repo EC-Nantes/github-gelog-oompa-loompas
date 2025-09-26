@@ -9,7 +9,13 @@ package tp.projettp;
  * @author nathan
  */
 public class PotionSoin extends Objet {
-    public PotionSoin(){
+        private int soin;
+    public PotionSoin(int soin){
+        this.soin=soin;
+    }
+    public void soigner(Personnage qqn){
+        qqn.setPV(qqn.getPV()+soin);
+    }
         
     }
 }
