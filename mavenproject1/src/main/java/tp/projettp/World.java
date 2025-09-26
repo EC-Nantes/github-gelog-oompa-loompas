@@ -37,6 +37,7 @@ public class World {
         this.robin= new Archer();
         this.peon= new Paysan();
         this.bugs=new Lapin();
+        this.guillaumeT=new Archer();
     }
     
     /* on refera plus tard
