@@ -129,6 +129,7 @@ public class Personnage {
     }
     
     public void affiche(){
+        System.out.println("["+this.getX()+";"+this.getY()+"]");
     }
     
 }
