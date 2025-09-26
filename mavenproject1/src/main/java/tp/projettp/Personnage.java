@@ -233,7 +233,7 @@ public class Personnage {
      *affichage de la position du personnage
      */
     public void affiche(){
-        System.out.println("["+this.getX()+";"+this.getY()+"]");
+        System.out.println(this.getNom()+"a pour coordonnees ["+this.getX()+";"+this.getY()+"]");
     }
     
 }
