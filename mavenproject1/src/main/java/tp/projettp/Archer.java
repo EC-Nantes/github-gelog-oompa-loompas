@@ -28,7 +28,7 @@ public class Archer extends Personnage {
     }
     
     public Archer( Archer a){
-        super(a.getNom(), a.getPtVie(), a.getPtPar(),a.getPageAtt(), a.getPagePar(), a.getDistAttMax(), a.getPos());
+        super(a.getNom(), a.getPtVie(), a.getPtPar(),a.getPageAtt(), a.getPagePar(), a.getDistAttMax(), new Point2D(a.getPos()));
         this.nbFleches=a.getNbFleches();
     }
     
