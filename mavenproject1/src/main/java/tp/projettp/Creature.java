@@ -25,12 +25,12 @@ public class Creature {
         this.pagePar=paPar;
         this.pos=p;
     }
-    public Creature(Creature m){
-        this.ptVie=m.ptVie;
-        this.degAtt=m.degAtt;
-        this.pageAtt=m.pageAtt;
-        this.pagePar=m.pagePar;
-        this.pos=m.pos;
+    public Creature(Creature c){
+        this.ptVie=c.ptVie;
+        this.degAtt=c.degAtt;
+        this.pageAtt=c.pageAtt;
+        this.pagePar=c.pagePar;
+        this.pos=c.pos;
     }
     public Creature(){
         Point2D p=new Point2D();
