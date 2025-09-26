@@ -11,24 +11,12 @@ package tp.projettp;
  */
 public class Lapin extends Monstre {
     Lapin(int pV,int dA,int paAtt,int paPar,Point2D p){
-        this.ptVie=pV;
-        this.degAtt=dA;
-        this.pageAtt=paAtt;
-        this.PagePar=paPar;
-        this.pos=p;
+        super(pV,dA,paAtt,paPar,p);
     }
     Lapin(Lapin l){
-        this.ptVie=l.ptVie;
-        this.degAtt=l.degAtt;
-        this.pageAtt=l.pageAtt;
-        this.PagePar=l.PagePar;
-        this.pos=l.pos;
+        super(l.getPtVie(),l.getDegAtt(),l.getPageAtt(),l.getPagePar(),new Point2D(l.getPos()));
     }
     Lapin(){
-        this.ptVie=10;
-        this.degAtt=10;
-        this.pageAtt=5;
-        this.PagePar=5;
-        this.pos=new Point2D();
+        super(10,10,5,5,new Point2D());
     }
 }
