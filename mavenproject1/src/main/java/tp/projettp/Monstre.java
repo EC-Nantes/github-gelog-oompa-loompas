@@ -85,9 +85,16 @@ public class Monstre {
     }
     public void deplace(){
         Random alea= new Random();
-        this.pos.setPosition(this.pos.getX()+alea.nextInt(2),this.pos.getY()+alea.nextInt(2));    
+        int randomx=0;
+        int randomy=0;
+        while(randomx==0&&randomy==0){
+            randomx=alea.nextInt(2);
+            randomy=alea.nextInt(2);
+        }
+        this.pos.setPosition(this.pos.getX()+randomx,this.pos.getY()+randomy);
     }
-    public void affiche(){
+
+            public void affiche(){
         System.out.println("position du monstre :"+this.pos.getX()+","+this.pos.getX());
     }
 }
