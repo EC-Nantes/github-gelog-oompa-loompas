@@ -18,7 +18,7 @@ public class Creature {
     private int pageAtt;
     private int pagePar;
     private Point2D pos;
-    public Creature(int pV,int dA,int paAtt,int paPar,Point2D p){
+    public Creature(String nom, int pV,int dA,int paAtt,int paPar,Point2D p){
         this.ptVie=pV;
         this.degAtt=dA;
         this.pageAtt=paAtt;
