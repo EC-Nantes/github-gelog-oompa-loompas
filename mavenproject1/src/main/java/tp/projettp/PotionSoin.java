@@ -17,5 +17,4 @@ public class PotionSoin extends Objet {
         qqn.setPV(qqn.getPV()+soin);
     }
         
-    }
 }
