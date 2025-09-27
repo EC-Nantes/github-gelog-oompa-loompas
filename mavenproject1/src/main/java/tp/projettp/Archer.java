@@ -19,7 +19,7 @@ public class Archer extends Personnage {
     }
     private int nbFleches;
     public Archer(String nom, int ptVie, int degAtt,int ptPar,int pageAtt, int pagePar, int distAttMax, Point2D pos, int nbFleches){
-        super( nom,  ptVie,  ptPar, pageAtt,  pagePar,  distAttMax,  pos);
+        super(nom,  ptVie,  degAtt, ptPar, pageAtt,  pagePar,  distAttMax,  pos);
         this.nbFleches=nbFleches;
     }
     public Archer(){
@@ -28,7 +28,7 @@ public class Archer extends Personnage {
     }
     
     public Archer( Archer a){
-        super(a.getNom(), a.getPtVie(), a.getPtPar(),a.getPageAtt(), a.getPagePar(), a.getDistAttMax(), new Point2D(a.getPos()));
+        super(a.getNom(), a.getPtVie(), a.getDegAtt(), a.getPtPar(),a.getPageAtt(), a.getPagePar(), a.getDistAttMax(), new Point2D(a.getPos()));
         this.nbFleches=a.getNbFleches();
     }
     
