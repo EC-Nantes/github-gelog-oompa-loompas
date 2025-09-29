@@ -20,6 +20,8 @@ public class Loup extends Monstre{
     public Loup() {
         super("Loup terrifiant",55,12,20,25,new Point2D());
     }
-    
-    
+
+    public void combattre(Creature c){
+        c.loosePtVie(this.getDegAtt());
+    }   
 }
