@@ -18,12 +18,13 @@ public class Creature {
     private int pageAtt;
     private int pagePar;
     private Point2D pos;
-    public Creature(String nom, int pV,int dA,int paAtt,int paPar,Point2D p){
+    public Creature(String nom, int pV,int ptP, int dA,int paAtt,int paPar,Point2D p){
         this.ptVie=pV;
         this.degAtt=dA;
         this.pageAtt=paAtt;
         this.pagePar=paPar;
         this.pos=p;
+        this.ptPar=ptP;
     }
     public Creature(Creature c){
         this.ptVie=c.ptVie;
@@ -100,6 +101,14 @@ public class Creature {
         this.pagePar = pagePar;
     }
 
+    public void setPtPar(int ptPar) {
+        this.ptPar = ptPar;
+    }
+
+    public int getPtPar() {
+        return ptPar;
+    }
+
     /**
      *
      * @return objet Point2D du monstre (Attention : ne renvoie pas la position (x,y) du monstre)
@@ -160,7 +169,12 @@ public class Creature {
         System.out.println("position de "+this.getNom()+" : ["+this.pos.getX()+","+this.pos.getY()+"]");
     }
     public void loosePV(int degats){
-        this.setPtVie(this.getPtVie()-degats);
+        if (degats<0){
+            System.out.println("Aucun dégât reçu");
+        }
+        else{
+            this.setPtVie(this.getPtVie()-degats);
+        }
     }
     
 }

@@ -27,14 +27,18 @@ public class Guerrier extends Personnage{
             int Rand=tirage.nextInt(100)+1;
             if(Rand<=this.getPageAtt()){
                 int Rand2=tirage.nextInt(100)+1;
-                if(Rand>c.getPagePar()){
+                if(Rand2>c.getPagePar()){
                     c.loosePV(this.getDegAtt());
                 }
                 else{
-                    c.loosePV(this.getdegAtt()-c.getptPar);
+                    c.loosePV(this.getDegAtt()-c.getPtPar());
                 }
                 
             }
+            else{
+                System.out.println("Attaque Ratée");
+            }
         }
+        else{
     }
 }
