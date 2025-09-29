@@ -10,8 +10,8 @@ import java.util.Random;
  */
 public class Guerrier extends Personnage{
 
-    public Guerrier(String nom, int pV, int pPar, int dA, int paAtt, int paPar, int dAtt, Point2D p) {
-        super(nom, pV, pPar, dA, paAtt, paPar, dAtt, p);
+    public Guerrier(String nom, int pV, int pPar, int dA, int paAtt, int paPar, Point2D p) {
+        super(nom, pV, pPar, dA, paAtt, paPar, 1, p);
     }
 
     public Guerrier(Guerrier g) {
@@ -19,7 +19,7 @@ public class Guerrier extends Personnage{
     }
 
     public Guerrier() {
-        super();
+        super("Guerrier aguerri",60,10,20,80,20,1,new Point2D());
     }
     public void combattre(Creature c){
         if (this.getDistAttMax()==1){
@@ -39,6 +39,8 @@ public class Guerrier extends Personnage{
                 System.out.println("Attaque Ratée");
             }
         }
-        else{
+        else if(this.getDistAttMax()<this.pos.distance(c.pos)){
+            
+        }
     }
 }
