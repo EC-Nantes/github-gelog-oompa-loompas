@@ -34,35 +34,12 @@ public class Archer extends Personnage {
         this.nbFleches=a.getNbFleches();
     }
     public void combattre(Creature c){
-        if (this.getDistAttMax()==1){
+        this.setNbFleches(this.nbFleches-1);
+        if (this.getDistAttMax()<this.pos.distance(c.pos)){
             Random tirage=new Random();
             int Rand=tirage.nextInt(100)+1;
             if(Rand<=this.getPageAtt()){
-                int Rand2=tirage.nextInt(100)+1;
-                if(Rand2>c.getPagePar()){
-                    c.loosePV(this.getDegAtt());
-                }
-                else{
-                    c.loosePV(this.getDegAtt()-c.getPtPar());
-                }
-                
-            }
-            else{
-                System.out.println("Attaque Ratée");
-            }
-        }
-        else if (this.getDistAttMax()==1){//A faire
-            Random tirage=new Random();
-            int Rand=tirage.nextInt(100)+1;
-            if(Rand<=this.getPageAtt()){
-                int Rand2=tirage.nextInt(100)+1;
-                if(Rand2>c.getPagePar()){
-                    c.loosePV(this.getDegAtt());
-                }
-                else{
-                    c.loosePV(this.getDegAtt()-c.getPtPar());
-                }
-                
+                c.loosePV(this.getDegAtt()); 
             }
             else{
                 System.out.println("Attaque Ratée");
