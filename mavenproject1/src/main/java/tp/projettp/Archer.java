@@ -39,11 +39,16 @@ public class Archer extends Personnage {
             Random tirage=new Random();
             int Rand=tirage.nextInt(100)+1;
             if(Rand<=this.getPageAtt()){
-                c.loosePV(this.getDegAtt()); 
+                int degats=this.getDegAtt();
+                c.loosePV(degats);
+                System.out.println("Dégâts infligés : "+degats);
             }
             else{
                 System.out.println("Attaque Ratée");
             }
+        }
+        else{
+            System.out.println("Attaque hors de portée");
         }
     }
 }
