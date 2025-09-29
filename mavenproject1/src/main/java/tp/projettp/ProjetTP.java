@@ -17,6 +17,9 @@ public class ProjetTP {
         map.robin.deplace();
         map.robin.affiche();
         map.guillaumeT.affiche();
-        
+        Point2D pos=new Point2D();
+        Point2D pos2= new Point2D(4,3);
+        System.out.printf("Valeur formatée : %.2f", pos.distance(pos2));
+          
     }
 }
