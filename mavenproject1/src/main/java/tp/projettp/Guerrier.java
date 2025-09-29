@@ -39,8 +39,6 @@ public class Guerrier extends Personnage{
                 System.out.println("Attaque Ratée");
             }
         }
-        else if(this.getDistAttMax()<this.pos.distance(c.pos)){
-            
-        }
+        //Le guerrier ne peut pas effectuer d'Attaque à distance
     }
 }
