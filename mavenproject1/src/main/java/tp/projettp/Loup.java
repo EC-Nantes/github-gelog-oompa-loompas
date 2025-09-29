@@ -22,6 +22,6 @@ public class Loup extends Monstre{
     }
 
     public void combattre(Creature c){
-        c.loosePtVie(this.getDegAtt());
+        c.loosePV(this.getDegAtt());
     }   
 }
