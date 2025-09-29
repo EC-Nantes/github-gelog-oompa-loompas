@@ -159,7 +159,7 @@ public class Creature {
     public void affiche(){
         System.out.println("position de "+this.getNom()+" : ["+this.pos.getX()+","+this.pos.getY()+"]");
     }
-    public void loosePv(int degats){
+    public void loosePV(int degats){
         this.setPtVie(this.getPtVie()-degats);
     }
     
