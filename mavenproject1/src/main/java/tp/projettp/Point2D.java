@@ -56,4 +56,7 @@ public class Point2D{
     public void affiche(){
         System.out.println("["+getX()+" ; "+getY()+"]");
     }
+    public double distance(Point2D autre){
+        return Math.sqrt((x-autre.getX())^2+(y-autre.getY())^2);
+    }
 }
