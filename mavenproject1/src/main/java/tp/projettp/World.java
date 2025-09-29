@@ -10,7 +10,7 @@ import java.util.Arrays;
  * @author nathan
  */
 public class World {
-
+    private int n;
     /**
      *
      */
@@ -39,7 +39,8 @@ public class World {
      *constructeur
      */
     public World(){
-        Creature[] vivant = new Creature[7];
+        n=7;
+        Creature[] vivant = new Creature[n];
         this.robin= new Archer();
         this.peon= new Paysan();
         this.bugs=new Lapin();
@@ -67,8 +68,8 @@ public class World {
 
     
     public void creerMondeAlea(){
-        Point2D[] position= new Point2D[7];
-        for (int i=0;i<7;i++){
+        Point2D[] position= new Point2D[n];
+        for (int i=0;i<n;i++){
             position[i]=new Point2D();
             position[i].randomPos();
             for (int j=0;j<i;j++){
