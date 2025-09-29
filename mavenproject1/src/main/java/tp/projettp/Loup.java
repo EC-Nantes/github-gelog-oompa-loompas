@@ -4,6 +4,8 @@
  */
 package tp.projettp;
 
+import java.util.Random;
+
 /**
  *
  * @author julda
@@ -22,6 +24,22 @@ public class Loup extends Monstre{
     }
 
     public void combattre(Creature c){
-        c.loosePV(this.getDegAtt());
+        if (this.pos.distance(c.pos)==1){
+            Random tirage=new Random();
+            int Rand=tirage.nextInt(100)+1;
+            if(Rand<=this.getPageAtt()){
+                int Rand2=tirage.nextInt(100)+1;
+                if(Rand2>c.getPagePar()){
+                    c.loosePV(this.getDegAtt());
+                }
+                else{
+                    c.loosePV(this.getDegAtt()-c.getPtPar());
+                }
+                
+            }
+            else{
+                System.out.println("Attaque Ratée");
+            }
+        }
     }   
 }
