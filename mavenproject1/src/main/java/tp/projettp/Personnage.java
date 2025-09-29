@@ -11,36 +11,38 @@ package tp.projettp;
 public class Personnage extends Creature{
     int distAttMax;
     int ptPar;
-    public Personnage(String nom,int pV,int pPar, int dA,int paAtt,int paPar,int dAtt, int pointPar,Point2D p){
-        super(nom,pV,dA,paAtt,paPar,pointPar,p);
-        this.distAttMax=dAtt;
-        this.ptPar=pPar;
+    
+    /**
+     *
+     * @param nom nom perso
+     * @param pV
+     * @param dA
+     * @param paAtt pourcentage d'attaque
+     * @param paPar pourcentage de parade
+     * @param pointPar point parade attaque
+     * @param p
+     */
+    public Personnage(String nom,int pV, int distA, int degAtt,int paAtt,int paPar, int pointPar,Point2D p){
+        super(nom,pV,distA, degAtt,paAtt,paPar,pointPar,p);
+        this.ptPar=pointPar;
     }
+
+    /**
+     *
+     * @param m
+     */
     public Personnage(Personnage m){
-        super(m.getNom(),m.getPtVie(),m.getDegAtt(),m.getPageAtt(),m.getPagePar(),m.getPtPar(),new Point2D(m.getPos()));
-        this.distAttMax=m.getDistAttMax();
+        super(m.getNom(),m.getPtVie(), m.getDistAttMax(),m.getDegAtt(),m.getPageAtt(),m.getPagePar(),m.getPtPar(),new Point2D(m.getPos()));
         this.ptPar=m.getPtPar();
     }
+
+    /**
+     *
+     */
     public Personnage(){
         super();
         distAttMax=2;
         ptPar=5;
-    }
-
-    public int getDistAttMax() {
-        return distAttMax;
-    }
-
-    public int getPtPar() {
-        return ptPar;
-    }
-
-    public void setDistAttMax(int distAttMax) {
-        this.distAttMax = distAttMax;
-    }
-
-    public void setPtPar(int ptPar) {
-        this.ptPar = ptPar;
     }
     
 }
