@@ -14,6 +14,7 @@ public class Monstre extends Creature{
      * @param nom nom du Monstre
      * @param pV nombre de points de vie
      * @param degA dégâts d'attaque du monstre
+     * @param distA distance d'attaque max du monstre
      * @param paAtt
      * @param paPar
      * @param ptPar dégâts esquivé
@@ -24,7 +25,7 @@ public class Monstre extends Creature{
         super(nom,pV,distA,degA,paAtt,paPar,ptPar,p);
     }
     public Monstre(Monstre m){
-        super(m.getNom(),m.getPtVie(),m.getAttMax(),m.getDegAtt(),m.getPageAtt(),m.getPagePar(),m.getPtPar(),new Point2D(m.getPos()));
+        super(m.getNom(),m.getPtVie(),m.getDistAttMax(),m.getDegAtt(),m.getPageAtt(),m.getPagePar(),m.getPtPar(),m.getPos());
     }
     public Monstre(){
         super();
