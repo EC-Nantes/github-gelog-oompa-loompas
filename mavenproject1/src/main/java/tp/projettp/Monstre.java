@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package tp.projettp;
-import java.util.Random;
 
 /**
  *
@@ -20,11 +19,11 @@ public class Monstre extends Creature{
      * @param p position (x,y) initiale du monstre (classe Point2D)
      */
 
-    public Monstre(String nom,int pV,int dA,int paAtt,int paPar,Point2D p){
-        super(nom,pV,dA,paAtt,paPar,p);
+    public Monstre(String nom,int pV,int dA,int paAtt,int paPar, int ptPar,Point2D p){
+        super(nom,pV,dA,paAtt,paPar,ptPar,p);
     }
     public Monstre(Monstre m){
-        super(m.getNom(),m.getPtVie(),m.getDegAtt(),m.getPageAtt(),m.getPagePar(),new Point2D(m.getPos()));
+        super(m.getNom(),m.getPtVie(),m.getDegAtt(),m.getPageAtt(),m.getPagePar(),m.getPtPar(),new Point2D(m.getPos()));
     }
     public Monstre(){
         super();
