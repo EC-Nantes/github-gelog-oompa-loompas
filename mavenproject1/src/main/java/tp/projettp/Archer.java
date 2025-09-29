@@ -30,7 +30,7 @@ public class Archer extends Personnage {
     }
     
     public Archer( Archer a){
-        super(a.getNom(), a.getPtVie(), a.getDegAtt(), a.getPtPar(),a.getPageAtt(), a.getPagePar(), a.getPtPar(), a.getDistAttMax(), new Point2D(a.getPos()));
+        super(a.getNom(), a.getPtVie(),a.getDistAttMax(), a.getDegAtt(), a.getPtPar(),a.getPageAtt(), a.getPagePar(),a.getPos());
         this.nbFleches=a.getNbFleches();
     }
     public void combattre(Creature c){
