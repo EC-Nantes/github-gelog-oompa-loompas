@@ -82,9 +82,13 @@ public class World {
         }
     }
     public void TourDeJeu(){
-        
+        for (int i=0;i<n;i++){
+            vivant[i].deplace();
+        }
     }
     public void afficheWorld(){
-        
+        for (int i=0;i<n;i++){
+            vivant[i].affiche();
+        }
     }
 }
