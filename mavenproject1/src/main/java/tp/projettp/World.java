@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package tp.projettp;
+import java.util.Arrays;
 
 /**
  *
@@ -24,20 +25,35 @@ public class World {
      *
      */
     public Lapin bugs;
-    
+    public Lapin bugs2;
+    public Guerrier grosBill;
+    public Loup wolfie;
     /**
      * 
      */
     public Archer guillaumeT;
+    Creature[] vivant;
+    
     
     /**
      *constructeur
      */
     public World(){
+        Creature[] vivant = new Creature[7];
         this.robin= new Archer();
         this.peon= new Paysan();
         this.bugs=new Lapin();
+        this.bugs2=new Lapin();
+        this.grosBill=new Guerrier();
+        this.wolfie=new Loup();
         this.guillaumeT=new Archer();
+        vivant[0]=robin;
+        vivant[1]=guillaumeT;
+        vivant[2]=grosBill;
+        vivant[3]=peon;
+        vivant[4]=wolfie;
+        vivant[5]=bugs;
+        vivant[6]=bugs2;
     }
     
     /* on refera plus tard
@@ -51,21 +67,23 @@ public class World {
 
     
     public void creerMondeAlea(){
-        Point2D pos=new Point2D();
-        Point2D pos2=new Point2D();
-        Point2D pos3=new Point2D();
+        Point2D[] position= new Point2D[7];
+        for (int i=0;i<7;i++){
+            position[i]=new Point2D();
+            position[i].randomPos();
+            for (int j=0;j<i;j++){
+                if (position[i]==position[j]){
+                    position[i].randomPos();
+                    j=-1;
+                }
+        }
+            vivant[i].setPos(position[i]);
+        }
+    }
+    public void TourDeJeu(){
         
-        pos.randomPos();
-        pos2.randomPos();
-        pos3.randomPos();
-        while (pos==pos2){
-            pos2.randomPos();
-        }
-        while (pos==pos3 || pos2==pos3){
-            pos3.randomPos();
-        }
-        robin.setPos(pos);
-        peon.setPos(pos2);
-        bugs.setPos(pos3); 
+    }
+    public void afficheWorld(){
+        
     }
 }
