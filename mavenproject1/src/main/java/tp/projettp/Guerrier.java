@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package tp.projettp;
-
+import java.util.Random;
 /**
  *
  * @author julda
@@ -22,6 +22,19 @@ public class Guerrier extends Personnage{
         super();
     }
     public void combattre(Creature c){
-        c.loosePV(this.getDegAtt());
+        if (this.getDistAttMax()==1){
+            Random tirage=new Random();
+            int Rand=tirage.nextInt(100)+1;
+            if(Rand<=this.getPageAtt()){
+                int Rand2=tirage.nextInt(100)+1;
+                if(Rand>c.getPagePar()){
+                    c.loosePV(this.getDegAtt());
+                }
+                else{
+                    c.loosePV(this.getdegAtt()-c.getptPar);
+                }
+                
+            }
+        }
     }
 }
