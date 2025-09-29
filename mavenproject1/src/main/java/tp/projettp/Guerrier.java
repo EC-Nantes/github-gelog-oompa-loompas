@@ -19,6 +19,9 @@ public class Guerrier extends Personnage{
     }
 
     public Guerrier() {
+        super();
     }
-    
+    public void combattre(Creature c){
+        c.loosePV(this.getDegAtt());
+    }
 }
