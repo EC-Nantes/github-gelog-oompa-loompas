@@ -10,6 +10,7 @@ import java.util.Random;
  *
  * @author julda
  */
+
 public class Creature {
     private String nom;
     private int ptVie;
@@ -18,14 +19,33 @@ public class Creature {
     private int pageAtt;
     private int pagePar;
     protected Point2D pos;
-    public Creature(String nom, int pV,int ptP, int dA,int paAtt,int paPar,Point2D p){
+    private int distAttMax;
+    
+    /**
+     *
+     * @param nom nom de la créature
+     * @param pV
+     * @param dAMax dist max attaque
+     * @param ptP point de parade d'attaque
+     * @param dA distance d'attaque
+     * @param paAtt pourcentage attaque
+     * @param paPar pourcentage parade
+     * @param p position (Point 2D)
+     */
+    public Creature(String nom, int pV, int dAMax, int ptP, int dA,int paAtt,int paPar,Point2D p){
         this.ptVie=pV;
         this.degAtt=dA;
         this.pageAtt=paAtt;
         this.pagePar=paPar;
         this.pos=p;
         this.ptPar=ptP;
+        this.distAttMax=dAMax
     }
+
+    /**
+     *
+     * @param c
+     */
     public Creature(Creature c){
         this.ptVie=c.ptVie;
         this.degAtt=c.degAtt;
@@ -33,6 +53,10 @@ public class Creature {
         this.pagePar=c.pagePar;
         this.pos=c.pos;
     }
+
+    /**
+     *
+     */
     public Creature(){
         Point2D p=new Point2D();
         this.ptVie=50;
@@ -175,6 +199,21 @@ public class Creature {
         else{
             this.setPtVie(this.getPtVie()-degats);
         }
+    }
+    public int getDistAttMax() {
+        return distAttMax;
+    }
+
+    public int getPtPar() {
+        return ptPar;
+    }
+
+    public void setDistAttMax(int distAttMax) {
+        this.distAttMax = distAttMax;
+    }
+
+    public void setPtPar(int ptPar) {
+        this.ptPar = ptPar;
     }
     
 }
