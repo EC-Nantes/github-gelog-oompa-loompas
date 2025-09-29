@@ -39,7 +39,7 @@ public class Creature {
         this.pagePar=paPar;
         this.pos=p;
         this.ptPar=ptP;
-        this.distAttMax=dAMax
+        this.distAttMax=dAMax;
     }
 
     /**
@@ -51,19 +51,22 @@ public class Creature {
         this.degAtt=c.degAtt;
         this.pageAtt=c.pageAtt;
         this.pagePar=c.pagePar;
-        this.pos=c.pos;
+        this.setPos(new Point2D(c.getPos()));
+        this.ptPar=c.ptPar;
+        this.distAttMax=c.distAttMax;
     }
 
     /**
      *
      */
     public Creature(){
-        Point2D p=new Point2D();
         this.ptVie=50;
         this.degAtt=50;
         this.pageAtt=50;
         this.pagePar=10;
-        this.pos=p;
+        this.pos=new Point2D();
+        this.ptPar=5;
+        this.distAttMax=1;
     }
     public int getPtVie(){
         return this.ptVie;
@@ -119,7 +122,7 @@ public class Creature {
 
     /**
      *
-     * @param PagePar
+     * @param pagePar
      */
     public void setPagePar(int pagePar) {
         this.pagePar = pagePar;
@@ -204,16 +207,9 @@ public class Creature {
         return distAttMax;
     }
 
-    public int getPtPar() {
-        return ptPar;
-    }
-
     public void setDistAttMax(int distAttMax) {
         this.distAttMax = distAttMax;
     }
 
-    public void setPtPar(int ptPar) {
-        this.ptPar = ptPar;
-    }
     
 }
