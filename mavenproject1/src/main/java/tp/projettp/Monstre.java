@@ -13,17 +13,18 @@ public class Monstre extends Creature{
     /**
      * @param nom nom du Monstre
      * @param pV nombre de points de vie
-     * @param dA dégâts d'attaque du monstre
+     * @param degA dégâts d'attaque du monstre
      * @param paAtt
      * @param paPar
+     * @param ptPar dégâts esquivé
      * @param p position (x,y) initiale du monstre (classe Point2D)
      */
 
-    public Monstre(String nom,int pV,int dA,int paAtt,int paPar, int ptPar,Point2D p){
-        super(nom,pV,dA,paAtt,paPar,ptPar,p);
+    public Monstre(String nom,int pV,int distA,int degA,int paAtt,int paPar, int ptPar,Point2D p){
+        super(nom,pV,distA,degA,paAtt,paPar,ptPar,p);
     }
     public Monstre(Monstre m){
-        super(m.getNom(),m.getPtVie(),m.getDegAtt(),m.getPageAtt(),m.getPagePar(),m.getPtPar(),new Point2D(m.getPos()));
+        super(m.getNom(),m.getPtVie(),m.getAttMax(),m.getDegAtt(),m.getPageAtt(),m.getPagePar(),m.getPtPar(),new Point2D(m.getPos()));
     }
     public Monstre(){
         super();
