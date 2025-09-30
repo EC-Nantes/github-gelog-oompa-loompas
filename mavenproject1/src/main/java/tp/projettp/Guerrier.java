@@ -14,19 +14,19 @@ public class Guerrier extends Personnage{
      *
      * @param nom nom de la créature
      * @param pV points de vie de la créature
-     * @param dA dist max attaque
+     * @param dA dist max attaque considérée à 1 pour tout guerrier
      * @param pPar point de parade d'attaque
      * @param paAtt pourcentage attaque
      * @param paPar pourcentage parade
      * @param p position (Point 2D)
      */
     public Guerrier(String nom, int pV, int dA, int pPar, int paAtt, int paPar, Point2D p) {
-        super(nom, pV, dA, pPar, paAtt, paPar, 1, p);
+        super(nom, pV, dA, pPar, paAtt, paPar, paPar, p);
     }
 
     /**
      *
-     * @param g
+     * @param g copie guerrier
      */
     public Guerrier(Guerrier g) {
         super(g.getNom(),g.getPtVie(),g.getPagePar(),g.getDegAtt(),g.getPageAtt(),g.getPagePar(),g.getDistAttMax(), new Point2D(g.getPos()));
@@ -38,10 +38,9 @@ public class Guerrier extends Personnage{
     public Guerrier() {
         super("Guerrier aguerri",60,10,20,80,20,1,new Point2D());
     }
-
     /**
      *
-     * @param c
+     * @param c combat au corps à corps d'un guerrier
      */
     public void combattre(Creature c){
         if (this.getDistAttMax()==1){
