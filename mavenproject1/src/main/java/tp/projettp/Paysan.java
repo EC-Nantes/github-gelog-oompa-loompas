@@ -12,17 +12,16 @@ public class Paysan extends Personnage {
 
     /**
      *
-     * @param nom
-     * @param pV
-     * @param pPar
-     * @param degA
-     * @param paAtt
-     * @param paPar
-     * @param dAtt
-     * @param p
+     * @param nom nom perso
+     * @param pV point de vie
+     * @param degA distance d'Attaque
+     * @param pPar point parade attaque
+     * @param paAtt pourcentage d'attaque
+     * @param paPar pourcentage de parade
+     * @param p position du personnage (Point2D)
      */
     public Paysan(String nom, int pV, int pPar, int degA, int paAtt, int paPar, int dAtt, Point2D p) {
-        super(nom, pV, pPar, degA, paAtt, paPar, dAtt, p);
+        super(nom, pV, degA,pPar, paAtt, paPar, dAtt, p);
     }
 
     /**
