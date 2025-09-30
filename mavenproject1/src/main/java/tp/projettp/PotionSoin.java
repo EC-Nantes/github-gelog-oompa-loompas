@@ -10,9 +10,19 @@ package tp.projettp;
  */
 public class PotionSoin extends Objet {
     private int soin;
+
+    /**
+     *
+     * @param soin soins apportés par la potion de soin
+     */
     public PotionSoin(int soin){
         this.soin=soin;
     }
+
+    /**
+     *
+     * @param qqn personnage à soigner
+     */
     public void soigner(Personnage qqn){
         qqn.setPtVie(qqn.getPtVie()+soin);
     }
