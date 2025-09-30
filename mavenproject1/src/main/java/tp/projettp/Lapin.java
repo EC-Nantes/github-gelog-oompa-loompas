@@ -28,7 +28,7 @@ public class Lapin extends Monstre {
 
     /**
      *
-     * @param l lapin a copier
+     * @param l lapin à copier
      */
     public Lapin(Lapin l) {
         super(l.getNom(),l.getPtVie(),l.getDistAttMax(),l.getDegAtt(),l.getPageAtt(),l.getPagePar(),l.getPtPar(),new Point2D(l.getPos()));
