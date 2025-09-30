@@ -17,14 +17,14 @@ public class Personnage extends Creature{
      * @param nom nom perso
      * @param pV point de vie
      * @param dA distance d'Attaque
+     * @param pointPar point parade attaque
      * @param degAtt force d'attaque
      * @param paAtt pourcentage d'attaque
      * @param paPar pourcentage de parade
-     * @param pointPar point parade attaque
      * @param p position du personnage (Point2D)
      */
     public Personnage(String nom,int pV, int dA, int degAtt,int paAtt,int paPar, int pointPar,Point2D p){
-        super(nom,pV,dA, degAtt,paAtt,paPar,pointPar,p);
+        super(nom,pV,dA,pointPar, degAtt,paAtt,paPar,p);
     }
 
     /**
