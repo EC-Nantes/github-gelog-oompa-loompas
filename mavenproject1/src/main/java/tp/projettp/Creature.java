@@ -18,13 +18,17 @@ public class Creature {
     private int degAtt;
     private int pageAtt;
     private int pagePar;
+
+    /**
+     *
+     */
     protected Point2D pos;
     private int distAttMax;
     
     /**
      *
      * @param nom nom de la créature
-     * @param pV
+     * @param pV points de vie de la créature
      * @param dAMax dist max attaque
      * @param ptP point de parade d'attaque
      * @param dA distance d'attaque
@@ -44,7 +48,7 @@ public class Creature {
 
     /**
      *
-     * @param c
+     * @param c créature à copier
      */
     public Creature(Creature c){
         this.ptVie=c.ptVie;
@@ -68,6 +72,11 @@ public class Creature {
         this.ptPar=5;
         this.distAttMax=1;
     }
+
+    /**
+     *
+     * @return points de vie restants du monstre
+     */
     public int getPtVie(){
         return this.ptVie;
     }
@@ -90,7 +99,7 @@ public class Creature {
 
     /**
      *
-     * @param degAtt
+     * @param degAtt nouvelle force d'attaque du monstre
      */
     public void setDegAtt(int degAtt) {
         this.degAtt = degAtt;
@@ -98,7 +107,7 @@ public class Creature {
 
     /**
      *
-     * @return
+     * @return pourcentage d'attaques réussies
      */
     public int getPageAtt() {
         return pageAtt;
@@ -106,7 +115,7 @@ public class Creature {
 
     /**
      *
-     * @param pageAtt
+     * @param pageAtt nouvelle valeur du pourcentage d'attaques réussies
      */
     public void setPageAtt(int pageAtt) {
         this.pageAtt = pageAtt;
@@ -114,7 +123,7 @@ public class Creature {
 
     /**
      *
-     * @return
+     * @return pourcentage d'attaques parées
      */
     public int getPagePar() {
         return pagePar;
@@ -122,16 +131,24 @@ public class Creature {
 
     /**
      *
-     * @param pagePar
+     * @param pagePar évolution du pourcentage d'attaque
      */
     public void setPagePar(int pagePar) {
         this.pagePar = pagePar;
     }
 
+    /**
+     *
+     * @param ptPar nouvelle valeur de parade d'attaque
+     */
     public void setPtPar(int ptPar) {
         this.ptPar = ptPar;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPtPar() {
         return ptPar;
     }
@@ -143,17 +160,26 @@ public class Creature {
     public Point2D getPos() {
         return pos;
     }
+
+    /**
+     *
+     * @return
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     *
+     * @param nom
+     */
     public void setNom(String nom) {
         this.nom = nom;
     }
     
     /**
      *
-     * @return
+     * @return coordonnée X de la créature
      */
     public int getX() {
         return pos.getX();
@@ -161,7 +187,7 @@ public class Creature {
 
     /**
      *
-     * @return
+     * @return coordonnée Y de la créature
      */
     public int getY() {
         return pos.getY();
@@ -195,6 +221,11 @@ public class Creature {
     public void affiche(){
         System.out.println("position de "+this.getNom()+" : ["+this.pos.getX()+","+this.pos.getY()+"]");
     }
+
+    /**
+     *
+     * @param degats
+     */
     public void loosePV(int degats){
         if (degats<0){
             System.out.println("Aucun dégât reçu");
@@ -203,10 +234,19 @@ public class Creature {
             this.setPtVie(this.getPtVie()-degats);
         }
     }
+
+    /**
+     *
+     * @return
+     */
     public int getDistAttMax() {
         return distAttMax;
     }
 
+    /**
+     *
+     * @param distAttMax
+     */
     public void setDistAttMax(int distAttMax) {
         this.distAttMax = distAttMax;
     }
