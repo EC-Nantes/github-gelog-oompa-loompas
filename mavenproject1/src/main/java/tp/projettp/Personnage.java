@@ -15,25 +15,25 @@ public class Personnage extends Creature{
     /**
      *
      * @param nom nom perso
-     * @param pV
-     * @param dA
+     * @param pV point de vie
+     * @param dA distance d'Attaque
+     * @param degAtt force d'attaque
      * @param paAtt pourcentage d'attaque
      * @param paPar pourcentage de parade
      * @param pointPar point parade attaque
-     * @param p
+     * @param p position du personnage (Point2D)
      */
-    public Personnage(String nom,int pV, int distA, int degAtt,int paAtt,int paPar, int pointPar,Point2D p){
-        super(nom,pV,distA, degAtt,paAtt,paPar,pointPar,p);
-        this.ptPar=pointPar;
+    public Personnage(String nom,int pV, int dA, int degAtt,int paAtt,int paPar, int pointPar,Point2D p){
+        super(nom,pV,dA, degAtt,paAtt,paPar,pointPar,p);
     }
 
     /**
      *
-     * @param m
+     * @param p personnage à copier
      */
-    public Personnage(Personnage m){
-        super(m.getNom(),m.getPtVie(), m.getDistAttMax(),m.getDegAtt(),m.getPageAtt(),m.getPagePar(),m.getPtPar(),new Point2D(m.getPos()));
-        this.ptPar=m.getPtPar();
+    public Personnage(Personnage p){
+        super(p.getNom(),p.getPtVie(), p.getDistAttMax(),p.getDegAtt(),p.getPageAtt(),p.getPagePar(),p.getPtPar(),p.getPos());
+        this.ptPar=p.getPtPar();
     }
 
     /**
