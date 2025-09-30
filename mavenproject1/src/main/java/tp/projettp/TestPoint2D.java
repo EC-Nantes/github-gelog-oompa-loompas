@@ -10,6 +10,10 @@ package tp.projettp;
  */
 public class TestPoint2D {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         Point2D pointeur1= new Point2D();
         System.out.println("creation avec 0 parametre. Resultat attendu : [0 ; 0], Resultat reel :");
