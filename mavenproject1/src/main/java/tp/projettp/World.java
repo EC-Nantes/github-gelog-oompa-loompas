@@ -25,8 +25,20 @@ public class World {
      *
      */
     public Lapin bugs;
+
+    /**
+     *
+     */
     public Lapin bugs2;
+
+    /**
+     *
+     */
     public Guerrier grosBill;
+
+    /**
+     *
+     */
     public Loup wolfie;
     /**
      * 
@@ -81,11 +93,19 @@ public class World {
             vivant[i].setPos(position[i]);
         }
     }
+
+    /**
+     *déplacement de chaque créature
+     */
     public void TourDeJeu(){
         for (int i=0;i<n;i++){
             vivant[i].deplace();
         }
     }
+
+    /**
+     * affiche la position de toutes les créatures présentes
+     */
     public void afficheWorld(){
         for (int i=0;i<n;i++){
             vivant[i].affiche();
