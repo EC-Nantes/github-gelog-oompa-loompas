@@ -15,9 +15,9 @@ public class Monstre extends Creature{
      * @param pV nombre de points de vie
      * @param degA dégâts d'attaque du monstre
      * @param distA distance d'attaque max du monstre
-     * @param paAtt
-     * @param paPar
-     * @param ptPar dégâts esquivé
+     * @param paAtt pourcentage d'attaques réussies
+     * @param paPar pourcentage d'attaques parées
+     * @param ptPar dégâts esquivés
      * @param p position (x,y) initiale du monstre (classe Point2D)
      */
 
