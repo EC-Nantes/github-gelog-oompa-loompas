@@ -10,6 +10,11 @@ package tp.projettp;
  */
 public class Epee extends Objet {
     private int degat;
+    
+    /**
+     *
+     * @param degatsupp dégâts supplémentaires avec l'épée
+     */
     public Epee(int degatsupp){
         this.degat=degatsupp;
     }
