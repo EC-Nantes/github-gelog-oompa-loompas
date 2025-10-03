@@ -6,7 +6,7 @@ package tp.projettp;
 
 
 /**
- *
+ * monstre innoffensif ayant très peu de PV
  * @author julda
  */
 public class Lapin extends Monstre {
