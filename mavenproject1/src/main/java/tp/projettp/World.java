@@ -22,19 +22,19 @@ public class World {
     public World(){ 
         
     
-        for (int i =0; i<2;i++){
+        for (int i =0; i<200;i++){
     creature.add(new Archer());
 }
-        for (int i =0; i<2;i++){
+        for (int i =0; i<200;i++){
     creature.add(new Lapin());
 }
-        for (int i =0; i<1;i++){
+        for (int i =0; i<200;i++){
     creature.add(new Loup());
 }
-        for (int i =0; i<1;i++){
+        for (int i =0; i<200;i++){
     creature.add(new Paysan());
 }
-        for (int i =0; i<1;i++){
+        for (int i =0; i<2000;i++){
     creature.add(new Guerrier());
 }
     }
