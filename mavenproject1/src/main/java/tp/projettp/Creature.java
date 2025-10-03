@@ -55,7 +55,7 @@ public class Creature {
         this.degAtt=c.degAtt;
         this.pageAtt=c.pageAtt;
         this.pagePar=c.pagePar;
-        this.setPos(new Point2D(c.getPos()));
+        this.pos=new Point2D(c.getPos());
         this.ptPar=c.ptPar;
         this.distAttMax=c.distAttMax;
     }
