@@ -3,70 +3,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package tp.projettp;
-import java.util.Arrays;
+import java.util.ArrayList;
 
 /**
  *
  * @author nathan
  */
 public class World {
-    private int n;
     /**
-     *
-     */
-    public Archer robin;
-
-    /**
-     *
-     */
-    public Paysan peon;
-
-    /**
-     *
-     */
-    public Lapin bugs;
-
-    /**
-     *
-     */
-    public Lapin bugs2;
-
-    /**
-     *
-     */
-    public Guerrier grosBill;
-
-    /**
-     *
-     */
-    public Loup wolfie;
-    /**
+     * liste des créatures pouvant effectuer actions en jeu
      * 
      */
-    public Archer guillaumeT;
-    Creature[] vivant;
-    
-    
+    public ArrayList<Creature> creature = new ArrayList();
+
     /**
      *constructeur
      */
-    public World(){
-        n=7;
-        Creature[] vivant = new Creature[n];
-        this.robin= new Archer();
-        this.peon= new Paysan();
-        this.bugs=new Lapin();
-        this.bugs2=new Lapin();
-        this.grosBill=new Guerrier();
-        this.wolfie=new Loup();
-        this.guillaumeT=new Archer();
-        vivant[0]=robin;
-        vivant[1]=guillaumeT;
-        vivant[2]=grosBill;
-        vivant[3]=peon;
-        vivant[4]=wolfie;
-        vivant[5]=bugs;
-        vivant[6]=bugs2;
+    public World(){ 
+        
+    
+        for (int i =0; i<2;i++){
+    creature.add(new Archer());
+}
+        for (int i =0; i<2;i++){
+    creature.add(new Lapin());
+}
+        for (int i =0; i<1;i++){
+    creature.add(new Loup());
+}
+        for (int i =0; i<1;i++){
+    creature.add(new Paysan());
+}
+        for (int i =0; i<1;i++){
+    creature.add(new Guerrier());
+}
     }
     
     /* on refera plus tard
@@ -80,8 +50,8 @@ public class World {
 
     
     public void creerMondeAlea(){
-        Point2D[] position= new Point2D[n];
-        for (int i=0;i<n;i++){
+        Point2D[] position= new Point2D[creature.size()];
+        for (int i=0;i<creature.size();i++){
             position[i]=new Point2D();
             position[i].randomPos();
             for (int j=0;j<i;j++){
@@ -90,7 +60,7 @@ public class World {
                     j=-1;
                 }
         }
-            vivant[i].setPos(position[i]);
+            creature.get(i).setPos(position[i]);
         }
     }
 
@@ -98,8 +68,8 @@ public class World {
      *déplacement de chaque créature
      */
     public void TourDeJeu(){
-        for (int i=0;i<n;i++){
-            vivant[i].deplace();
+        for (int i=0;i<creature.size();i++){
+            creature.get(i).deplace();
         }
     }
 
@@ -107,8 +77,8 @@ public class World {
      * affiche la position de toutes les créatures présentes
      */
     public void afficheWorld(){
-        for (int i=0;i<n;i++){
-            vivant[i].affiche();
+        for (int i=0;i<creature.size();i++){
+            creature.get(i).affiche();
         }
     }
 }
