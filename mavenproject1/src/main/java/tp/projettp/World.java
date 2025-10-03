@@ -39,10 +39,15 @@ public class World {
 }
     }
     
-    /* on refera plus tard
-    public boolean verifierCase(pos){
-        return 
-    }*/
+    
+    public boolean verifierCase(Point2D pos){
+        for (Creature crea : this.creature){
+            if (crea.getPos()==pos){
+                return false;
+            }
+        }
+        return true;
+    }
 
     /**
      * Génère des entités à des emplacement aléatoires dans le monde
