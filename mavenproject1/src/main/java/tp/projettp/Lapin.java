@@ -27,7 +27,7 @@ public class Lapin extends Monstre {
     }
 
     /**
-     *
+     * copie d'un lapin
      * @param l lapin à copier
      */
     public Lapin(Lapin l) {
