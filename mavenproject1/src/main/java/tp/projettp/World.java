@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package tp.projettp;
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  *
@@ -14,7 +14,7 @@ public class World {
      * liste des créatures pouvant effectuer actions en jeu
      * 
      */
-    public ArrayList<Creature> creature = new ArrayList();
+    public LinkedList<Creature> creature = new LinkedList();
 
     /**
      *constructeur
@@ -22,19 +22,19 @@ public class World {
     public World(){ 
         
     
-        for (int i =0; i<200;i++){
+        for (int i =0; i<2;i++){
     creature.add(new Archer());
 }
-        for (int i =0; i<200;i++){
+        for (int i =0; i<2;i++){
     creature.add(new Lapin());
 }
-        for (int i =0; i<200;i++){
+        for (int i =0; i<2;i++){
     creature.add(new Loup());
 }
-        for (int i =0; i<200;i++){
+        for (int i =0; i<2;i++){
     creature.add(new Paysan());
 }
-        for (int i =0; i<2000;i++){
+        for (int i =0; i<2;i++){
     creature.add(new Guerrier());
 }
     }
@@ -77,8 +77,8 @@ public class World {
      * affiche la position de toutes les créatures présentes
      */
     public void afficheWorld(){
-        for (int i=0;i<creature.size();i++){
-            creature.get(i).affiche();
+        for (Creature crea : this.creature){
+            crea.affiche();
         }
     }
 }
