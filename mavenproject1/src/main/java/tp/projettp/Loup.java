@@ -7,7 +7,7 @@ package tp.projettp;
 import java.util.Random;
 
 /**
- *
+ * Monstre offensif mêlée faisant des dégâts considérables mais avec un nombre limité de PV
  * @author julda
  */
 public class Loup extends Monstre{
@@ -28,22 +28,22 @@ public class Loup extends Monstre{
     }
 
     /**
-     *
+     * copie d'un loup
      * @param l loup à copier
      */
     public Loup(Loup l) {
-        super(l.getNom(),l.getPtVie(),l.getDistAttMax(),l.getDegAtt(),l.getPagePar(),l.getPagePar(),l.getPtPar(),new Point2D(l.getPos()));
+        super(l.getNom(),l.getPtVie(),l.getDistAttMax(),l.getDegAtt(),l.getPageAtt(),l.getPagePar(),l.getPtPar(),new Point2D(l.getPos()));
     }
 
     /**
-     *
+     * Loup à 50pV, 18 pt d'attaque, combat de mêlée
      */
     public Loup() {
-        super("Loup terrifiant",55,12,1,20,25,10,new Point2D());
+        super("Loup terrifiant",50,1,18,20,25,10,new Point2D());
     }
 
     /**
-     *
+     * Attaque d'une autre créature en ayant la possibilité de lui infliger des dégâts
      * @param c créature attaqué par un combat au corps à corps du loup
      */
     public void combattre(Creature c){
