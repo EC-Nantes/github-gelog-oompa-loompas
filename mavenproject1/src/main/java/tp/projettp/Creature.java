@@ -20,7 +20,7 @@ public class Creature {
     private int pagePar;
 
     /**
-     *
+     *position 2D de la créature
      */
     protected Point2D pos;
     private int distAttMax;

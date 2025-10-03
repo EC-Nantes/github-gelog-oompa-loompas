@@ -6,7 +6,7 @@ package tp.projettp;
 
 
 /**
- *
+ * monstre innoffensif ayant très peu de PV
  * @author julda
  */
 public class Lapin extends Monstre {
@@ -27,7 +27,7 @@ public class Lapin extends Monstre {
     }
 
     /**
-     *
+     * copie d'un lapin
      * @param l lapin à copier
      */
     public Lapin(Lapin l) {
@@ -35,7 +35,7 @@ public class Lapin extends Monstre {
     }
 
     /**
-     *
+     * lapin de 20pV qui fait 0 dégâts
      */
     public Lapin() {
         super("Lapin mignon",20,1,0,10,1,2000,new Point2D());

@@ -33,7 +33,7 @@ public class Guerrier extends Personnage{
     }
 
     /**
-     *
+     *création d'un guerrier 60pV, combat de mêlée
      */
     public Guerrier() {
         super("Guerrier aguerri",60,10,20,80,20,1,new Point2D());

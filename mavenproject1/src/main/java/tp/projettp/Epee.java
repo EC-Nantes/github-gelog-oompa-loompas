@@ -5,7 +5,7 @@
 package tp.projettp;
 
 /**
- *
+ * équipement augmentant les dégâts infligés par quiconque le possède
  * @author nathan
  */
 public class Epee extends Objet {
