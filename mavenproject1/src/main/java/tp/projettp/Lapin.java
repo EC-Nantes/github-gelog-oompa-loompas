@@ -35,7 +35,7 @@ public class Lapin extends Monstre {
     }
 
     /**
-     *
+     * lapin de 20pV qui fait 0 dégâts
      */
     public Lapin() {
         super("Lapin mignon",20,1,0,10,1,2000,new Point2D());
