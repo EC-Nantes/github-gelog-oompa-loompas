@@ -18,6 +18,7 @@ public class Paysan extends Personnage {
      * @param pPar point parade attaque
      * @param paAtt pourcentage d'attaque
      * @param paPar pourcentage de parade
+     * @param dAtt distance d'attaque du paysan
      * @param p position du personnage (Point2D)
      */
     public Paysan(String nom, int pV, int pPar, int degA, int paAtt, int paPar, int dAtt, Point2D p) {
@@ -33,9 +34,10 @@ public class Paysan extends Personnage {
     }
 
     /**
-     *
+     * crée un paysan basique
      */
     public Paysan() {
+        super();
     }
     
 }
