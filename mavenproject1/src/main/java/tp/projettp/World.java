@@ -14,13 +14,17 @@ public class World {
      * liste des créatures pouvant effectuer actions en jeu
      * 
      */
-    public LinkedList<Creature> creature = new LinkedList();
+    public static LinkedList<Creature> creature = new LinkedList();
+    public static int hauteur;
+    public static int longueur;
+    
 
     /**
      *constructeur
      */
     public World(){ 
-        
+        hauteur=50;
+        longueur=50;        
     
         for (int i =0; i<2;i++){
     creature.add(new Archer());
@@ -39,15 +43,6 @@ public class World {
 }
     }
     
-    
-    public boolean verifierCase(Point2D pos){
-        for (Creature crea : this.creature){
-            if (crea.getPos()==pos){
-                return false;
-            }
-        }
-        return true;
-    }
 
     /**
      * Génère des entités à des emplacement aléatoires dans le monde
