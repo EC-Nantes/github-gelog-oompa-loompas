@@ -62,7 +62,7 @@ public class Creature {
     }
 
     /**
-     *
+     *crée une entité vivante dans le jeu en position [0,0], de mêlée peu de pV mais beaucoup de dégâts
      */
     public Creature(){
         this.ptVie=50;
