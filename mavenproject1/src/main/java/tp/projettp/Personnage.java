@@ -13,7 +13,7 @@ public class Personnage extends Creature{
     int ptPar;
     
     /**
-     *
+     * création d'un personnage avec les attributs souhaités
      * @param nom nom perso
      * @param pV point de vie
      * @param dA distance d'Attaque
@@ -28,7 +28,7 @@ public class Personnage extends Creature{
     }
 
     /**
-     *
+     * copie un personnage
      * @param p personnage à copier
      */
     public Personnage(Personnage p){
@@ -37,7 +37,7 @@ public class Personnage extends Creature{
     }
 
     /**
-     *
+     * crée un personnage attaque à distance et peu de parade d'attaque
      */
     public Personnage(){
         super();
