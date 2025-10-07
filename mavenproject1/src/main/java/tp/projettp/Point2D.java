@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Random;
 import static tp.projettp.World.*;
 /**
- *
+ * Classe des vecteurs 2D permettant de connaître la positiona de chaque entité
  * @author julda
  */
 public class Point2D{
@@ -24,7 +24,7 @@ public class Point2D{
     }
     
     /**
-     *
+     * création d'un pointeur vers la case centrale
      */
     public Point2D(){
         x=0;
@@ -32,7 +32,7 @@ public class Point2D{
     }
 
     /**
-     *
+     * génération d'une nouvelle position aléatoire
      */
     public void randomPos(){
         Random generateur=new Random();
@@ -41,7 +41,7 @@ public class Point2D{
     }
 
     /**
-     *
+     * création d'un pointeur à partir d'un autre pointeur
      * @param pointeur pointeur à copier
      */
     public Point2D(Point2D pointeur){
@@ -50,7 +50,7 @@ public class Point2D{
     }
 
     /**
-     *
+     * création d'un pointeur à partir de ses coordonnées
      * @param xcord coordonnée x du vecteur
      * @param ycord coordonnée y du vecteur
      */
@@ -91,9 +91,13 @@ public class Point2D{
         setY(y);
     }
     
-    
+    /**
+     * 
+     * @param creature
+     * @return true si la case est dans le tableau de jeu, false sinon
+     */
     public boolean verifierCase(LinkedList<Creature> creature){
-        if (this.x>longueur || this.y>hauteur){
+        if (this.x>longueur || this.y>hauteur || this.x<0 || this.y<0){//la case 0,0 est celle en bas à gauche de l'écran
         for (Creature crea : creature){
             if (crea.getPos()==this){
                 return false;
@@ -104,7 +108,7 @@ public class Point2D{
     }
 
     /**
-     *
+     * déplacement des coordonnées du vecteur de dx à droite et de dy en haut
      * @param dx déplacement sur x
      * @param dy déplacement sur y
      */
@@ -113,7 +117,7 @@ public class Point2D{
     }
 
     /**
-     *
+     * affiche la position sous la forme [x ; y]
      */
     public void affiche(){
         System.out.println("["+getX()+" ; "+getY()+"]");
