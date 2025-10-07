@@ -5,6 +5,7 @@
 package tp.projettp;
 
 import java.util.Random;
+import static tp.projettp.World.creature;
 
 /**
  *
@@ -206,13 +207,30 @@ public class Creature {
      */
     public void deplace(){
         Random alea= new Random();
+        boolean bloque=true;
+        int i=-1;
+        int j=-1;
+        Point2D newPos;
+        //vérifier si la créature n'est pas bloquée par les autres
+        while (i<1 && bloque){
+            while (j<1 && bloque){
+                newPos = new Point2D(this.pos.getX()+i,this.pos.getY()+j);
+                if (!newPos.verifierCase(creature)){
+                    bloque=false;
+                }
+            }
+        }
+        do{
+        //génération d'une nouvelle coordonée pour la créature
         int randomx=0;/*@param  déplacement du monstre selon x*/
         int randomy=0;/*@param  déplacement du monstre selon y*/
         while(randomx==0&&randomy==0){
             randomx=alea.nextInt(3)-1;
             randomy=alea.nextInt(3)-1;
         }
-        this.pos.setPosition(this.pos.getX()+randomx,this.pos.getY()+randomy);
+        newPos=new Point2D(this.pos.getX()+randomx,this.pos.getY()+randomy);
+        }while(newPos.verifierCase(creature));
+        this.pos=newPos;
     }
 
     /**
