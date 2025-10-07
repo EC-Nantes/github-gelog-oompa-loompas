@@ -5,14 +5,14 @@
 package tp.projettp;
 
 /**
- *
+ * Potions avec pouvoir de régénération de pV
  * @author nathan
  */
 public class PotionSoin extends Objet {
     private int soin;
 
     /**
-     *
+     * création d'une potion de soin à partir de son efficacité
      * @param soin soins apportés par la potion de soin
      */
     public PotionSoin(int soin){
@@ -20,7 +20,7 @@ public class PotionSoin extends Objet {
     }
 
     /**
-     *
+     * restaure les pV au personnage
      * @param qqn personnage à soigner
      */
     public void soigner(Personnage qqn){
