@@ -62,7 +62,7 @@ public class Creature {
     }
 
     /**
-     *crée une entité vivante dans le jeu en position [0,0], de mêlée peu de pV mais beaucoup de dégâts
+     *crée une entité vivante dans le jeu en position aléatoire, de mêlée peu de pV mais beaucoup de dégâts
      */
     public Creature(){
         this.ptVie=50;
@@ -70,6 +70,7 @@ public class Creature {
         this.pageAtt=50;
         this.pagePar=10;
         this.pos=new Point2D();
+        pos.randomPos();
         this.ptPar=5;
         this.distAttMax=1;
     }
