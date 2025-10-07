@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package tp.projettp;
+import java.util.LinkedList;
 import java.util.Random;
+import static tp.projettp.World.*;
 /**
  *
  * @author julda
@@ -87,6 +89,18 @@ public class Point2D{
     public void setPosition(int x, int y){
         setX(x);
         setY(y);
+    }
+    
+    
+    public boolean verifierCase(LinkedList<Creature> creature){
+        if (this.x>longueur || this.y>hauteur){
+        for (Creature crea : creature){
+            if (crea.getPos()==this){
+                return false;
+            }
+        }
+        return true;}
+        return false;
     }
 
     /**
