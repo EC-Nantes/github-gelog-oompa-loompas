@@ -47,7 +47,7 @@ public class Archer extends Personnage {
     }
 
     /**
-     *
+     *crée un archer basique avec 15 flèches
      */
     public Archer(){
         super();
