@@ -15,7 +15,15 @@ public class World {
      * 
      */
     public static LinkedList<Creature> creature = new LinkedList();
+
+    /**
+     * taille y du monde
+     */
     public static int hauteur;
+
+    /**
+     * taille x du monde
+     */
     public static int longueur;
     
 
