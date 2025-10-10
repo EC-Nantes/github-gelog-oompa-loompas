@@ -9,6 +9,9 @@ package tp.projettp;
  * @author nathan
  */
 public abstract class Personnage extends Creature{
+    protected int degAtt;
+    protected int pageAtt;
+    protected int distAMax;
     public void parler(String discours){
         System.out.println(this.getNom()+" : '"+discours+"'");
     }
