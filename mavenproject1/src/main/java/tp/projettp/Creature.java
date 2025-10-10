@@ -12,7 +12,7 @@ import static tp.projettp.World.creature;
  * @author julda
  */
 
-public class Creature {
+public abstract class Creature {
     private String nom;
     private int ptVie;
     private int ptPar;
@@ -24,61 +24,7 @@ public class Creature {
      *position 2D de la créature
      */
     protected Point2D pos;
-    private int distAttMax;
     
-    /**
-     *
-     * @param nom nom de la créature
-     * @param pV points de vie de la créature
-     * @param dAMax dist max attaque
-     * @param ptP point de parade d'attaque
-     * @param dA distance d'attaque
-     * @param paAtt pourcentage attaque
-     * @param paPar pourcentage parade
-     * @param p position (Point 2D)
-     */
-    public Creature(String nom, int pV, int dAMax, int ptP, int dA,int paAtt,int paPar,Point2D p){
-        this.ptVie=pV;
-        this.degAtt=dA;
-        this.pageAtt=paAtt;
-        this.pagePar=paPar;
-        this.pos=p;
-        this.ptPar=ptP;
-        this.distAttMax=dAMax;
-    }
-
-    /**
-     *
-     * @param c créature à copier
-     */
-    public Creature(Creature c){
-        this.ptVie=c.ptVie;
-        this.degAtt=c.degAtt;
-        this.pageAtt=c.pageAtt;
-        this.pagePar=c.pagePar;
-        this.pos=new Point2D(c.getPos());
-        this.ptPar=c.ptPar;
-        this.distAttMax=c.distAttMax;
-    }
-
-    /**
-     *crée une entité vivante dans le jeu en position aléatoire, de mêlée peu de pV mais beaucoup de dégâts
-     */
-    public Creature(){
-        this.ptVie=50;
-        this.degAtt=50;
-        this.pageAtt=50;
-        this.pagePar=10;
-        this.pos=new Point2D();
-        pos.randomPos();
-        this.ptPar=5;
-        this.distAttMax=1;
-    }
-
-    /**
-     *
-     * @return points de vie restants du monstre
-     */
     public int getPtVie(){
         return this.ptVie;
     }
@@ -253,22 +199,4 @@ public class Creature {
             this.setPtVie(this.getPtVie()-degats);
         }
     }
-
-    /**
-     *
-     * @return
-     */
-    public int getDistAttMax() {
-        return distAttMax;
-    }
-
-    /**
-     *
-     * @param distAttMax
-     */
-    public void setDistAttMax(int distAttMax) {
-        this.distAttMax = distAttMax;
-    }
-
-    
 }
