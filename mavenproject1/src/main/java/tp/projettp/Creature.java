@@ -39,17 +39,6 @@ public abstract class Creature {
      *
      * @return pourcentage d'attaques réussies
      */
-    public int getPageAtt() {
-        return pageAtt;
-    }
-
-    /**
-     *
-     * @param pageAtt nouvelle valeur du pourcentage d'attaques réussies
-     */
-    public void setPageAtt(int pageAtt) {
-        this.pageAtt = pageAtt;
-    }
 
     /**
      *
