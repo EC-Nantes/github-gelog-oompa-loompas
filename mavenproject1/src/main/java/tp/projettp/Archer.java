@@ -11,6 +11,10 @@ import java.util.Random;
  * @author nathan
  */
 public class Archer extends Personnage {
+    private int distAttMax;
+    private int degAtt;
+    private int nbFleches;
+    private int pageAtt;
 
     /**
      *
@@ -27,23 +31,30 @@ public class Archer extends Personnage {
     public void setNbFleches(int nbFleches) {
         this.nbFleches = nbFleches;
     }
-    private int nbFleches;
 
     /**
      *
      * @param nom nom du personnage
      * @param ptVie pV du personnage
-     * @param distAttMax distance d'attaque de l'archer
-     * @param degAtt Dégâts Max d'une attaque
-     * @param pageAtt Pourcentage d'attaques réussies
+     * @param degA Dégâts Max d'une attaque
      * @param pagePar Pourcentage d'attaques parées
      * @param parade Force de parade
      * @param pos position de l'archer (sous la forme Point2D)
+     * @param dAttMax distance d'attaque de l'archer
+     * @param paAtt pourcentage d'attaque réussies
      * @param nbFleches nombre de flèches de l'archer
      */
-    public Archer(String nom, int ptVie,int distAttMax,int degAtt,int pageAtt, int pagePar, int parade, Point2D pos, int nbFleches){
-        super(nom,  ptVie, distAttMax, degAtt, pageAtt,  pagePar, parade,  pos);
+    public Archer(String nom, int ptVie, int pagePar, int parade, Point2D pos,int dAttMax,int degA,int paAtt, int nbFleches){
+        this.nom=nom;
+        this.ptVie=ptVie;
+        this.pagePar=pagePar;
+        this.ptPar=parade;
+        this.pos=pos;
+        
         this.nbFleches=nbFleches;
+        this.distAttMax=dAttMax;
+        this.pageAtt=paAtt;
+        this.degAtt=degA;
     }
 
     /**
@@ -59,10 +70,33 @@ public class Archer extends Personnage {
      * @param  a archer à copier
      */
     public Archer( Archer a){
-        super(a.getNom(), a.getPtVie(),a.getDistAttMax(), a.getDegAtt(), a.getPtPar(),a.getPageAtt(), a.getPagePar(),a.getPos());
-        this.nbFleches=a.getNbFleches();
+        Archer(a.getNom(), a.getPtVie(), a.getPagePar(), a.getPtPar(),a.getPos(),a.getDistAttMax(), a.getDegAtt(),a.getPageAtt(),a.getNbFleches());
     }
 
+    public int getDistAttMax() {
+        return distAttMax;
+    }
+
+    public int getPageAtt() {
+        return pageAtt;
+    }
+
+    public void setDistAttMax(int distAttMax) {
+        this.distAttMax = distAttMax;
+    }
+
+    public void setPageAtt(int pageAtt) {
+        this.pageAtt = pageAtt;
+    }
+
+    public int getDegAtt() {
+        return degAtt;
+    }
+
+    public void setDegAtt(int degAtt) {
+        this.degAtt = degAtt;
+    }
+    
     /**
      *
      * @param c créature attaquée par l'archer
