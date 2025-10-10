@@ -44,7 +44,7 @@ public class Archer extends Personnage {
      * @param paAtt pourcentage d'attaque réussies
      * @param nbFleches nombre de flèches de l'archer
      */
-    public Archer(String nom, int ptVie, int pagePar, int parade, Point2D pos,int dAttMax,int degA,int paAtt, int nbFleches){
+    public Archer(String nom, int ptVie, int pagePar, int parade, Point2D pos,int degA,int paAtt,int dAttMax, int nbFleches){
         this.nom=nom;
         this.ptVie=ptVie;
         this.pagePar=pagePar;
@@ -61,7 +61,15 @@ public class Archer extends Personnage {
      *crée un archer basique avec 15 flèches
      */
     public Archer(){
-        super();
+        this.nom="Archer basique";
+        this.ptVie=60;
+        this.pagePar=10;
+        this.ptPar=20;
+        this.pos=new Point2D();
+        
+        this.distAttMax=3;
+        this.pageAtt=80;
+        this.degAtt=20;
         nbFleches=15;
     }
     
@@ -70,7 +78,15 @@ public class Archer extends Personnage {
      * @param  a archer à copier
      */
     public Archer( Archer a){
-        Archer(a.getNom(), a.getPtVie(), a.getPagePar(), a.getPtPar(),a.getPos(),a.getDistAttMax(), a.getDegAtt(),a.getPageAtt(),a.getNbFleches());
+        this.nom=a.getNom();
+        this.ptVie=a.getPtVie();
+        this.pagePar=a.getPagePar();
+        this.ptPar=a.getPtPar();
+        this.pos=a.getPos();
+        this.distAttMax=a.getDistAttMax();
+        this.degAtt=a.getDegAtt();
+        this.pageAtt=a.getPageAtt();
+        this.nbFleches=a.getNbFleches();
     }
 
     public int getDistAttMax() {
