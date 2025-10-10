@@ -16,7 +16,6 @@ public abstract class Creature {
     private String nom;
     private int ptVie;
     private int ptPar;
-    private int degAtt;
     private int pageAtt;
     private int pagePar;
 
@@ -35,22 +34,6 @@ public abstract class Creature {
      */
     public void setPtVie(int pv){
         this.ptVie=pv;
-    }
-
-    /**
-     *
-     * @return dégâts d'attaque
-     */
-    public int getDegAtt() {
-        return degAtt;
-    }
-
-    /**
-     *
-     * @param degAtt nouvelle force d'attaque du monstre
-     */
-    public void setDegAtt(int degAtt) {
-        this.degAtt = degAtt;
     }
 
     /**
