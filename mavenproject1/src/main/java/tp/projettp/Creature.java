@@ -16,7 +16,6 @@ public abstract class Creature {
     protected String nom;
     protected int ptVie;
     protected int ptPar;
-    protected int pageAtt;
     protected int pagePar;
 
     /**
