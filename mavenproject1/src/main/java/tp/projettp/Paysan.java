@@ -14,15 +14,18 @@ public class Paysan extends Personnage {
      *
      * @param nom nom perso
      * @param pV point de vie
-     * @param degA distance d'Attaque
      * @param pPar point parade attaque
-     * @param paAtt pourcentage d'attaque
      * @param paPar pourcentage de parade
-     * @param dAtt distance d'attaque du paysan
      * @param p position du personnage (Point2D)
      */
-    public Paysan(String nom, int pV, int pPar, int degA, int paAtt, int paPar, int dAtt, Point2D p) {
-        super(nom, pV, degA,pPar, paAtt, paPar, dAtt, p);
+    public Paysan(String nom, int pV, int pPar,int paPar,Point2D p){
+        super.ptVie=pV;
+        super.degAtt=0;
+        super.pageAtt=0;
+        super.pagePar=paPar;
+        super.pos=p;
+        super.ptPar=pPar;       
+        super.distAMax=0;
     }
 
     /**
@@ -30,7 +33,14 @@ public class Paysan extends Personnage {
      * @param p
      */
     public Paysan(Personnage p) {
-        super(p.getNom(),p.getPtVie(),p.getPagePar(),p.getDegAtt(),p.getPageAtt(),p.getPagePar(),p.getDistAttMax(), new Point2D(p.getPos()));
+        super.nom=p.getNom();
+        super.ptVie=p.getPtVie();
+        super.degAtt=0;
+        super.pageAtt=0;
+        super.pagePar=p.getPagePar();
+        super.pos=new Point2D(p.getPos());
+        super.ptPar=p.getPagePar();       
+        super.distAMax=0;
     }
 
     /**
