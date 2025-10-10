@@ -13,11 +13,11 @@ import static tp.projettp.World.creature;
  */
 
 public abstract class Creature {
-    private String nom;
-    private int ptVie;
-    private int ptPar;
-    private int pageAtt;
-    private int pagePar;
+    protected String nom;
+    protected int ptVie;
+    protected int ptPar;
+    protected int pageAtt;
+    protected int pagePar;
 
     /**
      *position 2D de la créature
