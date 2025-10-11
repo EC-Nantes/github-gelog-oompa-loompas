@@ -11,7 +11,8 @@ import java.util.Random;
  * @author julda
  */
 public class Loup extends Monstre{
-
+    private int pageAtt;
+    private int degAtt;
     /**
      *
      * @param nom nom de la créature
@@ -25,6 +26,14 @@ public class Loup extends Monstre{
      */
     public Loup(String nom, int pV, int distA, int dA, int paAtt, int paPar, int ptPar, Point2D p) {
         super(nom, pV,distA, dA, paAtt, paPar, ptPar, p);
+        this.nom=nom;
+        this.ptVie=pV;
+        this.pagePar=paPar;
+        this.ptPar=ptPar;
+        this.pos=p;
+        
+        this.pageAtt=paAtt;
+        this.degAtt=dA;
     }
 
     /**
@@ -32,16 +41,46 @@ public class Loup extends Monstre{
      * @param l loup à copier
      */
     public Loup(Loup l) {
-        super(l.getNom(),l.getPtVie(),l.getDistAttMax(),l.getDegAtt(),l.getPageAtt(),l.getPagePar(),l.getPtPar(),new Point2D(l.getPos()));
+        this.nom=l.getNom();
+        this.ptVie=l.getPtVie();
+        this.pagePar=l.getPagePar();
+        this.ptPar=l.getPtPar();
+        this.pos=new Point2D(l.getPos());
+        
+        this.pageAtt=l.getPageAtt();
+        this.degAtt=l.getDegAtt();
     }
 
     /**
-     * Loup à 50pV, 18 pt d'attaque, combat de mêlée
+     * Loup à 50pV, 10 pt d'attaque, combat de mêlée
      */
     public Loup() {
-        super("Loup terrifiant",50,1,18,20,25,10,new Point2D());
+        this.nom="Loup sauvage";
+        this.ptVie=50;
+        this.pagePar=10;
+        this.ptPar=40;
+        this.pos=new Point2D();
+        
+        this.pageAtt=90;
+        this.degAtt=10;
     }
 
+    public int getPageAtt() {
+        return pageAtt;
+    }
+
+    public int getDegAtt() {
+        return degAtt;
+    }
+
+    public void setPageAtt(int pageAtt) {
+        this.pageAtt = pageAtt;
+    }
+
+    public void setDegAtt(int degAtt) {
+        this.degAtt = degAtt;
+    }
+    
     /**
      * Attaque d'une autre créature en ayant la possibilité de lui infliger des dégâts
      * @param c créature attaqué par un combat au corps à corps du loup
