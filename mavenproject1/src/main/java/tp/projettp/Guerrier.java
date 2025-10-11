@@ -14,14 +14,19 @@ public class Guerrier extends Personnage{
      *
      * @param nom nom de la créature
      * @param pV points de vie de la créature
-     * @param dA dist max attaque considérée à 1 pour tout guerrier
-     * @param pPar point de parade d'attaque
+     * @param parade point de parade d'attaque
      * @param paAtt pourcentage attaque
      * @param paPar pourcentage parade
      * @param p position (Point 2D)
      */
-    public Guerrier(String nom, int pV, int dA, int pPar, int paAtt, int paPar, Point2D p) {
-        super(nom, pV, dA, pPar, paAtt, paPar, paPar, p);
+    public Guerrier(String nom, int pV, int parade, int paAtt, int paPar, Point2D p, int degAtt) {
+        this.nom=nom;
+        this.ptVie=pV;
+        this.ptPar=parade;
+        this.pageAtt=paAtt;
+        this.pagePar=paPar;
+        this.pos=p;
+        this.degAtt=degAtt;
     }
 
     /**
@@ -29,21 +34,35 @@ public class Guerrier extends Personnage{
      * @param g copie guerrier
      */
     public Guerrier(Guerrier g) {
-        super(g.getNom(),g.getPtVie(),g.getPagePar(),g.getDegAtt(),g.getPageAtt(),g.getPagePar(),g.getDistAttMax(), new Point2D(g.getPos()));
+        this.nom=g.getNom();
+        this.ptVie=g.getPtVie();
+        this.pagePar=g.getPagePar();
+        this.ptPar=g.getPtPar();
+        this.pos=g.getPos();
+        this.distAMax=g.getDistAMax();
+        this.degAtt=g.getDegAtt();
+        this.pageAtt=g.getPageAtt();
     }
 
     /**
      *création d'un guerrier 60pV, combat de mêlée
      */
     public Guerrier() {
-        super("Guerrier aguerri",60,10,20,80,20,1,new Point2D());
+        this.nom="Guerrier aguerri";
+        this.ptVie=12;
+        this.pagePar=10;
+        this.ptPar=40;
+        this.pos=new Point2D();
+        
+        this.pageAtt=80;
+        this.degAtt=20;
     }
     /**
      *
      * @param c combat au corps à corps d'un guerrier
      */
     public void combattre(Creature c){
-        if (this.getDistAttMax()==1){
+        if (this.getDistAMax()==1){
             Random tirage=new Random();
             int Rand=tirage.nextInt(100)+1;
             if(Rand<=this.getPageAtt()){
