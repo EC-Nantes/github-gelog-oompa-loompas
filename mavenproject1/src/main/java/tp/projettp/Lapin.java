@@ -22,8 +22,12 @@ public class Lapin extends Monstre {
      * @param paPar pourcentage parade
      * @param p position (Point 2D)
      */
-    public Lapin(String nom, int pointV,int dAtt, int ptPar, int degA, int paAtt, int paPar, Point2D p){
-        super(nom, pointV,dAtt, ptPar, degA, paAtt, paPar,p);
+    public Lapin(String nom, int pointV, int ptPar, int degA, int paAtt, int paPar, Point2D p){
+        this.nom=nom;
+        this.ptVie=pointV;
+        this.pagePar=paPar;
+        this.ptPar=ptPar;
+        this.pos=p;
     }
 
     /**
@@ -31,13 +35,21 @@ public class Lapin extends Monstre {
      * @param l lapin à copier
      */
     public Lapin(Lapin l) {
-        super(l.getNom(),l.getPtVie(),l.getDistAttMax(),l.getDegAtt(),l.getPageAtt(),l.getPagePar(),l.getPtPar(),new Point2D(l.getPos()));
+        this.nom=l.getNom();
+        this.ptVie=l.getPtVie();
+        this.pagePar=l.getPagePar();
+        this.ptPar=l.getPtPar();
+        this.pos=new Point2D(l.getPos());
     }
 
     /**
      * lapin de 20pV qui fait 0 dégâts
      */
     public Lapin() {
-        super("Lapin mignon",20,1,0,10,1,2000,new Point2D());
+        this.nom="Lapin mignon esquivateur";
+        this.ptVie=20;
+        this.pagePar=85;
+        this.ptPar=40;
+        this.pos=new Point2D();
     }
 }
