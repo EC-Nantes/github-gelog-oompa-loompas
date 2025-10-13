@@ -9,5 +9,5 @@ package tp.projettp;
  * @author julda
  */
 public interface Combattre {
-    public void combattre();
+    public void combattre(Creature c);
 }
