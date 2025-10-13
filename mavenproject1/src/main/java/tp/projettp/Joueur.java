@@ -74,13 +74,15 @@ public final class Joueur{
         System.out.println("entrez le numéro qui correspond à l'action à faire : "
                 + "1: se déplacer"
                 + "2: combattre");
+    String touche;
     Scanner choix = new Scanner(System.in);
     String action=choix.toString();
     if("1".equals(action)){
         System.out.println("entrez la lettre qui correspond à la direction dans laquelle vous voulez aller (en zqsd)");
     choix = new Scanner(System.in);
-    String touche = choix.toString();
-    this.perso.deplacer(touche);
+    touche = choix.toString();
+    char character = touche.charAt(0);
+    this.perso.deplacer(character);
     if ("2".equals(action)){
         switch (perso) {
             case Archer archer -> archer.combattre(perso.creatureProche());
