@@ -8,7 +8,7 @@ import java.util.Random;
  *
  * @author julda
  */
-public class Guerrier extends Personnage{
+public class Guerrier extends Personnage implements Combattre{
 
     /**
      *
@@ -18,6 +18,7 @@ public class Guerrier extends Personnage{
      * @param paAtt pourcentage attaque
      * @param paPar pourcentage parade
      * @param p position (Point 2D)
+     * @param degAtt dégâts d'attaque
      */
     public Guerrier(String nom, int pV, int parade, int paAtt, int paPar, Point2D p, int degAtt) {
         this.nom=nom;
@@ -30,7 +31,7 @@ public class Guerrier extends Personnage{
     }
 
     /**
-     *
+     * création d'une copie guerrier à partir d'un autre guerrier
      * @param g copie guerrier
      */
     public Guerrier(Guerrier g) {
