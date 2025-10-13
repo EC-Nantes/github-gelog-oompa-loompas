@@ -155,14 +155,14 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
         }while(newPos.verifierCase(elements));
         this.pos=newPos;
     }
-    public void deplacer(char c){
+    public void deplacer(String c){
     int i=0;
     int j=0;
         switch (c) {
-            case 'z' -> i++;
-            case 'q' -> j--;
-            case 's' -> i--;
-            case 'd' -> j++;
+            case "z" -> i++;
+            case "q" -> j--;
+            case "s" -> i--;
+            case "d" -> j++;
             default -> {
             }
         }
