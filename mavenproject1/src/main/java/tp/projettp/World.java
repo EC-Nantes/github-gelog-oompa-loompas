@@ -77,10 +77,24 @@ public class World {
      */
     public void TourDeJeu(){
         for (ElementDeJeu elem :elements){
-            if (elem instanceof Creature creature){
-            creature.deplacer();
+            if (elem instanceof Creature creature && elem instanceof Combattant attakant){
+                Creature attakade=creature.creatureProche();
+                if(creature.getPos().distance(attakade.getPos())<=creature.getDistAMax()){
+                    attakant.combattre(attakade);
+                }
+                else{
+                    creature.deplacer();
+                }
+            }
+            else{
+                if(elem instanceof Deplacable deplac)
+                    deplac.deplacer();
+            }
+            if (elem instanceof NuageToxique nuage){
+                //a faire
+            }
         }
-    }}
+    }
 
     /**
      * affiche la position de toutes les créatures présentes
