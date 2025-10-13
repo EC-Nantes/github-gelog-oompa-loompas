@@ -10,7 +10,7 @@ import java.util.Random;
  *
  * @author nathan
  */
-public class Archer extends Personnage implements Combattre{
+public class Archer extends Personnage implements Combattre, Jouable{
     private int distAttMax;
     private int nbFleches;
 

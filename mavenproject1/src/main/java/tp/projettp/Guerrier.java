@@ -8,7 +8,7 @@ import java.util.Random;
  *
  * @author julda
  */
-public class Guerrier extends Personnage implements Combattre{
+public class Guerrier extends Personnage implements Combattre, Jouable{
 
     /**
      *
