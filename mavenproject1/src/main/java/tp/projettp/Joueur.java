@@ -14,6 +14,7 @@ public final class Joueur{
     private Personnage perso;
     private World monde;
     private ArrayList<Objet> inventaire;
+    private ArrayList<Utilisable> effets;
     public Joueur(){
         this.choisirClasse(' ');
         monde=new World();
