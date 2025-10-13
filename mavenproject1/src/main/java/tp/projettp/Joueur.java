@@ -68,20 +68,20 @@ public final class Joueur{
     public void choisirNom(String nom){
         this.perso.setNom(nom);
     }
-    public void tourDeJeu(){/*
+    public void tourDeJeu(){
     Scanner choix = new Scanner(System.in);
     String action=choix.toString();
-    if(action=="1"){
+    if("1".equals(action)){
     this.perso.deplacer();
-    if (action=="2"){
-        if (perso instanceof Archer){
-            ((Archer)perso).combattre();
-        }
-        else if (perso instanceof Guerrier){
-            ((Guerrier)perso).combattre();
+    if ("2".equals(action)){
+        switch (perso) {
+            case Archer archer -> archer.combattre();
+            case Guerrier guerrier -> guerrier.combattre();
+            default -> {
+            }
         }
     
-}}*/
+}}
 }
     
 }
