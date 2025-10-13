@@ -9,7 +9,7 @@ package tp.projettp;
  * @author julda
  */
 public abstract class ElementDeJeu {
-    private Point2D pos;
+    protected Point2D pos;
     private boolean estSolide;
 
     public Point2D getPos() {
