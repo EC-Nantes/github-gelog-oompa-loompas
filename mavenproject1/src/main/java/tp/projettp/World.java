@@ -14,7 +14,7 @@ public class World {
      * liste des créatures pouvant effectuer actions en jeu
      * 
      */
-    public static LinkedList<Creature> creature = new LinkedList();
+    public static LinkedList<ElementDeJeu> elements = new LinkedList();
 
     /**
      * taille y du monde
@@ -35,19 +35,19 @@ public class World {
         longueur=50;        
     
         for (int i =0; i<2;i++){
-    creature.add(new Archer());
+    elements.add(new Archer());
 }
         for (int i =0; i<2;i++){
-    creature.add(new Lapin());
+    elements.add(new Lapin());
 }
         for (int i =0; i<2;i++){
-    creature.add(new Loup());
+    elements.add(new Loup());
 }
         for (int i =0; i<2;i++){
-    creature.add(new Paysan());
+    elements.add(new Paysan());
 }
         for (int i =0; i<2;i++){
-    creature.add(new Guerrier());
+    elements.add(new Guerrier());
 }
     }
     
@@ -58,8 +58,8 @@ public class World {
 
     
     public void creerMondeAlea(){
-        Point2D[] position= new Point2D[creature.size()];
-        for (int i=0;i<creature.size();i++){
+        Point2D[] position= new Point2D[elements.size()];
+        for (int i=0;i<elements.size();i++){
             position[i]=new Point2D();
             position[i].randomPos();
             for (int j=0;j<i;j++){
@@ -68,7 +68,7 @@ public class World {
                     j=-1;
                 }
         }
-            creature.get(i).setPos(position[i]);
+            elements.get(i).setPos(position[i]);
         }
     }
 
@@ -76,17 +76,19 @@ public class World {
      *déplacement de chaque créature
      */
     public void TourDeJeu(){
-        for (int i=0;i<creature.size();i++){
-            creature.get(i).deplace();
+        for (ElementDeJeu elem :elements){
+            if (elem instanceof Creature creature){
+            creature.deplacer();
         }
-    }
+    }}
 
     /**
      * affiche la position de toutes les créatures présentes
      */
     public void afficheWorld(){
-        for (Creature crea : this.creature){
-            crea.affiche();
+        for (ElementDeJeu crea : World.elements){
+            if (crea instanceof Creature creature){
+                creature.affiche();}
         }
     }
 }

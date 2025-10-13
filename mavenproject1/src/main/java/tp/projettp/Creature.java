@@ -5,7 +5,7 @@
 package tp.projettp;
 
 import java.util.Random;
-import static tp.projettp.World.creature;
+import static tp.projettp.World.elements;
 
 /**
  *
@@ -76,6 +76,7 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
      *
      * @return objet Point2D du monstre (Attention : ne renvoie pas la position (x,y) du monstre)
      */
+    @Override
     public Point2D getPos() {
         return pos;
     }
@@ -116,6 +117,7 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
      *
      * @param pos position en classe Point2D
      */
+    @Override
     public void setPos(Point2D pos) {
         this.pos = pos;
     }
@@ -134,7 +136,7 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
         while (i<1 && bloque){
             while (j<1 && bloque){
                 newPos = new Point2D(this.pos.getX()+i,this.pos.getY()+j);
-                if (!newPos.verifierCase(creature)){
+                if (!newPos.verifierCase(elements)){
                     bloque=false;
                 }
             }
@@ -148,7 +150,7 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
             randomy=alea.nextInt(3)-1;
         }
         newPos=new Point2D(this.pos.getX()+randomx,this.pos.getY()+randomy);
-        }while(newPos.verifierCase(creature));
+        }while(newPos.verifierCase(elements));
         this.pos=newPos;
     }
     public void deplacer(char c){
@@ -163,7 +165,7 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
             }
         }
         Point2D newPos = new Point2D(this.pos.getX()+j,this.pos.getY()+i);
-                if (!newPos.verifierCase(creature)){
+                if (!newPos.verifierCase(elements)){
                     
                 }}
 
