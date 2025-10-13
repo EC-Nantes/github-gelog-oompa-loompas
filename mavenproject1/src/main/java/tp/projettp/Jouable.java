@@ -12,4 +12,5 @@ public interface Jouable extends Deplacable{
     @Override
     public void deplacer();
     public void deplacer(char c);
+    public void combattre(Creature crea);
 }

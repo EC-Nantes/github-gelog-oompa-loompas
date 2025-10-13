@@ -15,8 +15,9 @@ public final class Joueur{
     private Personnage perso;
     private World monde;
     private ArrayList<Objet> inventaire;
-    
-    
+
+    private ArrayList<Utilisable> effets;
+
     public Joueur(){
         Scanner choix = new Scanner(System.in);
         String choixClasse=choix.toString();
@@ -26,6 +27,7 @@ public final class Joueur{
         this.choisirNom(nouveauNom);
         monde=new World();
         inventaire=new ArrayList();
+    
     }
 
     public Personnage getPerso() {
@@ -66,7 +68,7 @@ public final class Joueur{
     public void choisirNom(String nom){
         this.perso.setNom(nom);
     }
-    public void tourDeJeu(){
+    public void tourDeJeu(){/*
     Scanner choix = new Scanner(System.in);
     String action=choix.toString();
     if(action=="1"){
@@ -79,7 +81,7 @@ public final class Joueur{
             ((Guerrier)perso).combattre();
         }
     
-}}
+}}*/
 }
     
 }
