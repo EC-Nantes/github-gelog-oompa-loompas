@@ -12,7 +12,7 @@ import static tp.projettp.World.creature;
  * @author julda
  */
 
-public abstract class Creature {
+public abstract class Creature implements Deplacable{
     protected String nom;
     protected int ptVie;
     protected int ptPar;
@@ -123,7 +123,8 @@ public abstract class Creature {
     /**
      *déplace de pmanière aléatoire le monstre sur une case adjacente (de manière aléatoire)
      */
-    public void deplace(){
+    @Override
+    public void deplacer(){
         Random alea= new Random();
         boolean bloque=true;
         int i=-1;
