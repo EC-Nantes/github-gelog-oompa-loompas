@@ -98,18 +98,6 @@ public class Archer extends Personnage implements Combattant, Jouable{
     public void setDistAttMax(int distAttMax) {
         this.distAttMax = distAttMax;
     }
-
-    public void setPageAtt(int pageAtt) {
-        this.pageAtt = pageAtt;
-    }
-
-    public int getDegAtt() {
-        return degAtt;
-    }
-
-    public void setDegAtt(int degAtt) {
-        this.degAtt = degAtt;
-    }
     
     /**
      *
