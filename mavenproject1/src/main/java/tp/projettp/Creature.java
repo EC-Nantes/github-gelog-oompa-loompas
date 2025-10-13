@@ -12,7 +12,7 @@ import static tp.projettp.World.creature;
  * @author julda
  */
 
-public abstract class Creature implements Deplacable{
+public abstract class Creature extends ElementDeJeu implements Deplacable{
     protected String nom;
     protected int ptVie;
     protected int ptPar;
@@ -151,6 +151,21 @@ public abstract class Creature implements Deplacable{
         }while(newPos.verifierCase(creature));
         this.pos=newPos;
     }
+    public void deplacer(char c){
+    int i=0;
+    int j=0;
+        switch (c) {
+            case 'z' -> i++;
+            case 'q' -> j--;
+            case 's' -> i--;
+            case 'd' -> i--;
+            default -> {
+            }
+        }
+        Point2D newPos = new Point2D(this.pos.getX()+j,this.pos.getY()+i);
+                if (!newPos.verifierCase(creature)){
+                    
+                }}
 
     /**
      *affiche la position actuelle du monstre
