@@ -10,7 +10,7 @@ import java.util.Random;
  *
  * @author nathan
  */
-public class Archer extends Personnage implements Combattre, Jouable{
+public class Archer extends Personnage implements Combattant, Jouable{
     private int distAttMax;
     private int nbFleches;
 
@@ -97,18 +97,6 @@ public class Archer extends Personnage implements Combattre, Jouable{
 
     public void setDistAttMax(int distAttMax) {
         this.distAttMax = distAttMax;
-    }
-
-    public void setPageAtt(int pageAtt) {
-        this.pageAtt = pageAtt;
-    }
-
-    public int getDegAtt() {
-        return degAtt;
-    }
-
-    public void setDegAtt(int degAtt) {
-        this.degAtt = degAtt;
     }
     
     /**

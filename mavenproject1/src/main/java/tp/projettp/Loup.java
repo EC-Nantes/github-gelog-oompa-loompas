@@ -10,9 +10,8 @@ import java.util.Random;
  * Monstre offensif mêlée faisant des dégâts considérables mais avec un nombre limité de PV
  * @author julda
  */
-public class Loup extends Monstre implements Combattre{
+public class Loup extends Monstre implements Combattant{
     private int pageAtt;
-    private int degAtt;
     /**
      *
      * @param nom nom de la créature
