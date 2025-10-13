@@ -75,8 +75,8 @@ public final class Joueur{
     this.perso.deplacer();
     if ("2".equals(action)){
         switch (perso) {
-            case Archer archer -> archer.combattre();
-            case Guerrier guerrier -> guerrier.combattre();
+            case Archer archer -> archer.combattre(perso.creatureProche());
+            case Guerrier guerrier -> guerrier.combattre(perso.creatureProche());
             default -> {
             }
         }

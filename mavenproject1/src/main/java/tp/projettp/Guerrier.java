@@ -62,6 +62,7 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
      *
      * @param c combat au corps à corps d'un guerrier
      */
+    @Override
     public void combattre(Creature c){
         if (this.getDistAMax()==1){
             Random tirage=new Random();

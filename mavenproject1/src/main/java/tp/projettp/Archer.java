@@ -103,6 +103,7 @@ public class Archer extends Personnage implements Combattant, Jouable{
      *
      * @param c créature attaquée par l'archer
      */
+    @Override
     public void combattre(Creature c){
         this.setNbFleches(this.nbFleches-1);
         if (this.getDistAttMax()<this.pos.distance(c.pos)){
