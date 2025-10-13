@@ -8,8 +8,11 @@ package tp.projettp;
  * Sur-Classe des méchants présents sur la map
  * @author julda
  */
-public class Monstre extends Creature{
-
+public abstract class Monstre extends Creature{
+    
+    protected int distAMax;
+    protected int degAtt;
+    protected int pAtt;
     /**
      * création d'un monstre avec les paramètres indiqués
      * @param nom nom du Monstre
@@ -23,7 +26,13 @@ public class Monstre extends Creature{
      */
 
     public Monstre(String nom,int pV,int distA,int degA,int paAtt,int paPar, int ptPar,Point2D p){
-        super(nom,pV,distA,degA,paAtt,paPar,ptPar,p);
+    super.nom=nom;
+    super.ptVie=pV;
+    this.distAMax=distA;
+    this.degAtt=degA;
+    this.pAtt=paAtt;
+    super.pagePar=ptPar;
+    super.pos= p;
     }
     
     /**
@@ -31,7 +40,13 @@ public class Monstre extends Creature{
      * @param m monstre à copier
      */
     public Monstre(Monstre m){
-        super(m.getNom(),m.getPtVie(),m.getDistAttMax(),m.getDegAtt(),m.getPageAtt(),m.getPagePar(),m.getPtPar(),m.getPos());
+    super.nom=m.getNom();
+    super.ptVie=m.getPtVie();
+    this.distAMax=m.getDistAMax();
+    this.degAtt=m.getDegAtt();
+    this.pAtt=m.getPAtt();
+    super.pagePar=m.getPagePar();
+    super.pos= m.getPos();
     }
 
     /**
@@ -39,5 +54,17 @@ public class Monstre extends Creature{
      */
     public Monstre(){
         super();
+    }
+
+    public int getDistAMax() {
+        return distAMax;
+    }
+
+    public int getDegAtt() {
+        return degAtt;
+    }
+
+    public int getPAtt() {
+        return pAtt;
     }
 }
