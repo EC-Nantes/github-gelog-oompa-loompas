@@ -19,9 +19,11 @@ public final class Joueur{
     private ArrayList<Utilisable> effets;
 
     public Joueur(){
+        System.out.println("entrez l'initiale de la classe choisie");
         Scanner choix = new Scanner(System.in);
         String choixClasse=choix.toString();
         this.choisirClasse(choixClasse);
+        System.out.println("entrez le nom que vous voulez avoir");
         choix =new Scanner(System.in);
         String nouveauNom=choix.toString();
         this.choisirNom(nouveauNom);
@@ -69,9 +71,13 @@ public final class Joueur{
         this.perso.setNom(nom);
     }
     public void tourDeJeu(){
+        System.out.println("entrez le numéro qui correspond à l'action à faire : "
+                + "1: se déplacer"
+                + "2: combattre");
     Scanner choix = new Scanner(System.in);
     String action=choix.toString();
     if("1".equals(action)){
+        System.out.println("entrez la lettre qui correspond à la direction dans laquelle vous voulez aller (en zqsd)");
     choix = new Scanner(System.in);
     String touche = choix.toString();
     this.perso.deplacer(touche);
