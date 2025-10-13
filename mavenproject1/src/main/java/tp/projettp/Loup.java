@@ -25,7 +25,6 @@ public class Loup extends Monstre{
      * @param p position (Point 2D)
      */
     public Loup(String nom, int pV, int distA, int dA, int paAtt, int paPar, int ptPar, Point2D p) {
-        super(nom, pV,distA, dA, paAtt, paPar, ptPar, p);
         this.nom=nom;
         this.ptVie=pV;
         this.pagePar=paPar;
