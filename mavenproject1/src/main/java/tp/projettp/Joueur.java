@@ -4,6 +4,7 @@
  */
 package tp.projettp;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 /**
@@ -14,11 +15,17 @@ public final class Joueur{
     private Personnage perso;
     private World monde;
     private ArrayList<Objet> inventaire;
+    
+    
     public Joueur(){
-        this.choisirClasse(' ');
+        Scanner choix = new Scanner(System.in);
+        String choixClasse=choix.toString();
+        this.choisirClasse(choixClasse);
+        choix =new Scanner(System.in);
+        String nouveauNom=choix.toString();
+        this.choisirNom(nouveauNom);
         monde=new World();
         inventaire=new ArrayList();
-    
     }
 
     public Personnage getPerso() {
@@ -49,15 +56,30 @@ public final class Joueur{
         this.inventaire.add(equipement);
     }
     
-    public void choisirClasse(char classe){
+    public void choisirClasse(String classe){
         perso = switch (classe) {
-            case 'A' -> new Archer();
-            case 'G' -> new Guerrier();
+            case "A" -> new Archer();
+            case "G" -> new Guerrier();
             default -> new Guerrier();
         };
 }
     public void choisirNom(String nom){
         this.perso.setNom(nom);
     }
-
+    public void tourDeJeu(){
+    Scanner choix = new Scanner(System.in);
+    String action=choix.toString();
+    if(action=="1"){
+    this.perso.deplacer();
+    if (action=="2"){
+        if (perso instanceof Archer){
+            ((Archer)perso).combattre();
+        }
+        else if (perso instanceof Guerrier){
+            ((Guerrier)perso).combattre();
+        }
+    
+}}
+}
+    
 }
