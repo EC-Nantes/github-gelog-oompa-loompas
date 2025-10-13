@@ -96,10 +96,10 @@ public class Point2D{
      * @param creature
      * @return true si la case est dans le tableau de jeu, false sinon
      */
-    public boolean verifierCase(LinkedList<Creature> creature){
+    public boolean verifierCase(LinkedList<ElementDeJeu> elements){
         if (this.x>longueur || this.y>hauteur || this.x<0 || this.y<0){//la case 0,0 est celle en bas à gauche de l'écran
-        for (Creature crea : creature){
-            if (crea.getPos()==this){
+        for (ElementDeJeu element : elements){
+            if (element.getPos()==this && element.isSolide()){
                 return false;
             }
         }
