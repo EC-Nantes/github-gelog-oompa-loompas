@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author julda
  */
-public class Joueur {
+public class Joueur{
     private Personnage perso;
     private World monde;
     private ArrayList<Objet> inventaire;
@@ -48,5 +48,4 @@ public class Joueur {
     public void ajoutInventaire(Objet equipement){
         this.inventaire.add(equipement);
     }
-    
 }
