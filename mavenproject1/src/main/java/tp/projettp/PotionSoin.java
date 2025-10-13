@@ -8,7 +8,7 @@ package tp.projettp;
  * Potions avec pouvoir de régénération de pV
  * @author nathan
  */
-public class PotionSoin extends Objet {
+public class PotionSoin extends Objet implements Utilisable{
     private int soin;
 
     /**
