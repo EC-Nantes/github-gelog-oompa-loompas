@@ -12,7 +12,7 @@ import static tp.projettp.World.creature;
  * @author julda
  */
 
-public abstract class Creature implements Deplacable{
+public abstract class Creature extends ElementDeJeu implements Deplacable{
     protected String nom;
     protected int ptVie;
     protected int ptPar;
