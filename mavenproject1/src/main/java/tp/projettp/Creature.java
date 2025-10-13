@@ -219,4 +219,17 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
             this.setPtVie(this.getPtVie()-degats);
         }
     }
+    public Creature creatureProche(){
+        Creature cible=this;
+        double distance = Double.MAX_VALUE;
+        for (ElementDeJeu elem: elements){
+            if (elem instanceof Creature crea){
+                if(distance > this.pos.distance(crea.getPos()) && crea.getPos()!=this.pos){
+                    cible=crea;
+                    distance=this.pos.distance(crea.getPos());
+                }
+            }
+        }
+        return cible;
+    }
 }
