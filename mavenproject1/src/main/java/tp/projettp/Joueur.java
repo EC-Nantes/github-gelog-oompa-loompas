@@ -72,7 +72,9 @@ public final class Joueur{
     Scanner choix = new Scanner(System.in);
     String action=choix.toString();
     if("1".equals(action)){
-    this.perso.deplacer();
+    choix = new Scanner(System.in);
+    String touche = choix.toString();
+    this.perso.deplacer(touche);
     if ("2".equals(action)){
         switch (perso) {
             case Archer archer -> archer.combattre(perso.creatureProche());
