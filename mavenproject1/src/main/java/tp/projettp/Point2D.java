@@ -93,7 +93,7 @@ public class Point2D{
     
     /**
      * 
-     * @param creature
+     * @param elements
      * @return true si la case est dans le tableau de jeu, false sinon
      */
     public boolean verifierCase(LinkedList<ElementDeJeu> elements){
