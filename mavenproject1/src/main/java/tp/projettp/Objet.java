@@ -8,5 +8,5 @@ package tp.projettp;
  *
  * @author nathan
  */
-public abstract class Objet {
+public abstract class Objet extends ElementDeJeu {
 }
