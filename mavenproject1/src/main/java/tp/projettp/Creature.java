@@ -158,7 +158,7 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
             case 'z' -> i++;
             case 'q' -> j--;
             case 's' -> i--;
-            case 'd' -> i--;
+            case 'd' -> j++;
             default -> {
             }
         }
