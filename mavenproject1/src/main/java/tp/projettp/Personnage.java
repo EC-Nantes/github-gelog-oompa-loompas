@@ -40,4 +40,7 @@ public abstract class Personnage extends Creature{
     public void parler(String discours){
         System.out.println(this.getNom()+" : '"+discours+"'");
     }
+    public void deplacer(char c){
+        
+    }
 }
