@@ -4,8 +4,6 @@
  */
 package tp.projettp;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import static tp.projettp.World.elements;
 
@@ -220,18 +218,5 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
         else{
             this.setPtVie(this.getPtVie()-degats);
         }
-    }
-    public Creature creatureProche(){
-        Creature cible=this;
-        double distance = Double.MAX_VALUE;
-        for (ElementDeJeu elem: elements){
-            if (elem instanceof Creature crea){
-                if(distance > this.pos.distance(crea.getPos()) && crea.getPos()!=this.pos){
-                    cible=crea;
-                    distance=this.pos.distance(crea.getPos());
-                }
-            }
-        }
-        return cible;
     }
 }
