@@ -10,12 +10,12 @@ import java.util.ArrayList;
  *
  * @author julda
  */
-public class Joueur{
+public final class Joueur{
     private Personnage perso;
     private World monde;
     private ArrayList<Objet> inventaire;
     public Joueur(){
-        perso=new Guerrier();
+        this.choisirClasse(' ');
         monde=new World();
         inventaire=new ArrayList();
     
@@ -48,4 +48,16 @@ public class Joueur{
     public void ajoutInventaire(Objet equipement){
         this.inventaire.add(equipement);
     }
+    
+    public void choisirClasse(char classe){
+        perso = switch (classe) {
+            case 'A' -> new Archer();
+            case 'G' -> new Guerrier();
+            default -> new Guerrier();
+        };
+}
+    public void choisirNom(String nom){
+        this.perso.setNom(nom);
+    }
+
 }
