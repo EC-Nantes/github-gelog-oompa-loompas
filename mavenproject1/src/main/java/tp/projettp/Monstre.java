@@ -8,7 +8,7 @@ package tp.projettp;
  * Sur-Classe des méchants présents sur la map
  * @author julda
  */
-public class Monstre extends Creature{
+public abstract class Monstre extends Creature{
     
     protected int distAMax;
     protected int degAtt;
