@@ -62,12 +62,12 @@ public class Archer extends Personnage implements Combattant, Jouable{
         this.nom="Archer basique";
         this.ptVie=60;
         this.pagePar=10;
-        this.ptPar=20;
+        this.ptPar=10;
         this.pos=new Point2D();
         
         this.distAttMax=3;
         this.pageAtt=80;
-        this.degAtt=20;
+        this.degAtt=5;
         nbFleches=15;
     }
     
@@ -106,20 +106,25 @@ public class Archer extends Personnage implements Combattant, Jouable{
     @Override
     public void combattre(Creature c){
         this.setNbFleches(this.nbFleches-1);
-        if (this.getDistAttMax()<this.pos.distance(c.pos)){
+        if (this.getDistAttMax()>=this.pos.distance(c.pos)){
             Random tirage=new Random();
             int Rand=tirage.nextInt(100)+1;
             if(Rand<=this.getPageAtt()){
+                int Rand2=tirage.nextInt(100)+1;
                 int degats=this.getDegAtt();
+                if(Rand2<=c.getPagePar()){
+                    degats=degats-c.getPtPar();
+                    System.out.println("Attaque paree");
+                }
                 c.loosePV(degats);
-                System.out.println("Dégâts infligés : "+degats);
+                System.out.println("Degats infliges : "+degats+"\nIl reste "+c.getPtVie()+"pv a "+c.getNom());
             }
             else{
-                System.out.println("Attaque Ratée");
+                System.out.println("Attaque Ratee");
             }
         }
         else{
-            System.out.println("Attaque hors de portée");
+            System.out.println("Attaque hors de portee");
         }
     }
 }
