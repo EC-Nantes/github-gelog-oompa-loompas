@@ -35,20 +35,21 @@ public class World {
         longueur=50;        
     
         for (int i =0; i<2;i++){
-    elements.add(new Archer());
-}
+            elements.add(new Archer());
+        }
         for (int i =0; i<2;i++){
-    elements.add(new Lapin());
-}
+            elements.add(new Lapin());
+        }
         for (int i =0; i<2;i++){
-    elements.add(new Loup());
-}
+            elements.add(new Loup());
+        }
         for (int i =0; i<2;i++){
-    elements.add(new Paysan());
-}
+            elements.add(new Paysan());
+        }
         for (int i =0; i<2;i++){
-    elements.add(new Guerrier());
-}
+            elements.add(new Guerrier());
+        }
+        elements.add(new NuageToxique());
     }
     
 
@@ -94,6 +95,7 @@ public class World {
                 //a faire
             }
         }
+        this.afficheWorld();
     }
 
     /**
@@ -101,8 +103,15 @@ public class World {
      */
     public void afficheWorld(){
         for (ElementDeJeu crea : World.elements){
-            if (crea instanceof Creature creature){
-                creature.affiche();}
+            crea.affiche();
+        }
+    }
+    public void partie(Joueur lui){
+        System.out.println("yo");
+        for(int i=0;i<10;i++){
+            
+            this.TourDeJeu();
+            lui.tourDeJeu();
         }
     }
 }
