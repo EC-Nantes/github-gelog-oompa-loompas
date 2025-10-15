@@ -64,6 +64,7 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
      */
     @Override
     public void combattre(Creature c){
+        System.out.println("Attaque de "+this.getNom()+" sur "+c.getNom());
         if (this.getDistAMax()==1){
             Random tirage=new Random();
             int Rand=tirage.nextInt(100)+1;
@@ -76,6 +77,7 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
                 else{
                     degats=this.getDegAtt()-c.getPtPar();
                     c.loosePV(degats);
+                    System.out.println("Attaque parée");
                 }
                 System.out.println("Dégâts infligés : "+degats);
                 
