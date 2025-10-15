@@ -84,6 +84,7 @@ public class Loup extends Monstre implements Combattant{
      * @param c créature attaqué par un combat au corps à corps du loup
      */
     public void combattre(Creature c){
+        System.out.println("Attaque de "+this.getNom()+" sur "+c.getNom());
         if (this.pos.distance(c.pos)==1){
             Random tirage=new Random();
             int Rand=tirage.nextInt(100)+1;
@@ -96,7 +97,9 @@ public class Loup extends Monstre implements Combattant{
                 else{
                     degats=this.getDegAtt()-c.getPtPar();
                     c.loosePV(degats);
+                    System.out.println("Attaque paree");
                 }
+                System.out.println("Degats infliges : "+degats+"\nIl reste "+c.getPtVie()+"pv a "+c.getNom());
                 
             }
             else{
