@@ -197,7 +197,7 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
         }
         Point2D newPos = new Point2D(this.pos.getX()+j,this.pos.getY()+i);
                 if (!newPos.verifierCase(elements)){
-                    
+                    this.setPos(newPos);
                 }}
 
     /**
