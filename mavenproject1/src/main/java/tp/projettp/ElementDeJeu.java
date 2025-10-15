@@ -11,6 +11,7 @@ package tp.projettp;
 public abstract class ElementDeJeu {
     protected Point2D pos;
     private boolean estSolide;
+    private String nom;
 
     public Point2D getPos() {
         return pos;
@@ -20,6 +21,10 @@ public abstract class ElementDeJeu {
         return estSolide;
     }
 
+    public String getNom() {
+        return nom;
+    }
+
     public void setPos(Point2D pos) {
         this.pos = pos;
     }
@@ -27,5 +32,7 @@ public abstract class ElementDeJeu {
     public void setSolide(boolean estSolide) {
         this.estSolide = estSolide;
     }
-    
+    public void affiche(){
+        System.out.println("position de "+this.getNom()+" : ["+this.pos.getX()+","+this.pos.getY()+"]");
+    }
 }
