@@ -71,8 +71,8 @@ public final class Joueur{
         this.perso.setNom(nom);
     }
     public void tourDeJeu(){
-        System.out.println("entrez le numéro qui correspond à l'action à faire : "
-                + "1: se déplacer");
+        System.out.println("entrez le numero qui correspond a l'action a faire : "
+                + "\n1: se deplacer");
         Creature creaproche=perso.creatureProche();
         if (perso.getPos().distance(creaproche.getPos())<=perso.getDistAMax()){
             System.out.println("2: combattre "+creaproche.getNom());
@@ -81,7 +81,7 @@ public final class Joueur{
     Scanner choix = new Scanner(System.in);
     String action=choix.next();
     if("1".equals(action)){
-        System.out.println("entrez la lettre qui correspond à la direction dans laquelle vous voulez aller (en zqsd)");
+        System.out.println("entrez la lettre qui correspond a la direction dans laquelle vous voulez aller (en zqsd)");
         choix = new Scanner(System.in);
         touche = choix.next();
         char character = touche.charAt(0);
