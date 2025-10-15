@@ -23,6 +23,11 @@ public class NuageToxique extends Objet implements Deplacable, Combattant {
         this.degats=intensite;
         this.setSolide(false);
     }
+    public NuageToxique(){
+        this.pos=new Point2D();
+        this.degats=2;
+        this.setSolide(false);
+    }
 
     /**
      * Déplace aléatoirement le nuage sur une case adjacente
