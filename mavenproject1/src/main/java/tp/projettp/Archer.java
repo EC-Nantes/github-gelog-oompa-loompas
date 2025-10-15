@@ -105,8 +105,9 @@ public class Archer extends Personnage implements Combattant, Jouable{
      */
     @Override
     public void combattre(Creature c){
-        this.setNbFleches(this.nbFleches-1);
+        System.out.println("Attaque de "+this.getNom()+" sur "+c.getNom());
         if (this.getDistAttMax()>=this.pos.distance(c.pos)){
+            this.setNbFleches(this.nbFleches-1);
             Random tirage=new Random();
             int Rand=tirage.nextInt(100)+1;
             if(Rand<=this.getPageAtt()){
