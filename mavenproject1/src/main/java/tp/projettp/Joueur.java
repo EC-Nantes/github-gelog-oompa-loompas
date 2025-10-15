@@ -75,7 +75,10 @@ public final class Joueur{
                 + "\n1: se deplacer");
         Creature creaproche=perso.creatureProche();
         if (perso.getPos().distance(creaproche.getPos())<=perso.getDistAMax()){
-            System.out.println("2: combattre "+creaproche.getNom());
+            System.out.println("2: combattre "+creaproche.getNom()+" située en "+"["+creaproche.getX()+","+creaproche.getY()+"]");
+        }
+        if (perso instanceof Archer arc){
+            System.out.println("Il vous reste "+arc.getNbFleches()+" flèches");
         }
     String touche;
     Scanner choix = new Scanner(System.in);
