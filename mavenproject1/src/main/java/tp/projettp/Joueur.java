@@ -21,11 +21,11 @@ public final class Joueur{
     public Joueur(){
         System.out.println("entrez l'initiale de la classe choisie");
         Scanner choix = new Scanner(System.in);
-        String choixClasse=choix.toString();
+        String choixClasse=choix.next();
         this.choisirClasse(choixClasse);
         System.out.println("entrez le nom que vous voulez avoir");
         choix =new Scanner(System.in);
-        String nouveauNom=choix.toString();
+        String nouveauNom=choix.next();
         this.choisirNom(nouveauNom);
         monde=new World();
         inventaire=new ArrayList();
@@ -72,17 +72,21 @@ public final class Joueur{
     }
     public void tourDeJeu(){
         System.out.println("entrez le numéro qui correspond à l'action à faire : "
-                + "1: se déplacer"
-                + "2: combattre");
+                + "1: se déplacer");
+        Creature creaproche=perso.creatureProche();
+        if (perso.getPos().distance(creaproche.getPos())<=perso.getDistAMax()){
+            System.out.println("2: combattre "+creaproche.getNom());
+        }
     String touche;
     Scanner choix = new Scanner(System.in);
-    String action=choix.toString();
+    String action=choix.next();
     if("1".equals(action)){
         System.out.println("entrez la lettre qui correspond à la direction dans laquelle vous voulez aller (en zqsd)");
-    choix = new Scanner(System.in);
-    touche = choix.toString();
-    char character = touche.charAt(0);
-    this.perso.deplacer(character);
+        choix = new Scanner(System.in);
+        touche = choix.next();
+        char character = touche.charAt(0);
+        this.perso.deplacer(character);
+    }
     if ("2".equals(action)){
         switch (perso) {
             case Archer archer -> archer.combattre(perso.creatureProche());
@@ -90,8 +94,5 @@ public final class Joueur{
             default -> {
             }
         }
-    
+    }
 }}
-}
-    
-}
