@@ -129,6 +129,9 @@ public class Point2D{
      * @return distance entre les 2 positions
      */
     public double distance(Point2D autre){
+        if (autre==null){
+            return Double.MAX_VALUE;
+        }
         return Math.sqrt(Math.pow((x-autre.getX()),2)+Math.pow((y-autre.getY()),2));
     }
 }
