@@ -204,7 +204,7 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
      *affiche la position actuelle du monstre
      */
     public void affiche(){
-        System.out.println("position de "+this.getNom()+" : ["+this.pos.getX()+","+this.pos.getY()+"]");
+        System.out.println("position de "+this.getNom()+" : ["+this.pos.getX()+","+this.pos.getY()+"] avec "+this.getPtVie()+"pv.");
     }
 
     /**
