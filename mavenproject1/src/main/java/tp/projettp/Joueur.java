@@ -5,6 +5,7 @@
 package tp.projettp;
 import java.util.ArrayList;
 import java.util.Scanner;
+import static tp.projettp.World.elements;
 
 
 /**
@@ -17,7 +18,8 @@ public final class Joueur{
     private ArrayList<Objet> inventaire;
 
     private ArrayList<Utilisable> effets;
-
+    private int pvMax;
+    
     public Joueur(World world){
         System.out.println("entrez l'initiale de la classe choisie");
         Scanner choix = new Scanner(System.in);
@@ -70,7 +72,17 @@ public final class Joueur{
     public void choisirNom(String nom){
         this.perso.setNom(nom);
     }
+    public void ramasser(){
+        for(ElementDeJeu elem:elements){
+                if (elem instanceof Utilisable && elem instanceof Objet o && this.perso.getPos().distance(o.getPos())<1){
+                    inventaire.add(o);
+                    System.out.println(o.getNom()+" recuperee");
+                    elements.remove(o);
+                }
+            }
+    }
     public void tourDeJeu(){
+        this.ramasser();
         this.perso.affiche();
         System.out.println("entrez le numero qui correspond a l'action a faire : "
                 + "\n1: se deplacer");
@@ -90,11 +102,12 @@ public final class Joueur{
             touche = choix.next();
             char character = touche.charAt(0);
             this.perso.deplacer(character);
+            
         }
         if ("2".equals(action)){
             switch (perso) {
                 case Archer archer -> archer.combattre(perso.creatureProche());
-                case Guerrier guerrier -> guerrier.combattre(perso.creatureProche());
+                case Guerrier guerrier -> guerrier.combattre(perso.creatureProche(),inventaire);
                 default -> {
                 }
             }
