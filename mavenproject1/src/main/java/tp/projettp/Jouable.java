@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
 package tp.projettp;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,4 +14,5 @@ public interface Jouable extends Deplacable{
     public void deplacer();
     public void deplacer(char c);
     public void combattre(Creature crea);
+    public void combattre(Creature crea,ArrayList<Objet> inventaire);
 }
