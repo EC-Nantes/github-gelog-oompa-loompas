@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package tp.projettp;
+import java.util.ArrayList;
 import java.util.Random;
 /**
  *
@@ -80,6 +81,50 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
                 }
                 else{
                     degats=this.getDegAtt()-c.getPtPar();
+                    c.loosePV(degats);
+                    System.out.println("Attaque parée");
+                }
+                System.out.println("Dégâts infligés : "+degats);
+                
+            }
+            else{
+                System.out.println("Attaque Ratée");
+            }
+        }
+        else{
+            System.out.println("Attaque hors de portée");
+        }
+    }
+    public void combattre(Creature c,ArrayList<Objet> inventaire){
+        System.out.println("Attaque de "+this.getNom()+" sur "+c.getNom());
+        if (this.getPos().distance(c.getPos())<=1){
+            int degatsupp=0;
+            int indice=-1;
+            for(int i=0;i<inventaire.size();i++) {
+                if(inventaire.get(i) instanceof Epee e){
+                    if(e.getDegat()>degatsupp){
+                        degatsupp=e.getDegat();
+                        indice=i;
+                    }
+                }
+            }
+            if (indice>-1){
+                System.out.println("Utilisation de "+inventaire.get(indice).getNom());
+                if (inventaire.get(indice) instanceof Epee e && !(e.utilisation())){
+                    inventaire.remove(e);
+                    System.out.println("Epee trop usée, elle n'est plus dans votre inventaire");
+                }
+            }
+            Random tirage=new Random();
+            int Rand=tirage.nextInt(100)+1;
+            if(Rand<=this.getPageAtt()){
+                int Rand2=tirage.nextInt(100)+1;
+                int degats=this.getDegAtt()+degatsupp;
+                if(Rand2>c.getPagePar()){
+                    c.loosePV(degats);
+                }
+                else{
+                    degats=degats-c.getPtPar();
                     c.loosePV(degats);
                     System.out.println("Attaque parée");
                 }
