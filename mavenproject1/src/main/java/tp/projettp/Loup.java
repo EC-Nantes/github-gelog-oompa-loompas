@@ -32,6 +32,7 @@ public class Loup extends Monstre implements Combattant{
         
         this.pageAtt=paAtt;
         this.degAtt=dA;
+        this.distAMax=1;
     }
 
     /**
@@ -47,6 +48,7 @@ public class Loup extends Monstre implements Combattant{
         
         this.pageAtt=l.getPageAtt();
         this.degAtt=l.getDegAtt();
+        this.distAMax=1;
     }
 
     /**
@@ -61,6 +63,7 @@ public class Loup extends Monstre implements Combattant{
         
         this.pageAtt=90;
         this.degAtt=10;
+        this.distAMax=1;
     }
 
     public int getPageAtt() {
@@ -78,6 +81,10 @@ public class Loup extends Monstre implements Combattant{
     public void setDegAtt(int degAtt) {
         this.degAtt = degAtt;
     }
+    //@Override pas de modif possible
+    public void setDistAMax(int dA){
+        this.distAMax=1;
+    }
     
     /**
      * Attaque d'une autre créature en ayant la possibilité de lui infliger des dégâts
@@ -85,7 +92,7 @@ public class Loup extends Monstre implements Combattant{
      */
     public void combattre(Creature c){
         System.out.println("Attaque de "+this.getNom()+" sur "+c.getNom());
-        if (this.pos.distance(c.pos)==1){
+        if (this.pos.distance(c.pos)<=1){
             Random tirage=new Random();
             int Rand=tirage.nextInt(100)+1;
             if(Rand<=this.getPageAtt()){
