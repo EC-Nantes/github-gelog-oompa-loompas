@@ -25,6 +25,10 @@ public abstract class ElementDeJeu {
         return nom;
     }
 
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+    
     public void setPos(Point2D pos) {
         this.pos = pos;
     }
