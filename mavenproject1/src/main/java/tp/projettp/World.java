@@ -75,16 +75,23 @@ public class World {
 
     /**
      *déplacement de chaque créature
+     * @param j Joueur du monde dans lequel il évolue
      */
-    public void TourDeJeu(){
+    public void TourDeJeu(Joueur j){
         for (ElementDeJeu elem :elements){
+            elem.affiche();
             if (elem instanceof Creature creature && elem instanceof Combattant attakant){
-                Creature attakade=creature.creatureProche();
-                if(creature.getPos().distance(attakade.getPos())<=creature.getDistAMax()){
-                    attakant.combattre(attakade);
+                if (j.getPerso().getPos().distance(creature.getPos())<=creature.getDistAMax()){
+                    attakant.combattre(j.getPerso());
                 }
                 else{
-                    creature.deplacer();
+                    Creature attakade=creature.creatureProche();
+                    if(creature.getPos().distance(attakade.getPos())<=creature.getDistAMax()){
+                        attakant.combattre(attakade);
+                    }
+                    else{
+                        creature.deplacer();
+                    }
                 }
             }
             else{
@@ -94,6 +101,7 @@ public class World {
             if (elem instanceof NuageToxique nuage){
                 //a faire
             }
+            elem.affiche();
         }
         this.afficheWorld();
     }
@@ -110,7 +118,7 @@ public class World {
         System.out.println("yo");
         for(int i=0;i<10;i++){
             
-            this.TourDeJeu();
+            this.TourDeJeu(lui);
             lui.tourDeJeu();
         }
     }
