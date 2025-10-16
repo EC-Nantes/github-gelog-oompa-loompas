@@ -10,12 +10,30 @@ package tp.projettp;
  */
 public class Epee extends Objet implements Utilisable{
     private int degat;
+    private int resiste;
     
     /**
-     *
+     * @param resistance nombre de tours pouvant être utilisé
      * @param degatsupp dégâts supplémentaires avec l'épée
      */
-    public Epee(int degatsupp){
+    public Epee(int degatsupp,int resistance){
         this.degat=degatsupp;
+        this.setSolide(false);
+        this.setNom("Epee en argent");
+        this.setPos(new Point2D());
+        this.getPos().randomPos();
+        this.resiste=resistance;
+    }
+
+    public int getDegat() {
+        return degat;
+    }
+
+    public void setDegat(int degat) {
+        this.degat = degat;
+    }
+    public boolean utilisation(){
+        resiste--;
+        return resiste>0;
     }
 }
