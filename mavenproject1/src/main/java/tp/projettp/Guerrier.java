@@ -28,8 +28,12 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
         this.pagePar=paPar;
         this.pos=p;
         this.degAtt=degAtt;
+        this.distAMax=1;
     }
-
+    
+    public void setDistAMax(int dA){//redéfinition pour ne pas pouvoir la modifier
+        this.distAMax=1;
+    }
     /**
      * création d'une copie guerrier à partir d'un autre guerrier
      * @param g copie guerrier
@@ -40,7 +44,7 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
         this.pagePar=g.getPagePar();
         this.ptPar=g.getPtPar();
         this.pos=g.getPos();
-        this.distAMax=g.getDistAMax();
+        this.distAMax=1;
         this.degAtt=g.getDegAtt();
         this.pageAtt=g.getPageAtt();
     }
@@ -54,7 +58,7 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
         this.pagePar=10;
         this.ptPar=40;
         this.pos=new Point2D();
-        
+        this.distAMax=1;
         this.pageAtt=80;
         this.degAtt=20;
     }
@@ -65,7 +69,7 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
     @Override
     public void combattre(Creature c){
         System.out.println("Attaque de "+this.getNom()+" sur "+c.getNom());
-        if (this.getDistAMax()==1){
+        if (this.getPos().distance(c.getPos())==1){
             Random tirage=new Random();
             int Rand=tirage.nextInt(100)+1;
             if(Rand<=this.getPageAtt()){
