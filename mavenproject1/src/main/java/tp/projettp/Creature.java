@@ -164,25 +164,33 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
         int j=-1;
         Point2D newPos;
         //vérifier si la créature n'est pas bloquée par les autres
-        while (i<1 && bloque){
-            while (j<1 && bloque){
+        while (i<=1 && bloque){
+            j=-1;
+            while (j<=1 && bloque){
                 newPos = new Point2D(this.pos.getX()+i,this.pos.getY()+j);
                 if (!newPos.verifierCase(elements)){
                     bloque=false;
                 }
+                j++;
             }
+            i++;
         }
-        do{
-        //génération d'une nouvelle coordonée pour la créature
-        int randomx=0;/*@param  déplacement du monstre selon x*/
-        int randomy=0;/*@param  déplacement du monstre selon y*/
-        while(randomx==0&&randomy==0){
-            randomx=alea.nextInt(3)-1;
-            randomy=alea.nextInt(3)-1;
+        if (bloque){
+            System.out.println("Déplacement impossible");
         }
-        newPos=new Point2D(this.pos.getX()+randomx,this.pos.getY()+randomy);
-        }while(newPos.verifierCase(elements));
-        this.pos=newPos;
+        else{
+            do{
+                //génération d'une nouvelle coordonée pour la créature
+                int randomx=0;/*@param  déplacement du monstre selon x*/
+                int randomy=0;/*@param  déplacement du monstre selon y*/
+                while(randomx==0&&randomy==0){
+                    randomx=alea.nextInt(3)-1;
+                    randomy=alea.nextInt(3)-1;
+                }
+                newPos=new Point2D(this.pos.getX()+randomx,this.pos.getY()+randomy);
+            }while(newPos.verifierCase(elements));
+            this.pos=newPos;
+        }
     }
     public void deplacer(char c){
     int i=0;
