@@ -69,7 +69,7 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
     @Override
     public void combattre(Creature c){
         System.out.println("Attaque de "+this.getNom()+" sur "+c.getNom());
-        if (this.getPos().distance(c.getPos())==1){
+        if (this.getPos().distance(c.getPos())<=1){
             Random tirage=new Random();
             int Rand=tirage.nextInt(100)+1;
             if(Rand<=this.getPageAtt()){
