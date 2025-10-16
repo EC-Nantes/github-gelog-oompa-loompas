@@ -24,6 +24,7 @@ public class NuageToxique extends Objet implements Deplacable, Combattant {
         this.setSolide(false);
     }
     public NuageToxique(){
+        this.setNom("Nuage Toxique");
         this.pos=new Point2D();
         this.degats=2;
         this.setSolide(false);
