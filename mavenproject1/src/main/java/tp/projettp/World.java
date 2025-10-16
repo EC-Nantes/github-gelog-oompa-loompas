@@ -50,6 +50,7 @@ public class World {
             elements.add(new Guerrier());
         }
         elements.add(new NuageToxique());
+        elements.add(new Epee(20,3));
     }
     
 
@@ -101,6 +102,7 @@ public class World {
             if (elem instanceof NuageToxique nuage){
                 if(j.getPerso().getPos().distance(nuage.getPos())==0){
                     nuage.combattre(j.getPerso());
+                    System.out.println("Attaque de "+nuage.getNom()+" sur "+j.getPerso().getNom()+" avec "+nuage.degats+" de dégâts");
                 }
             }
             elem.affiche();
@@ -117,12 +119,17 @@ public class World {
         }
     }
     public void deces(){
+        LinkedList<ElementDeJeu> morts = new LinkedList();
         for (ElementDeJeu elem :elements){
             if(elem instanceof Creature crea){
                 if(crea.getPtVie()<=0){
-                    elements.remove(elem);
+                    System.out.println(crea.getNom()+" est mort");
+                    morts.add(elem);
                 }
             }
+        }
+        for(ElementDeJeu rip :morts){
+            elements.remove(rip);
         }
     }
     public void partie(Joueur lui){
@@ -132,11 +139,15 @@ public class World {
             
             this.TourDeJeu(lui);
             this.deces();
-            lui.tourDeJeu();
             if(lui.getPerso().getPtVie()<=0){
                 System.out.println("GAME OVER");
                 mort=true;
             }
+            else{
+                lui.tourDeJeu();
+                
+            }
+            
         }
     }
 }
