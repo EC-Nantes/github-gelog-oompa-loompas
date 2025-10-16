@@ -18,7 +18,7 @@ public final class Joueur{
 
     private ArrayList<Utilisable> effets;
 
-    public Joueur(){
+    public Joueur(World world){
         System.out.println("entrez l'initiale de la classe choisie");
         Scanner choix = new Scanner(System.in);
         String choixClasse=choix.next();
@@ -27,7 +27,7 @@ public final class Joueur{
         choix =new Scanner(System.in);
         String nouveauNom=choix.next();
         this.choisirNom(nouveauNom);
-        monde=new World();
+        monde=world;
         inventaire=new ArrayList();
     
     }
