@@ -34,19 +34,19 @@ public class World {
         hauteur=50;
         longueur=50;        
     
-        for (int i =0; i<2;i++){
+        for (int i =0; i<50;i++){
             elements.add(new Archer());
         }
-        for (int i =0; i<2;i++){
+        for (int i =0; i<40;i++){
             elements.add(new Lapin());
         }
-        for (int i =0; i<2;i++){
+        for (int i =0; i<10;i++){
             elements.add(new Loup());
         }
-        for (int i =0; i<2;i++){
+        for (int i =0; i<20;i++){
             elements.add(new Paysan());
         }
-        for (int i =0; i<2;i++){
+        for (int i =0; i<100;i++){
             elements.add(new Guerrier());
         }
         elements.add(new NuageToxique());
@@ -99,7 +99,9 @@ public class World {
                     deplac.deplacer();
             }
             if (elem instanceof NuageToxique nuage){
-                //a faire
+                if(j.getPerso().getPos().distance(nuage.getPos())==0){
+                    nuage.combattre(j.getPerso());
+                }
             }
             elem.affiche();
         }
@@ -114,12 +116,27 @@ public class World {
             crea.affiche();
         }
     }
+    public void deces(){
+        for (ElementDeJeu elem :elements){
+            if(elem instanceof Creature crea){
+                if(crea.getPtVie()<=0){
+                    elements.remove(elem);
+                }
+            }
+        }
+    }
     public void partie(Joueur lui){
-        System.out.println("yo");
-        for(int i=0;i<10;i++){
+        boolean mort=false;
+        
+        while(!mort){
             
             this.TourDeJeu(lui);
+            this.deces();
             lui.tourDeJeu();
+            if(lui.getPerso().getPtVie()<=0){
+                System.out.println("GAME OVER");
+                mort=true;
+            }
         }
     }
 }
