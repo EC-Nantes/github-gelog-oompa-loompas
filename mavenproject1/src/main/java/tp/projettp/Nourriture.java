@@ -9,12 +9,37 @@ package tp.projettp;
  * @author julda
  */
 public class Nourriture extends Objet implements Utilisable{
-    int duree;
-    String nom;
-    int effet;
-    boolean bonus;
-    int valeur;
-    int residu;
+    private int duree;
+    private String nom;
+    private int effet;
+    private boolean bonus;
+    private int valeur;
+    private int residu;
+
+    public int getDuree() {
+        return duree;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public int getEffet() {
+        return effet;
+    }
+
+    public boolean isBonus() {
+        return bonus;
+    }
+
+    public int getValeur() {
+        return valeur;
+    }
+
+    public int getResidu() {
+        return residu;
+    }
+    
     public Nourriture(String nom,int effet,boolean estBonus,int valeurEffet, int duration){
         this.duree=duration;
         this.nom=nom;
