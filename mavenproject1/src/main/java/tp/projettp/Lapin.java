@@ -28,6 +28,7 @@ public class Lapin extends Monstre {
         this.pagePar=paPar;
         this.ptPar=ptPar;
         this.pos=p;
+        this.pvMax=ptVie;
     }
 
     /**
@@ -40,6 +41,7 @@ public class Lapin extends Monstre {
         this.pagePar=l.getPagePar();
         this.ptPar=l.getPtPar();
         this.pos=new Point2D(l.getPos());
+        this.pvMax=ptVie;
     }
 
     /**
@@ -51,5 +53,6 @@ public class Lapin extends Monstre {
         this.pagePar=85;
         this.ptPar=40;
         this.pos=new Point2D();
+        this.pvMax=ptVie;
     }
 }
