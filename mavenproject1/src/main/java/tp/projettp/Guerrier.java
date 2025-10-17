@@ -30,10 +30,10 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
         this.pos=p;
         this.degAtt=degAtt;
         this.distAMax=1;
-        
         this.pvMax=ptVie;
     }
     
+    @Override
     public void setDistAMax(int dA){//redéfinition pour ne pas pouvoir la modifier
         this.distAMax=1;
     }
@@ -57,14 +57,20 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
      *création d'un guerrier 60pV, combat de mêlée
      */
     public Guerrier() {
+        Random tirage=new Random();
+        int rand;
         this.nom="Guerrier aguerri";
         this.ptVie=50;
-        this.pagePar=10;
-        this.ptPar=40;
+        rand=tirage.nextInt(5)+1;
+        this.pagePar=10+rand;
+        rand=tirage.nextInt(5)+1;
+        this.ptPar=40+rand;
+        rand=tirage.nextInt(5)+1;
         this.pos=new Point2D();
         this.distAMax=1;
-        this.pageAtt=80;
-        this.degAtt=15;
+        this.pageAtt=80+rand;
+        rand=tirage.nextInt(3);
+        this.degAtt=15+rand;
         this.pvMax=ptVie;
     }
     /**
