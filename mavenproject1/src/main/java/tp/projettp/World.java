@@ -188,6 +188,7 @@ public class World {
                 }
             }
         }
+        ajouterPlateau(j.getPerso(), plateau);
         afficherPlateau(plateau);
     for (ElementDeJeu denree:utilise){
         elements.remove(denree);
