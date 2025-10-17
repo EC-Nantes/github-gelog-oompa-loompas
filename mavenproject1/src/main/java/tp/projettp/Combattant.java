@@ -9,5 +9,10 @@ package tp.projettp;
  * @author julda
  */
 public interface Combattant {
+
+    /**
+     * méthode d'attaque
+     * @param c créature attaquée par le Combattant
+     */
     public void combattre(Creature c);
 }
