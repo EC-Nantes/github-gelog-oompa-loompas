@@ -151,6 +151,7 @@ public final class Joueur{
         denree.passe();
         if(denree.getDuree()==0){
             denree.finUtilisation(this);
+            effets.remove(denree);
         }
     }
     this.perso.affiche();
