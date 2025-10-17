@@ -147,13 +147,15 @@ public final class Joueur{
                 }
             }
         }
-    for(Nourriture denree:effets){
-        denree.passe();
-        if(denree.getDuree()==0){
-            denree.finUtilisation(this);
-            effets.remove(denree);
+        if (!(effets==null)){
+            for(Nourriture denree:effets){
+                denree.passe();
+                if(denree.getDuree()==0){
+                    denree.finUtilisation(this);
+                    effets.remove(denree);
+                }
+            }
         }
-    }
-    this.perso.affiche();
+        this.perso.affiche();
     }
 }
