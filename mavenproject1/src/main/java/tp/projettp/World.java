@@ -135,7 +135,6 @@ public class World {
             }
             plateau.add(ligne);
         }
-        String plateauText;
         for (ElementDeJeu elem :elements){
             //elem.affiche();
             ajouterPlateau(elem, plateau);
@@ -189,15 +188,16 @@ public class World {
                 }
             }
         }
-        plateauText="";
-        for (ArrayList ligne2 : plateau){
-            plateauText=plateauText+ligne2.toString()+"/n";
-        }
-        plateauText=plateau.toString();
-        System.out.println(plateauText);
+        ajouterPlateau(j.getPerso(), plateau);
+        afficherPlateau(plateau);
     for (ElementDeJeu denree:utilise){
         elements.remove(denree);
     }
+    }
+    public void afficherPlateau(ArrayList<ArrayList> plateau){
+        for (ArrayList ligne2 : plateau){
+            System.out.println(ligne2.toString());
+        }
     }
     
     public void ajouterPlateau(ElementDeJeu elem, ArrayList<ArrayList> plateau){
