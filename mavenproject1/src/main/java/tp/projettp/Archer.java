@@ -151,6 +151,7 @@ public class Archer extends Personnage implements Combattant, Jouable{
                     degats=degats-c.getPtPar();
                     System.out.println("Attaque paree");
                 }
+                degats=Math.max(degats, 0);
                 c.loosePV(degats);
                 System.out.println("Degats infliges : "+degats+"\nIl reste "+c.getPtVie()+"pv a "+c.getNom());
             }
