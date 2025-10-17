@@ -127,6 +127,7 @@ public class World {
     public void TourDeJeu(Joueur j){
         ArrayList<ArrayList> plateau = new ArrayList();
         ArrayList ligne;
+        LinkedList<ElementDeJeu> utilise= new LinkedList();
         for(int k=0; k<World.longueur; k++){
             ligne = new ArrayList();
             for (int l=0; l<World.hauteur; l++){
