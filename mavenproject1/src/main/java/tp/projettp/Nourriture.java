@@ -25,6 +25,7 @@ public class Nourriture extends Objet implements Utilisable{
      * @param estBonus
      * @param duration
      */
+    //1 = distance att,2 = pageAtt,3 = pagePar,4 = degatt,5 = ptpar,6 = pv
     public Nourriture(String nom,int effet,int valeurEffet,boolean estBonus, int duration){
         this.duree=duration;
         this.nom=nom;
@@ -212,6 +213,10 @@ public class Nourriture extends Objet implements Utilisable{
             if (effet==5){
                 nouveauSet=Math.max(c.getPtPar()+valeur,0);
                 c.setPtPar(nouveauSet);
+            }
+            if (effet==6){
+                nouveauSet=Math.max(c.getPtVie()+valeur,0);
+                c.setPtVie(nouveauSet);
             }
             if(!bonus){
                 valeur=-valeur;
