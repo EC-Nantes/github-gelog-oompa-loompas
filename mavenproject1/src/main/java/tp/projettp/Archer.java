@@ -61,16 +61,23 @@ public class Archer extends Personnage implements Combattant, Jouable{
      *crée un archer basique avec 15 flèches
      */
     public Archer(){
+        Random tirage=new Random();
+        int rand;
         this.nom="Archer basique";
         this.ptVie=30;
-        this.pagePar=10;
-        this.ptPar=10;
+        rand=tirage.nextInt(5)+1;
+        this.pagePar=10+rand;
+        rand=tirage.nextInt(5)+1;
+        this.ptPar=10+rand;
         this.pos=new Point2D();
         
         this.distAttMax=3;
-        this.pageAtt=80;
-        this.degAtt=8;
-        nbFleches=15;
+        rand=tirage.nextInt(5)+1;
+        this.pageAtt=80+rand;
+        rand=tirage.nextInt(3);
+        this.degAtt=8+rand;
+        rand=tirage.nextInt(10)+1;
+        nbFleches=15+rand;
         this.pvMax=ptVie;
     }
     
@@ -110,7 +117,7 @@ public class Archer extends Personnage implements Combattant, Jouable{
     @Override
     public void combattre(Creature c){
         System.out.println("Attaque de "+this.getNom()+" sur "+c.getNom());
-        if (this.getDistAttMax()>=this.pos.distance(c.pos)){
+        if ((this.getDistAttMax()>=this.pos.distance(c.pos)) && (this.nbFleches > 0)){
             this.setNbFleches(this.nbFleches-1);
             Random tirage=new Random();
             int Rand=tirage.nextInt(100)+1;

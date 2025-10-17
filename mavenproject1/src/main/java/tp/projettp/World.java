@@ -4,6 +4,7 @@
  */
 package tp.projettp;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -83,8 +84,19 @@ public class World {
             elements.add(new Nourriture("Poison",6,2200,false));
         }
     }
+    /**
+     * 
+     * 
+     * @param longueur
+     * @param hauteur
+     * @param liste // liste de liste qui contiennent chacunes la classe et les attibuts de la classe de chaque entité du monde
+     */
     
-
+    public World(int longueur, int hauteur, List liste){ 
+        World.hauteur=hauteur;
+        World.longueur=longueur;
+        // il faut finir de creer les entités avec la liste 
+    }
     /**
      * Génère des entités à des emplacement aléatoires dans le monde
      */
