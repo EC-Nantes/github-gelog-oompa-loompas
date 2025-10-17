@@ -101,14 +101,12 @@ public class Loup extends Monstre implements Combattant{
             if(Rand<=this.getPageAtt()){
                 int Rand2=tirage.nextInt(100)+1;
                 int degats=this.getDegAtt();
-                if(Rand2>c.getPagePar()){
-                    c.loosePV(degats);
-                }
-                else{
+                if(Rand2<=c.getPagePar()){
                     degats=this.getDegAtt()-c.getPtPar();
-                    c.loosePV(degats);
                     System.out.println("Attaque paree");
                 }
+                c.loosePV(degats);
+                degats=Math.max(degats, 0);
                 System.out.println("Degats infliges : "+degats+"\nIl reste "+c.getPtVie()+"pv a "+c.getNom());
                 
             }
