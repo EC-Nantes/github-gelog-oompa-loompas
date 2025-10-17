@@ -17,6 +17,7 @@ public class PotionSoin extends Objet implements Utilisable{
      */
     public PotionSoin(int soin){
         this.soin=soin;
+        this.setNom("Potion de soin de "+soin+"pv");
     }
 
     /**
