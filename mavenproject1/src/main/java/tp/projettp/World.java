@@ -114,8 +114,6 @@ public class World {
      * @param j Joueur du monde dans lequel il évolue
      */
     public void TourDeJeu(Joueur j){
-        ArrayList<ArrayList> plateau = new ArrayList();
-        ArrayList ligne;
         LinkedList<ElementDeJeu> utilise= new LinkedList();
         for (ElementDeJeu elem :elements){
             //elem.affiche();
@@ -229,8 +227,11 @@ public class World {
     }
     public void partie(Joueur lui){
         boolean mort=false;
-        ArrayList<ArrayList> plateau = new ArrayList();
-        ArrayList ligne;
+        ArrayList<ArrayList> plateau;
+        
+        while(!mort){
+            plateau = new ArrayList();
+            ArrayList ligne;
         for(int k=0; k<World.longueur; k++){
             ligne = new ArrayList();
             for (int l=0; l<World.hauteur; l++){
@@ -238,7 +239,6 @@ public class World {
             }
             plateau.add(ligne);
         }
-        while(!mort){
             this.TourDeJeu(lui);
             this.deces();
             for (ElementDeJeu elem :elements){
