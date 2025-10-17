@@ -47,8 +47,8 @@ public class Paysan extends Personnage {
      * crée un paysan basique
      */
     public Paysan() {
-        super.nom="Paysan titan";
-        super.ptVie=2000;
+        super.nom="Paysan innocent";
+        super.ptVie=16;
         super.degAtt=0;
         super.pageAtt=0;
         super.pagePar=1;
