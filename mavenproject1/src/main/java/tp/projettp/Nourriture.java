@@ -47,7 +47,7 @@ public class Nourriture extends Objet implements Utilisable{
      * @param estBonus
      */
     public Nourriture(String nom,int effet,int valeurEffet,boolean estBonus){
-        this.duree=1;
+        this.duree=1000;
         this.nom=nom;
         this.effet=effet;
         this.bonus=estBonus;
@@ -221,6 +221,78 @@ public class Nourriture extends Objet implements Utilisable{
             if(!bonus){
                 valeur=-valeur;
             }
+        }
+    }
+    public void utilisation(Joueur j){
+        //1 = distance att,pageAtt,pagePar,degatt,ptpar,
+        int nouveauSet;
+        if(!bonus){
+            valeur=-valeur;
+        }
+        if (effet==1){
+            if (j.getPerso() instanceof Archer){
+                nouveauSet=Math.max(valeur,0);
+                j.getPerso().setDistAMax(nouveauSet);
+            }
+        }
+        if (effet==2){
+            nouveauSet=minmax(j.getPerso().getPagePar());
+            j.getPerso().setPagePar(nouveauSet);
+        }
+        if (effet==3){
+            nouveauSet=minmax(j.getPerso().getPageAtt());
+            j.getPerso().setPageAtt(nouveauSet);
+        }
+        if (effet==4){
+            nouveauSet=Math.max(j.getPerso().getDegAtt()+valeur,0);
+            j.getPerso().setDegAtt(nouveauSet);
+        }
+        if (effet==5){
+            nouveauSet=Math.max(j.getPerso().getPtPar()+valeur,0);
+            j.getPerso().setPtPar(nouveauSet);
+        }
+        if (effet==6){
+            nouveauSet=Math.max(j.getPerso().getPtVie()+valeur,0);
+            j.getPerso().setPtVie(nouveauSet);
+        }
+        if(!bonus){
+            valeur=-valeur;
+        }
+    }
+    public void finUtilisation(Joueur j){
+        //1 = distance att,pageAtt,pagePar,degatt,ptpar,
+        int nouveauSet;
+        if(bonus){
+            valeur=-valeur;
+        }
+        if (effet==3){
+            if (j.getPerso() instanceof Archer){
+                nouveauSet=j.getPerso().getPageAtt()+valeur+residu;
+                j.getPerso().setPageAtt(nouveauSet);
+            }
+        }
+        if (effet==1){
+            nouveauSet=j.getPerso().getDistAMax()+valeur+residu;
+            j.getPerso().setDistAMax(nouveauSet);
+        }
+        if (effet==2){
+            nouveauSet=j.getPerso().getPagePar()+valeur+residu;
+            j.getPerso().setPagePar(nouveauSet);
+        }
+        if (effet==4){
+            nouveauSet=j.getPerso().getDegAtt()+valeur+residu;
+            j.getPerso().setDegAtt(nouveauSet);
+        }
+        if (effet==5){
+            nouveauSet=j.getPerso().getPtPar()+valeur+residu;
+            j.getPerso().setPtPar(nouveauSet);
+        }
+        if (effet==6){
+            nouveauSet=j.getPerso().getPtVie()+valeur+residu;
+            j.getPerso().setPtVie(nouveauSet);
+        }
+        if(bonus){
+            valeur=-valeur;
         }
     }
 }
