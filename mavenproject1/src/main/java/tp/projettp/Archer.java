@@ -54,6 +54,7 @@ public class Archer extends Personnage implements Combattant, Jouable{
         this.distAttMax=dAttMax;
         this.pageAtt=paAtt;
         this.degAtt=degA;
+        this.pvMax=ptVie;
     }
 
     /**
@@ -70,6 +71,7 @@ public class Archer extends Personnage implements Combattant, Jouable{
         this.pageAtt=80;
         this.degAtt=5;
         nbFleches=15;
+        this.pvMax=ptVie;
     }
     
     /**
@@ -86,6 +88,7 @@ public class Archer extends Personnage implements Combattant, Jouable{
         this.degAtt=a.getDegAtt();
         this.pageAtt=a.getPageAtt();
         this.nbFleches=a.getNbFleches();
+        this.pvMax=ptVie;
     }
 
     public int getDistAttMax() {
