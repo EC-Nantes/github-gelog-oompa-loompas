@@ -17,9 +17,7 @@ public class ProjetTP {
     public static void main(String[] args) {
         World map = new World();
         map.creerMondeAlea();
-        Point2D pos=new Point2D();
-        Point2D pos2= new Point2D(4,3);
-        System.out.printf("Valeur formatée : %.2f", pos.distance(pos2));
-          
+        Joueur player1=new Joueur(map);
+        map.partie(player1);
     }
 }
