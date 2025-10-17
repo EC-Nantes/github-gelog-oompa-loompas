@@ -14,20 +14,27 @@ public class Nourriture extends Objet implements Utilisable{
     int effet;
     boolean bonus;
     int valeur;
+    int residu;
     public Nourriture(String nom,int effet,boolean estBonus,int valeurEffet, int duration){
         this.duree=duration;
         this.nom=nom;
         this.effet=effet;
         this.bonus=estBonus;
         this.valeur=valeurEffet;
+        this.residu=0;
     }
     private int minmax(int actuel){
-        if(estBonus){
-            return Math.min(actuel+valeur,100);
+        int retour;
+        if(bonus){
+            retour=Math.min(actuel+valeur,100);
         }
         else{
-            return Math.max(actuel+valeur,0);
+            retour=Math.max(actuel+valeur,0);
         }
+        if(retour!=actuel+valeur){
+                residu=actuel+valeur-retour;
+        }
+        return retour;
     }
     public void utilisation(Personnage p){
         //1 = distance att,pageAtt,pagePar,degatt,ptpar,
