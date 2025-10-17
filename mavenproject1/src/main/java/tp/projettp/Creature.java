@@ -201,9 +201,9 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
     int i=0;
     int j=0;
         switch (c) {
-            case 'z' -> i++;
+            case 'z' -> i--;
             case 'q' -> j--;
-            case 's' -> i--;
+            case 's' -> i++;
             case 'd' -> j++;
             default -> {
             }
