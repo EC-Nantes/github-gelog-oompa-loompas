@@ -5,7 +5,7 @@
 package tp.projettp;
 
 /**
- *
+ * Ne pas prendre en compte cette page
  * @author julda
  */
 public interface Combattre {
