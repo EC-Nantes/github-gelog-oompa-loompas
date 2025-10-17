@@ -4,6 +4,7 @@
  */
 package tp.projettp;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -81,8 +82,11 @@ public class World {
         elements.add(new PotionSoin(1));
         
     }
-    
-
+    public World(int longueur, int hauteur, List liste){ 
+        World.hauteur=hauteur;
+        World.longueur=longueur;
+        
+    }
     /**
      * Génère des entités à des emplacement aléatoires dans le monde
      */
