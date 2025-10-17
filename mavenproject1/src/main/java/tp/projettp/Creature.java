@@ -13,6 +13,7 @@ import static tp.projettp.World.elements;
  */
 
 public abstract class Creature extends ElementDeJeu implements Deplacable{
+    protected int pvMax;
     protected String nom;
     protected int ptVie;
     protected int ptPar;
@@ -21,6 +22,10 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
     protected int pageAtt;
     protected int distAMax;
 
+    public int getPvMax() {
+        return pvMax;
+    }
+    
     public int getDegAtt() {
         return degAtt;
     }
