@@ -124,14 +124,12 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
             if(Rand<=this.getPageAtt()){
                 int Rand2=tirage.nextInt(100)+1;
                 int degats=this.getDegAtt()+degatsupp;
-                if(Rand2>c.getPagePar()){
-                    c.loosePV(degats);
-                }
-                else{
+                if(Rand2<=c.getPagePar()){
                     degats=degats-c.getPtPar();
-                    c.loosePV(degats);
                     System.out.println("Attaque parée");
                 }
+                degats=Math.max(degats, 0);
+                c.loosePV(degats);
                 System.out.println("Dégâts infligés : "+degats);
                 
             }
