@@ -81,6 +81,10 @@ public class World {
         elements.add(new PotionSoin(10));
         elements.add(new PotionSoin(10));
         elements.add(new PotionSoin(1));
+        for(int i=0;i<150;i++){
+            elements.add(new Nourriture("Poison",6,2200,false));
+        }
+        elements.add(new Nourriture("bière suprême",4,999,true));
         
     }
     /**
@@ -147,7 +151,16 @@ public class World {
                         creature.deplacer();
                         System.out.println(creature.getNom()+" se deplace, et est desormais :");
                         elem.affiche();
-                    }
+                        for (ElementDeJeu elem2 :elements){
+                            if(elem2 instanceof Nourriture denree){
+                                if (denree.getPos().equals(creature.getPos()) && denree.isCreaturisable()){
+                                    denree.utilisation(creature);
+                                    utilise.add(denree);
+                                    break;
+                                }
+                            }
+                        }
+                    } 
                 }
             }
             else{
@@ -155,6 +168,17 @@ public class World {
                     deplac.deplacer();
                     System.out.println(elem.getNom()+" se deplace, et est desormais :");
                     elem.affiche();
+                    if(elem instanceof Creature c){
+                        for (ElementDeJeu elem2 :elements){
+                            if(elem2 instanceof Nourriture denree){
+                                if (denree.getPos().equals(c.getPos()) && denree.isCreaturisable()){
+                                    denree.utilisation(c);
+                                    utilise.add(denree);
+                                    break;
+                                }
+                            }
+                        }
+                    }
                 }
             }
             if (elem instanceof NuageToxique nuage){
@@ -166,6 +190,9 @@ public class World {
         }
         plateauText=plateau.toString();
         System.out.println(plateauText);
+    for (ElementDeJeu denree:utilise){
+        elements.remove(denree);
+    }
     }
     
     public void ajouterPlateau(ElementDeJeu elem, ArrayList<ArrayList> plateau){
