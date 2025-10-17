@@ -62,14 +62,14 @@ public class Archer extends Personnage implements Combattant, Jouable{
      */
     public Archer(){
         this.nom="Archer basique";
-        this.ptVie=60;
+        this.ptVie=30;
         this.pagePar=10;
         this.ptPar=10;
         this.pos=new Point2D();
         
         this.distAttMax=3;
         this.pageAtt=80;
-        this.degAtt=5;
+        this.degAtt=8;
         nbFleches=15;
         this.pvMax=ptVie;
     }
