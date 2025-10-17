@@ -50,7 +50,36 @@ public class World {
             elements.add(new Guerrier());
         }
         elements.add(new NuageToxique());
-        elements.add(new Epee(20,3));
+        elements.add(new Epee("épée en argent",20,3));
+        elements.add(new Epee("épée en argent",20,3));
+        elements.add(new Epee("Epee anti-titan",2000,1));
+        elements.add(new Epee("épée en bois",2,2));
+        elements.add(new Epee("épée en bois",2,2));
+        elements.add(new Epee("épée en bois",2,2));
+        elements.add(new Epee("épée en bois",2,2));
+        elements.add(new Epee("épée en bois",2,2));
+        elements.add(new Epee("Epee en diamant",25,10));
+        elements.add(new PotionSoin(10));
+        elements.add(new PotionSoin(2000));
+        elements.add(new PotionSoin(50));
+        elements.add(new PotionSoin(50));
+        elements.add(new PotionSoin(10));
+        elements.add(new PotionSoin(10));
+        elements.add(new PotionSoin(10));
+        elements.add(new PotionSoin(10));
+        elements.add(new PotionSoin(10));
+        elements.add(new PotionSoin(10));
+        elements.add(new PotionSoin(10));
+        elements.add(new PotionSoin(10));
+        elements.add(new PotionSoin(10));
+        elements.add(new PotionSoin(10));
+        elements.add(new PotionSoin(10));
+        elements.add(new PotionSoin(10));
+        elements.add(new PotionSoin(10));
+        elements.add(new PotionSoin(10));
+        elements.add(new PotionSoin(10));
+        elements.add(new PotionSoin(1));
+        
     }
     
 
