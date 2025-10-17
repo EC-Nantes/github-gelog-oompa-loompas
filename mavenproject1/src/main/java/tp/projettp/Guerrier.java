@@ -30,6 +30,8 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
         this.pos=p;
         this.degAtt=degAtt;
         this.distAMax=1;
+        
+        this.pvMax=ptVie;
     }
     
     public void setDistAMax(int dA){//redéfinition pour ne pas pouvoir la modifier
@@ -48,6 +50,7 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
         this.distAMax=1;
         this.degAtt=g.getDegAtt();
         this.pageAtt=g.getPageAtt();
+        this.pvMax=ptVie;
     }
 
     /**
@@ -62,6 +65,7 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
         this.distAMax=1;
         this.pageAtt=80;
         this.degAtt=20;
+        this.pvMax=ptVie;
     }
     /**
      *
