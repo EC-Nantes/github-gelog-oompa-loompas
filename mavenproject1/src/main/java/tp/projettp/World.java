@@ -79,7 +79,9 @@ public class World {
         elements.add(new PotionSoin(10));
         elements.add(new PotionSoin(10));
         elements.add(new PotionSoin(1));
-        
+        for(int i=0;i<1500;i++){
+            elements.add(new Nourriture("Poison",6,2200,false));
+        }
     }
     
 
@@ -108,7 +110,15 @@ public class World {
      * @param j Joueur du monde dans lequel il évolue
      */
     public void TourDeJeu(Joueur j){
+        
+        LinkedList<Nourriture> miams=new LinkedList();
         for (ElementDeJeu elem :elements){
+                if (elem instanceof Nourriture denree){
+                        miams.add(denree);
+                }
+        }
+        for (ElementDeJeu elem :elements){
+            System.out.println(" ");
             elem.affiche();
             if (elem instanceof Creature creature && elem instanceof Combattant attakant){
                 if (j.getPerso().getPos().distance(creature.getPos())<=creature.getDistAMax()){
@@ -123,7 +133,15 @@ public class World {
                         creature.deplacer();
                         System.out.println(creature.getNom()+" se deplace, et est desormais :");
                         elem.affiche();
-                    }
+                        for (ElementDeJeu elem2 :elements){
+                            if(elem2 instanceof Nourriture denree)
+                            if (denree.getPos().equals(creature.getPos()) && denree.isCreaturisable()){
+                                denree.utilisation(creature);
+                                elements.remove(denree);
+                                break;
+                            }
+                        }
+                    } 
                 }
             }
             else{
@@ -131,6 +149,16 @@ public class World {
                     deplac.deplacer();
                     System.out.println(elem.getNom()+" se deplace, et est desormais :");
                     elem.affiche();
+                    if(elem instanceof Creature c){
+                        for (Nourriture denree:miams){
+                            if (denree.getPos().equals(c.getPos()) && denree.isCreaturisable()){
+                                denree.utilisation(c);
+                                System.out.println(elem.getNom()+" se deplace, et est desormais :");
+                                elements.remove(denree);
+                                break;
+                            }
+                        }
+                    }
                 }
             }
             if (elem instanceof NuageToxique nuage){
