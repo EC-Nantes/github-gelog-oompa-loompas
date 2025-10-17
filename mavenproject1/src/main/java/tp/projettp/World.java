@@ -117,13 +117,6 @@ public class World {
         ArrayList<ArrayList> plateau = new ArrayList();
         ArrayList ligne;
         LinkedList<ElementDeJeu> utilise= new LinkedList();
-        for(int k=0; k<World.longueur; k++){
-            ligne = new ArrayList();
-            for (int l=0; l<World.hauteur; l++){
-                ligne.add("  ");
-            }
-            plateau.add(ligne);
-        }
         for (ElementDeJeu elem :elements){
             //elem.affiche();
             if (elem instanceof Creature creature && elem instanceof Combattant attakant){
@@ -238,8 +231,14 @@ public class World {
         boolean mort=false;
         ArrayList<ArrayList> plateau = new ArrayList();
         ArrayList ligne;
+        for(int k=0; k<World.longueur; k++){
+            ligne = new ArrayList();
+            for (int l=0; l<World.hauteur; l++){
+                ligne.add("  ");
+            }
+            plateau.add(ligne);
+        }
         while(!mort){
-            
             this.TourDeJeu(lui);
             this.deces();
             for (ElementDeJeu elem :elements){
