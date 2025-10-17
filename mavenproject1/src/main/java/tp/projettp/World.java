@@ -137,7 +137,6 @@ public class World {
         }
         for (ElementDeJeu elem :elements){
             //elem.affiche();
-            ajouterPlateau(elem, plateau);
             if (elem instanceof Creature creature && elem instanceof Combattant attakant){
                 if (j.getPerso().getPos().distance(creature.getPos())<=creature.getDistAMax()){
                     attakant.combattre(j.getPerso());
@@ -188,13 +187,12 @@ public class World {
                 }
             }
         }
-        ajouterPlateau(j, plateau);
-        afficherPlateau(plateau);
-    for (ElementDeJeu denree:utilise){
-        elements.remove(denree);
+        for (ElementDeJeu denree:utilise){
+            elements.remove(denree);    
     }
     }
     public void afficherPlateau(ArrayList<ArrayList> plateau){
+        System.out.println("le joueur est J et normalement c'est l'initiale de la Classe de l'élément de jeu");
         for (ArrayList ligne2 : plateau){
             System.out.println(ligne2.toString());
         }
@@ -215,6 +213,7 @@ public class World {
         int x=elem.getPos().getX();
         int y=elem.getPos().getY();
         String nomClasse= elem.getClass().getName();
+        System.out.println(nomClasse);
         String elemText= nomClasse.charAt(1)+" ";
         ArrayList ligne= plateau.get(y);
         //ligne.remove(x);
@@ -249,11 +248,17 @@ public class World {
     }
     public void partie(Joueur lui){
         boolean mort=false;
-        
+        ArrayList<ArrayList> plateau = new ArrayList();
+        ArrayList ligne;
         while(!mort){
             
             this.TourDeJeu(lui);
             this.deces();
+            for (ElementDeJeu elem :elements){
+            //elem.affiche();
+            ajouterPlateau(elem, plateau);}
+        ajouterPlateau(lui, plateau);
+        afficherPlateau(plateau);
             if(lui.getPerso().getPtVie()<=0){
                 System.out.println("GAME OVER");
                 mort=true;
