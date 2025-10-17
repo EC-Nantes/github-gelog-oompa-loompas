@@ -16,10 +16,10 @@ public class Epee extends Objet implements Utilisable{
      * @param resistance nombre de tours pouvant être utilisé
      * @param degatsupp dégâts supplémentaires avec l'épée
      */
-    public Epee(int degatsupp,int resistance){
+    public Epee(String nom,int degatsupp,int resistance){
         this.degat=degatsupp;
         this.setSolide(false);
-        this.setNom("Epee en argent");
+        this.setNom(nom);
         this.setPos(new Point2D());
         this.getPos().randomPos();
         this.resiste=resistance;
