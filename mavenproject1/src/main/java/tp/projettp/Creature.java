@@ -13,43 +13,107 @@ import static tp.projettp.World.elements;
  */
 
 public abstract class Creature extends ElementDeJeu implements Deplacable{
+
+    /**
+     *points de vie Maximums de la créature
+     */
     protected int pvMax;
+
+    /**
+     * nom générique de la créature affiché à chaque tour de jeu
+     */
     protected String nom;
+
+    /**
+     * point de vie actuel du monstre
+     */
     protected int ptVie;
+
+    /**
+     * points parés lorsqu'une parade est réussie
+     */
     protected int ptPar;
+
+    /**
+     * pourcentage de réussite de parade lors d'attaque
+     */
     protected int pagePar;
+
+    /**
+     * dégâts d'attaque total lorsqu'une attaque est réussie et non parée
+     */
     protected int degAtt;
+
+    /**
+     * pourcentage de réussite lors d'attaque
+     */
     protected int pageAtt;
+
+    /**
+     * distance maximale d'attaque en cercle autour de la créature (est 1 sauf pour l'archer)
+     */
     protected int distAMax;
 
+    /**
+     *
+     * @return
+     */
     public int getPvMax() {
         return pvMax;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getDegAtt() {
         return degAtt;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPageAtt() {
         return pageAtt;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getDistAMax() {
         return distAMax;
     }
 
+    /**
+     *
+     * @param degAtt
+     */
     public void setDegAtt(int degAtt) {
         this.degAtt = degAtt;
     }
 
+    /**
+     *
+     * @param pageAtt
+     */
     public void setPageAtt(int pageAtt) {
         this.pageAtt = pageAtt;
     }
 
+    /**
+     *
+     * @param distAMax
+     */
     public void setDistAMax(int distAMax) {
         this.distAMax = distAMax;
     }
     
+    /**
+     * imaginons que l'on cherche à ce que la créature parle, cette méthode est là pour ça
+     * @param discours paroles de la créature
+     */
     public void parler(String discours){
         System.out.println(this.getNom()+" : '"+discours+"'");
     }
@@ -59,6 +123,10 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
      */
     protected Point2D pos;
     
+    /**
+     *
+     * @return
+     */
     public int getPtVie(){
         return this.ptVie;
     }
@@ -70,11 +138,6 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
     public void setPtVie(int pv){
         this.ptVie=pv;
     }
-
-    /**
-     *
-     * @return pourcentage d'attaques réussies
-     */
 
     /**
      *
@@ -102,37 +165,11 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
 
     /**
      *
-     * @return
+     * @return 
      */
     public int getPtPar() {
         return ptPar;
     }
-
-    /**
-     *
-     * @return objet Point2D du monstre (Attention : ne renvoie pas la position (x,y) du monstre)
-     */
-    @Override
-    public Point2D getPos() {
-        return pos;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public String getNom() {
-        return nom;
-    }
-
-    /**
-     *
-     * @param nom
-     */
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-    
     /**
      *
      * @return coordonnée X de la créature
@@ -159,7 +196,7 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
     }
 
     /**
-     *déplace de pmanière aléatoire le monstre sur une case adjacente (de manière aléatoire)
+     *déplace de pmanière aléatoire la créature sur une case libre adjacente (de manière aléatoire)
      */
     @Override
     public void deplacer(){
@@ -197,6 +234,11 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
             this.pos=newPos;
         }
     }
+
+    /**
+     *
+     * @param c caractère d'entrée pour un déplacement contrôlé
+     */
     public void deplacer(char c){
     int i=0;
     int j=0;
@@ -216,13 +258,14 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
     /**
      *affiche la position actuelle du monstre
      */
+    @Override
     public void affiche(){
         System.out.println("position de "+this.getNom()+" : ["+this.pos.getX()+","+this.pos.getY()+"] avec "+this.getPtVie()+"pv.");
     }
 
     /**
-     *
-     * @param degats
+     * méthode prendre des dégâts
+     * @param degats dégâts infligés
      */
     public void loosePV(int degats){
         if (degats<0){
@@ -232,6 +275,11 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
             this.setPtVie(this.getPtVie()-degats);
         }
     }
+
+    /**
+     * méthode de recherche de la créature à la distance (euclidienne) la plus proche
+     * @return la créature la plus proche de this
+     */
     public Creature creatureProche(){
         Creature cible=this;
         double distance = Double.MAX_VALUE;
