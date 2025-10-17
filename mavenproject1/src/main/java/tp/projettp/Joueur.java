@@ -17,7 +17,7 @@ public final class Joueur{
     private World monde;
     private ArrayList<Objet> inventaire;
 
-    private ArrayList<Utilisable> effets;
+    private ArrayList<Nourriture> effets;
     private int pvMax;
     
     public Joueur(World world){
@@ -147,7 +147,12 @@ public final class Joueur{
                 }
             }
         }
-    for(Nourriture )
+    for(Nourriture denree:effets){
+        denree.passe();
+        if(denree.getDuree()==0){
+            denree.finUtilisation(this);
+        }
+    }
     this.perso.affiche();
     }
 }
