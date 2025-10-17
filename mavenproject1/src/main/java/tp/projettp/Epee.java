@@ -13,6 +13,7 @@ public class Epee extends Objet implements Utilisable{
     private int resiste;
     
     /**
+     * @param nom
      * @param resistance nombre de tours pouvant être utilisé
      * @param degatsupp dégâts supplémentaires avec l'épée
      */
