@@ -17,7 +17,7 @@ public final class Joueur{
     private World monde;
     private ArrayList<Objet> inventaire;
 
-    private ArrayList<Utilisable> effets;
+    private ArrayList<Nourriture> effets;
     private int pvMax;
     
     public Joueur(World world){
@@ -93,7 +93,7 @@ public final class Joueur{
         }
         int i=0;
         for(Objet objet:inventaire){
-            if (objet instanceof PotionSoin){
+            if (objet instanceof PotionSoin || objet instanceof Nourriture){
                 i++;
                 System.out.println((2+i)+": utiliser "+objet.getNom());
             }
@@ -123,7 +123,6 @@ public final class Joueur{
         for (int j=0;j<i;j++){
             int a=2+j;
             if(a==Integer.parseInt(action)){
-                System.out.println("entrez la lettre qui correspond a la direction dans laquelle vous voulez aller (en zqsd)");
                 int k=0;
                 for(Objet objet:inventaire){
                     if (objet instanceof PotionSoin potion){
@@ -134,9 +133,26 @@ public final class Joueur{
                             break;
                         }
                     }
+                    if(objet instanceof Nourriture denree){
+                        k++;
+                        if (k==j){
+                            if(!denree.utilisation(perso)){
+                                denree.utilisation(this);
+                                effets.add(denree);
+                                break;
+                            }
+                            inventaire.remove(denree);
+                        }
+                    }
                 }
             }
         }
+    for(Nourriture denree:effets){
+        denree.passe();
+        if(denree.getDuree()==0){
+            denree.finUtilisation(this);
+        }
+    }
     this.perso.affiche();
     }
 }

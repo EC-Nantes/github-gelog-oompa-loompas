@@ -182,10 +182,10 @@ public class Nourriture extends Objet implements Utilisable{
     }
 
     /**
-     *
+     * @return si creature est creaturisable
      * @param c
      */
-    public void utilisation(Creature c){
+    public boolean utilisation(Creature c){
         //1 = distance att,pageAtt,pagePar,degatt,ptpar,
         if (creaturisable){
             int nouveauSet;
@@ -221,7 +221,9 @@ public class Nourriture extends Objet implements Utilisable{
             if(!bonus){
                 valeur=-valeur;
             }
+            return true;
         }
+        return false;
     }
     public void utilisation(Joueur j){
         //1 = distance att,pageAtt,pagePar,degatt,ptpar,
@@ -294,5 +296,8 @@ public class Nourriture extends Objet implements Utilisable{
         if(bonus){
             valeur=-valeur;
         }
+    }
+    public void passe(){
+        duree--;
     }
 }
