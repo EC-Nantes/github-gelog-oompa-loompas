@@ -33,6 +33,9 @@ public class Nourriture extends Objet implements Utilisable{
         this.valeur=valeurEffet;
         this.residu=0;
         this.creaturisable=false;
+        this.setPos(new Point2D());
+        this.getPos().randomPos();
+        this.setSolide(false);
     }
 
     /**
