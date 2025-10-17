@@ -22,7 +22,6 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
     /**
      * nom générique de la créature affiché à chaque tour de jeu
      */
-    protected String nom;
 
     /**
      * point de vie actuel du monstre
