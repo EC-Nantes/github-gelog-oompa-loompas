@@ -24,7 +24,7 @@ public class PotionSoin extends Objet implements Utilisable{
      * @param qqn personnage à soigner
      */
     public void soigner(Personnage qqn){
-        qqn.setPtVie(qqn.getPtVie()+soin);
+        qqn.setPtVie(Math.min(qqn.getPtVie()+soin,qqn.getPvMax()));
     }
         
 }
