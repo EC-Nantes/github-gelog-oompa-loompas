@@ -70,8 +70,8 @@ public class Archer extends Personnage implements Combattant, Jouable{
         rand=tirage.nextInt(5)+1;
         this.ptPar=10+rand;
         this.pos=new Point2D();
-        
-        this.distAttMax=3;
+        rand=tirage.nextInt(3);
+        this.distAttMax=3+rand;
         rand=tirage.nextInt(5)+1;
         this.pageAtt=80+rand;
         rand=tirage.nextInt(3);
