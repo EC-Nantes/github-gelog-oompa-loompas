@@ -79,7 +79,7 @@ public class World {
         elements.add(new PotionSoin(10));
         elements.add(new PotionSoin(10));
         elements.add(new PotionSoin(1));
-        for(int i=0;i<1500;i++){
+        for(int i=0;i<150;i++){
             elements.add(new Nourriture("Poison",6,2200,false));
         }
     }
@@ -110,13 +110,7 @@ public class World {
      * @param j Joueur du monde dans lequel il évolue
      */
     public void TourDeJeu(Joueur j){
-        
-        LinkedList<Nourriture> miams=new LinkedList();
-        for (ElementDeJeu elem :elements){
-                if (elem instanceof Nourriture denree){
-                        miams.add(denree);
-                }
-        }
+        LinkedList<ElementDeJeu> utilise= new LinkedList();
         for (ElementDeJeu elem :elements){
             System.out.println(" ");
             elem.affiche();
@@ -134,11 +128,12 @@ public class World {
                         System.out.println(creature.getNom()+" se deplace, et est desormais :");
                         elem.affiche();
                         for (ElementDeJeu elem2 :elements){
-                            if(elem2 instanceof Nourriture denree)
-                            if (denree.getPos().equals(creature.getPos()) && denree.isCreaturisable()){
-                                denree.utilisation(creature);
-                                elements.remove(denree);
-                                break;
+                            if(elem2 instanceof Nourriture denree){
+                                if (denree.getPos().equals(creature.getPos()) && denree.isCreaturisable()){
+                                    denree.utilisation(creature);
+                                    utilise.add(denree);
+                                    break;
+                                }
                             }
                         }
                     } 
@@ -150,12 +145,13 @@ public class World {
                     System.out.println(elem.getNom()+" se deplace, et est desormais :");
                     elem.affiche();
                     if(elem instanceof Creature c){
-                        for (Nourriture denree:miams){
-                            if (denree.getPos().equals(c.getPos()) && denree.isCreaturisable()){
-                                denree.utilisation(c);
-                                System.out.println(elem.getNom()+" se deplace, et est desormais :");
-                                elements.remove(denree);
-                                break;
+                        for (ElementDeJeu elem2 :elements){
+                            if(elem2 instanceof Nourriture denree){
+                                if (denree.getPos().equals(c.getPos()) && denree.isCreaturisable()){
+                                    denree.utilisation(c);
+                                    elements.remove(elem2);
+                                    break;
+                                }
                             }
                         }
                     }
@@ -168,6 +164,7 @@ public class World {
                 }
             }
         }
+    for 
     }
 
     /**
