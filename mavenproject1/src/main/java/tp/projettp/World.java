@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package tp.projettp;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -120,14 +121,25 @@ public class World {
      * @param j Joueur du monde dans lequel il évolue
      */
     public void TourDeJeu(Joueur j){
+        ArrayList<ArrayList> plateau = new ArrayList();
+        ArrayList ligne;
+        for(int k=0; k<World.longueur; k++){
+            ligne = new ArrayList();
+            for (int l=0; l<World.hauteur; l++){
+                ligne.add(" .");
+            }
+            plateau.add(ligne);
+        }
+        String plateauText;
         for (ElementDeJeu elem :elements){
-            elem.affiche();
+            //elem.affiche();
+            ajouterPlateau(elem, plateau);
             if (elem instanceof Creature creature && elem instanceof Combattant attakant){
                 if (j.getPerso().getPos().distance(creature.getPos())<=creature.getDistAMax()){
                     attakant.combattre(j.getPerso());
                 }
                 else{
-                    Creature attakade=creature.creatureProche();
+                    Creature attakade=creature.creatureProche();//celui qui est attaqué
                     if(creature.getPos().distance(attakade.getPos())<=creature.getDistAMax()){
                         attakant.combattre(attakade);
                     }
@@ -152,7 +164,24 @@ public class World {
                 }
             }
         }
+        plateauText=plateau.toString();
+        System.out.println(plateauText);
     }
+    
+    public void ajouterPlateau(ElementDeJeu elem, ArrayList<ArrayList> plateau){
+        int x=elem.getPos().getX();
+        int y=elem.getPos().getY();
+        String nomClasse= elem.getClass().getName();
+        String elemText= " "+nomClasse.charAt(1);
+        System.out.println(y+" "+plateau.size());
+        ArrayList ligne= plateau.get(y);
+        //ligne.remove(x);
+        ligne.set(x, elemText);
+        
+        //plateau.remove(y);
+        plateau.set(y, ligne);
+    }
+    
 
     /**
      * affiche la position de toutes les créatures présentes
