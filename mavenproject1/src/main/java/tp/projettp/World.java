@@ -127,7 +127,7 @@ public class World {
         for (ElementDeJeu elem :elements){
             //elem.affiche();
             if (elem instanceof Creature creature && elem instanceof Combattant attakant){
-                if (j.getPerso().getPos().distance(creature.getPos())<=creature.getDistAMax()){
+                if (creature.getPos().distance(j.getPerso().getPos())<=creature.getDistAMax()){
                     attakant.combattre(j.getPerso());
                 }
                 else{

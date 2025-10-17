@@ -19,7 +19,7 @@ public abstract class ElementDeJeu {
     }
     
     public Point2D getPos() {
-        return pos;
+        return this.pos;
     }
 
     public boolean isSolide() {
