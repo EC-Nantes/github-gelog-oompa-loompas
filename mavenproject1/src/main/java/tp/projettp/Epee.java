@@ -24,6 +24,7 @@ public class Epee extends Objet implements Utilisable{
         this.setPos(new Point2D());
         this.getPos().randomPos();
         this.resiste=resistance;
+        this.pos=new Point2D();
     }
 
     public int getDegat() {
