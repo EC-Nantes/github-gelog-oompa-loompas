@@ -54,6 +54,7 @@ public class Nourriture extends Objet implements Utilisable{
         this.valeur=valeurEffet;
         this.residu=0;
         this.creaturisable=true;
+        this.setPos(new Point2D());
     }
     
     /**
