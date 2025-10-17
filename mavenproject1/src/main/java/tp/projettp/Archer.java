@@ -108,14 +108,6 @@ public class Archer extends Personnage implements Combattant, Jouable{
 
     /**
      *
-     * @return
-     */
-    public int getPageAtt() {
-        return pageAtt;
-    }
-
-    /**
-     *
      * @param distAttMax
      */
     public void setDistAttMax(int distAttMax) {

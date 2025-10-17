@@ -42,13 +42,13 @@ public class World {
         for (int i =0; i<40;i++){
             elements.add(new Lapin());
         }
-        for (int i =0; i<10;i++){
+        for (int i =0; i<20;i++){
             elements.add(new Loup());
         }
         for (int i =0; i<20;i++){
             elements.add(new Paysan());
         }
-        for (int i =0; i<100;i++){
+        for (int i =0; i<50;i++){
             elements.add(new Guerrier());
         }
         elements.add(new NuageToxique());
@@ -62,26 +62,15 @@ public class World {
         elements.add(new Epee("épée en bois",2,2));
         elements.add(new Epee("Epee en diamant",25,10));
         elements.add(new PotionSoin(10));
-        elements.add(new PotionSoin(2000));
+        elements.add(new PotionSoin(200));
         elements.add(new PotionSoin(50));
         elements.add(new PotionSoin(50));
-        elements.add(new PotionSoin(10));
-        elements.add(new PotionSoin(10));
-        elements.add(new PotionSoin(10));
-        elements.add(new PotionSoin(10));
-        elements.add(new PotionSoin(10));
-        elements.add(new PotionSoin(10));
-        elements.add(new PotionSoin(10));
-        elements.add(new PotionSoin(10));
-        elements.add(new PotionSoin(10));
-        elements.add(new PotionSoin(10));
-        elements.add(new PotionSoin(10));
         elements.add(new PotionSoin(10));
         elements.add(new PotionSoin(10));
         elements.add(new PotionSoin(10));
         elements.add(new PotionSoin(10));
         elements.add(new PotionSoin(1));
-        for(int i=0;i<150;i++){
+        for(int i=0;i<120;i++){
             elements.add(new Nourriture("Poison",6,2200,false));
         }
         elements.add(new Nourriture("bière suprême",4,999,true));
