@@ -55,6 +55,7 @@ public class Paysan extends Personnage {
         super.pos=new Point2D();
         super.ptPar=1;       
         super.distAMax=0;
+        this.pvMax=ptVie;
     }
     
 }
