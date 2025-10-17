@@ -26,6 +26,7 @@ public final class ChargerPartie {
     }
     public World creerWorld(){
         ArrayList liste;
+        ArrayList grandeListe;
         String ligne;
         World monde = null;
         int i=0;
@@ -37,6 +38,7 @@ public final class ChargerPartie {
             fichier = new BufferedReader(new FileReader(this.source));
             ligne=fichier.readLine();
             StringTokenizer tokenizer=new StringTokenizer(ligne, delimiteurs);
+            grandeListe=new ArrayList();
         while (ligne!=null){
             if (i==0){
                 while (tokenizer.hasMoreTokens()){
@@ -59,19 +61,16 @@ public final class ChargerPartie {
                 }
                 i++;
             }
-            else if (i==2){
-                monde=new World();
-                i++;
-            }
             else{
                 liste =new ArrayList<String>();
                 while (tokenizer.hasMoreTokens()){
                     liste.add(tokenizer.nextToken());
                 }
-            System.out.println(ligne);
+            grandeListe.add(liste);
             ligne=fichier.readLine();}
         }
         fichier.close();
+        monde=new World(largeur, hauteur, grandeListe);
         } catch (IOException ex) {
             System.getLogger(ChargerPartie.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
