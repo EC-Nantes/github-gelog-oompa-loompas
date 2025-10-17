@@ -58,7 +58,7 @@ public class Archer extends Personnage implements Combattant, Jouable{
     }
 
     /**
-     *crée un archer basique avec 15 flèches
+     *crée un archer basique avec entre 15 et 25 flèches
      */
     public Archer(){
         Random tirage=new Random();
@@ -98,20 +98,32 @@ public class Archer extends Personnage implements Combattant, Jouable{
         this.pvMax=ptVie;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getDistAttMax() {
         return distAttMax;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPageAtt() {
         return pageAtt;
     }
 
+    /**
+     *
+     * @param distAttMax
+     */
     public void setDistAttMax(int distAttMax) {
         this.distAttMax = distAttMax;
     }
     
     /**
-     *
+     * méthode combattre des créatures aléatoires
      * @param c créature attaquée par l'archer
      */
     @Override
@@ -141,9 +153,9 @@ public class Archer extends Personnage implements Combattant, Jouable{
     }
 
     /**
-     *
-     * @param c
-     * @param inventaire
+     *  méthode combattre du joueur, avec la possibilité d'utiliser son inventaire
+     * @param c créature attaquée
+     * @param inventaire inventaire du joueur
      */
     public void combattre(Creature c,ArrayList<Objet> inventaire){
         System.out.println("Attaque de "+this.getNom()+" sur "+c.getNom());
