@@ -188,6 +188,7 @@ public class Nourriture extends Objet implements Utilisable{
     public boolean utilisation(Creature c){
         //1 = distance att,pageAtt,pagePar,degatt,ptpar,
         if (creaturisable){
+            System.out.println(c.getNom()+" a consommé "+this.getNom());
             int nouveauSet;
             if(!bonus){
                 valeur=-valeur;
@@ -228,6 +229,7 @@ public class Nourriture extends Objet implements Utilisable{
     public void utilisation(Joueur j){
         //1 = distance att,pageAtt,pagePar,degatt,ptpar,
         int nouveauSet;
+        System.out.println(j.getPerso().getNom()+" a consommé "+this.getNom());
         if(!bonus){
             valeur=-valeur;
         }
