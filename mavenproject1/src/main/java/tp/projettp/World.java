@@ -188,7 +188,7 @@ public class World {
                 }
             }
         }
-        ajouterPlateau(j.getPerso(), plateau);
+        ajouterPlateau(j, plateau);
         afficherPlateau(plateau);
     for (ElementDeJeu denree:utilise){
         elements.remove(denree);
@@ -200,6 +200,17 @@ public class World {
         }
     }
     
+    public void ajouterPlateau(Joueur j, ArrayList<ArrayList> plateau){
+        int x=j.getPerso().getPos().getX();
+        int y=j.getPerso().getPos().getY();
+        String elemText= "J ";
+        ArrayList ligne= plateau.get(y);
+        //ligne.remove(x);
+        ligne.set(x, elemText);
+        
+        //plateau.remove(y);
+        plateau.set(y, ligne);
+    }
     public void ajouterPlateau(ElementDeJeu elem, ArrayList<ArrayList> plateau){
         int x=elem.getPos().getX();
         int y=elem.getPos().getY();
