@@ -11,7 +11,7 @@ package tp.projettp;
 public abstract class ElementDeJeu {
     protected Point2D pos;
     private boolean estSolide;
-    private String nom;
+    protected String nom;
     
     
     public ElementDeJeu(){
