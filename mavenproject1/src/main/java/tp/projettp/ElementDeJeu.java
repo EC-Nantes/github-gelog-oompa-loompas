@@ -12,7 +12,12 @@ public abstract class ElementDeJeu {
     protected Point2D pos;
     private boolean estSolide;
     private String nom;
-
+    
+    
+    public ElementDeJeu(){
+        pos=new Point2D();
+    }
+    
     public Point2D getPos() {
         return pos;
     }
