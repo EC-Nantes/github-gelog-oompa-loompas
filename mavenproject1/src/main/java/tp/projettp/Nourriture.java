@@ -21,8 +21,44 @@ public class Nourriture extends Objet implements Utilisable{
         this.bonus=estBonus;
         this.valeur=valeurEffet;
     }
+    private int minmax(int actuel){
+        if(estBonus){
+            return Math.min(actuel+valeur,100);
+        }
+        else{
+            return Math.max(actuel+valeur,0);
+        }
+    }
     public void utilisation(Personnage p){
         //1 = distance att,pageAtt,pagePar,degatt,ptpar,
-        //case et default
+        int nouveauSet;
+        if(!bonus){
+            valeur=-valeur;
+        }
+        if (effet==1){
+            if (p instanceof Archer){
+                nouveauSet=Math.max(valeur,0);
+                p.setDistAMax(nouveauSet);
+            }
+        }
+        if (effet==2){
+            nouveauSet=minmax(p.getPagePar());
+            p.setPagePar(nouveauSet);
+        }
+        if (effet==3){
+            nouveauSet=minmax(p.getPageAtt());
+            p.setPageAtt(nouveauSet);
+        }
+        if (effet==4){
+            nouveauSet=Math.max(p.getDegAtt()+valeur,0);
+            p.setDegAtt(nouveauSet);
+        }
+        if (effet==5){
+            nouveauSet=Math.max(p.getPtPar()+valeur,0);
+            p.setPtPar(nouveauSet);
+        }
+        if(!bonus){
+            valeur=-valeur;
+        }
     }
 }
