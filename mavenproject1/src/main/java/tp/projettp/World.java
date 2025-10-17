@@ -82,10 +82,18 @@ public class World {
         elements.add(new PotionSoin(1));
         
     }
+    /**
+     * 
+     * 
+     * @param longueur
+     * @param hauteur
+     * @param liste // liste de liste qui contiennent chacunes la classe et les attibuts de la classe de chaque entité du monde
+     */
+    
     public World(int longueur, int hauteur, List liste){ 
         World.hauteur=hauteur;
         World.longueur=longueur;
-        
+        // il faut finir de creer les entités avec la liste 
     }
     /**
      * Génère des entités à des emplacement aléatoires dans le monde
