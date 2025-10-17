@@ -9,4 +9,7 @@ package tp.projettp;
  * @author nathan
  */
 public abstract class Objet extends ElementDeJeu {
+    public Objet(){
+        Point2D pos = new Point2D();
+    }
 }
