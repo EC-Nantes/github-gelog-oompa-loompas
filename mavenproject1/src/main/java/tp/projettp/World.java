@@ -202,8 +202,7 @@ public class World {
         int x=elem.getPos().getX();
         int y=elem.getPos().getY();
         String nomClasse= elem.getClass().getName();
-        System.out.println(nomClasse);
-        String elemText= nomClasse.charAt(1)+" ";
+        String elemText= nomClasse.charAt(12)+" ";
         ArrayList ligne= plateau.get(y);
         //ligne.remove(x);
         ligne.set(x, elemText);
