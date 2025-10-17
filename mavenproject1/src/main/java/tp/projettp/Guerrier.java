@@ -58,13 +58,13 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
      */
     public Guerrier() {
         this.nom="Guerrier aguerri";
-        this.ptVie=12;
+        this.ptVie=50;
         this.pagePar=10;
         this.ptPar=40;
         this.pos=new Point2D();
         this.distAMax=1;
         this.pageAtt=80;
-        this.degAtt=20;
+        this.degAtt=15;
         this.pvMax=ptVie;
     }
     /**
@@ -80,15 +80,13 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
             if(Rand<=this.getPageAtt()){
                 int Rand2=tirage.nextInt(100)+1;
                 int degats=this.getDegAtt();
-                if(Rand2>c.getPagePar()){
-                    c.loosePV(degats);
-                }
-                else{
+                if(Rand2<=c.getPagePar()){
                     degats=this.getDegAtt()-c.getPtPar();
-                    c.loosePV(degats);
                     System.out.println("Attaque parée");
                 }
-                System.out.println("Dégâts infligés : "+degats);
+                degats=Math.max(degats, 0);
+                c.loosePV(degats);
+                System.out.println("Degats infliges : "+degats+"\nIl reste "+c.getPtVie()+"pv a "+c.getNom());
                 
             }
             else{
