@@ -78,6 +78,7 @@ public final class Joueur{
                     inventaire.add(o);
                     System.out.println(o.getNom()+" recuperee");
                     elements.remove(o);
+                    break;//On ne peut récupérer qu'un objet à la fois dans l'inventaire
                 }
             }
     }
@@ -94,7 +95,7 @@ public final class Joueur{
         for(Objet objet:inventaire){
             if (objet instanceof PotionSoin){
                 i++;
-                System.out.println((3+i)+": utiliser "+objet);
+                System.out.println((2+i)+": utiliser "+objet.getNom());
             }
         }
         if (perso instanceof Archer arc){
@@ -120,17 +121,18 @@ public final class Joueur{
             }
         }
         for (int j=0;j<i;j++){
-            int a=3+j;
+            int a=2+j;
             if(a==Integer.parseInt(action)){
                 System.out.println("entrez la lettre qui correspond a la direction dans laquelle vous voulez aller (en zqsd)");
                 int k=0;
                 for(Objet objet:inventaire){
                     if (objet instanceof PotionSoin potion){
+                        k++;
                         if (k==j){
                             potion.soigner(perso);
+                            inventaire.remove(potion);
                             break;
                         }
-                        k++;
                     }
                 }
             }
