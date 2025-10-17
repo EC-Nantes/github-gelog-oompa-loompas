@@ -121,12 +121,16 @@ public class World {
                     }
                     else{
                         creature.deplacer();
+                        System.out.println(creature.getNom()+" se déplace, et est désormais :");
+                        elem.affiche();
                     }
                 }
             }
             else{
                 if(elem instanceof Deplacable deplac)
                     deplac.deplacer();
+                    System.out.println(elem.getNom()+" se déplace, et est désormais :");
+                    elem.affiche();
             }
             if (elem instanceof NuageToxique nuage){
                 if(j.getPerso().getPos().distance(nuage.getPos())==0){
@@ -134,9 +138,7 @@ public class World {
                     System.out.println("Attaque de "+nuage.getNom()+" sur "+j.getPerso().getNom()+" avec "+nuage.degats+" de dégâts");
                 }
             }
-            elem.affiche();
         }
-        this.afficheWorld();
     }
 
     /**
