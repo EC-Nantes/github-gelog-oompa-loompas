@@ -90,6 +90,13 @@ public final class Joueur{
         if (perso.getPos().distance(creaproche.getPos())<=perso.getDistAMax()){
             System.out.println("2: combattre "+creaproche.getNom()+" située en "+"["+creaproche.getX()+","+creaproche.getY()+"]");
         }
+        int i=0;
+        for(Objet objet:inventaire){
+            if (objet instanceof PotionSoin){
+                i++;
+                System.out.println((3+i)+": utiliser "+objet);
+            }
+        }
         if (perso instanceof Archer arc){
             System.out.println("Il vous reste "+arc.getNbFleches()+" flèches");
         }
@@ -109,6 +116,22 @@ public final class Joueur{
                 case Archer archer -> archer.combattre(perso.creatureProche());
                 case Guerrier guerrier -> guerrier.combattre(perso.creatureProche(),inventaire);
                 default -> {
+                }
+            }
+        }
+        for (int j=0;j<i;j++){
+            int a=3+j;
+            if(a==Integer.parseInt(action)){
+                System.out.println("entrez la lettre qui correspond a la direction dans laquelle vous voulez aller (en zqsd)");
+                int k=0;
+                for(Objet objet:inventaire){
+                    if (objet instanceof PotionSoin potion){
+                        if (k==j){
+                            potion.soigner(perso);
+                            break;
+                        }
+                        k++;
+                    }
                 }
             }
         }
