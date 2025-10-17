@@ -16,6 +16,7 @@ public class PotionSoin extends Objet implements Utilisable{
      * @param soin soins apportés par la potion de soin
      */
     public PotionSoin(int soin){
+        super();
         this.soin=soin;
         this.setNom("Potion de soin de "+soin+"pv");
     }
