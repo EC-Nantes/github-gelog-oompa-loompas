@@ -83,6 +83,8 @@ public class World {
         for(int i=0;i<150;i++){
             elements.add(new Nourriture("Poison",6,2200,false));
         }
+        elements.add(new Nourriture("bière suprême",4,999,true));
+        
     }
     /**
      * 
@@ -161,7 +163,7 @@ public class World {
                             if(elem2 instanceof Nourriture denree){
                                 if (denree.getPos().equals(c.getPos()) && denree.isCreaturisable()){
                                     denree.utilisation(c);
-                                    elements.remove(elem2);
+                                    utilise.add(denree);
                                     break;
                                 }
                             }
@@ -176,7 +178,9 @@ public class World {
                 }
             }
         }
-    for 
+    for (ElementDeJeu denree:utilise){
+        elements.remove(denree);
+    }
     }
 
     /**
