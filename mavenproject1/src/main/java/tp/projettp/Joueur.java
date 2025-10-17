@@ -21,7 +21,7 @@ public final class Joueur{
     private int pvMax;
     
     public Joueur(World world){
-        System.out.println("entrez l'initiale de la classe choisie");
+        System.out.println("entrez l'initiale de la classe choisie (G pour guerrier, A pour Archer)");
         Scanner choix = new Scanner(System.in);
         String choixClasse=choix.next();
         this.choisirClasse(choixClasse);
