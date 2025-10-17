@@ -131,7 +131,7 @@ public class World {
         for(int k=0; k<World.longueur; k++){
             ligne = new ArrayList();
             for (int l=0; l<World.hauteur; l++){
-                ligne.add(" .");
+                ligne.add("  ");
             }
             plateau.add(ligne);
         }
@@ -189,6 +189,10 @@ public class World {
                 }
             }
         }
+        plateauText="";
+        for (ArrayList ligne2 : plateau){
+            plateauText=plateauText+ligne2.toString()+"/n";
+        }
         plateauText=plateau.toString();
         System.out.println(plateauText);
     for (ElementDeJeu denree:utilise){
@@ -200,8 +204,7 @@ public class World {
         int x=elem.getPos().getX();
         int y=elem.getPos().getY();
         String nomClasse= elem.getClass().getName();
-        String elemText= " "+nomClasse.charAt(1);
-        System.out.println(y+" "+plateau.size());
+        String elemText= nomClasse.charAt(1)+" ";
         ArrayList ligne= plateau.get(y);
         //ligne.remove(x);
         ligne.set(x, elemText);
