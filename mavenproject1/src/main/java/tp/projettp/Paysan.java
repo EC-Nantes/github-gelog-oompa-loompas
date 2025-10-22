@@ -11,7 +11,7 @@ package tp.projettp;
 public class Paysan extends Personnage {
 
     /**
-     *
+     * Constructeur paysan
      * @param nom nom perso
      * @param pV point de vie
      * @param pPar point parade attaque
@@ -29,8 +29,8 @@ public class Paysan extends Personnage {
     }
 
     /**
-     *
-     * @param p
+     * Constructeur en copie
+     * @param p paysan à copier
      */
     public Paysan(Personnage p) {
         super.nom=p.getNom();
