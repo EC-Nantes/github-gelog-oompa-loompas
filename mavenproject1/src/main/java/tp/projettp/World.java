@@ -79,9 +79,9 @@ public class World {
     /**
      * 
      * 
-     * @param longueur
-     * @param hauteur
-     * @param liste // liste de liste qui contiennent chacunes la classe et les attibuts de la classe de chaque entité du monde
+     * @param longueur longueur en case du monde
+     * @param hauteur hauteur en case du monde
+     * @param liste liste de liste qui contiennent chacunes la classe et les attibuts de la classe de chaque entité du monde
      */
     
     public World(int longueur, int hauteur, List liste){ 
@@ -171,6 +171,11 @@ public class World {
             elements.remove(denree);    
     }
     }
+
+    /**
+     * Affiche le plateau
+     * @param plateau plateau de jeu
+     */
     public void afficherPlateau(ArrayList<ArrayList> plateau){
         System.out.println("le joueur est J et normalement c'est l'initiale de la Classe de l'élément de jeu");
         for (ArrayList ligne2 : plateau){
@@ -178,6 +183,11 @@ public class World {
         }
     }
     
+    /**
+     * ajoute le joueur sur le plateau
+     * @param j joueur
+     * @param plateau plateau
+     */
     public void ajouterPlateau(Joueur j, ArrayList<ArrayList> plateau){
         int x=j.getPerso().getPos().getX();
         int y=j.getPerso().getPos().getY();
@@ -189,6 +199,12 @@ public class World {
         //plateau.remove(y);
         plateau.set(y, ligne);
     }
+
+    /**
+     * ajoute un élément du jeu sur le plateau
+     * @param elem élément de jeu
+     * @param plateau plateau
+     */
     public void ajouterPlateau(ElementDeJeu elem, ArrayList<ArrayList> plateau){
         int x=elem.getPos().getX();
         int y=elem.getPos().getY();
@@ -211,6 +227,10 @@ public class World {
             crea.affiche();
         }
     }
+
+    /**
+     * calcule si les créatures du jeu sont mortes ou non (sauf le joueur)
+     */
     public void deces(){
         LinkedList<ElementDeJeu> morts = new LinkedList();
         for (ElementDeJeu elem :elements){
@@ -225,6 +245,11 @@ public class World {
             elements.remove(rip);
         }
     }
+
+    /**
+     * C'est la qu'on va passer la majorité du temps : la partie dans laquelle le joueur évolue
+     * @param lui joueur
+     */
     public void partie(Joueur lui){
         boolean mort=false;
         ArrayList<ArrayList> plateau;
