@@ -186,18 +186,7 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
     }
 
     /**
-     *
-     * @param pos position en classe Point2D
-     */
-    public Point2D getPos() {
-        return this.pos;
-    }
-    public void setPos(Point2D pos) {
-        this.pos = pos;
-    }
-
-    /**
-     *déplace de pmanière aléatoire la créature sur une case libre adjacente (de manière aléatoire)
+     *déplace de manière aléatoire la créature sur une case libre adjacente si cela est possible
      */
     @Override
     public void deplacer(){
@@ -237,7 +226,7 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
     }
 
     /**
-     *
+     * déplace le joueur à z=haut, s=bas, q=gauche, d=droite
      * @param c caractère d'entrée pour un déplacement contrôlé
      */
     public void deplacer(char c){
@@ -257,15 +246,15 @@ public abstract class Creature extends ElementDeJeu implements Deplacable{
                 }}
 
     /**
-     *affiche la position actuelle du monstre
+     *affiche la position actuelle del la créautre ainsi que ses pv restants
      */
-    @Override
+    @Override 
     public void affiche(){
         System.out.println("position de "+this.getNom()+" : ["+this.pos.getX()+","+this.pos.getY()+"] avec "+this.getPtVie()+"pv.");
     }
 
     /**
-     * méthode prendre des dégâts
+     * méthode prendre des dégâts lors d'un combat avec un autre monstre
      * @param degats dégâts infligés
      */
     public void loosePV(int degats){

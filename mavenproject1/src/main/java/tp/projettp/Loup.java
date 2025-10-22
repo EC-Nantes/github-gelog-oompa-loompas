@@ -34,6 +34,7 @@ public class Loup extends Monstre implements Combattant{
         this.degAtt=dA;
         this.distAMax=1;
         this.pvMax=ptVie;
+        this.setSolide(true);
     }
 
     /**
@@ -51,6 +52,8 @@ public class Loup extends Monstre implements Combattant{
         this.degAtt=l.getDegAtt();
         this.distAMax=1;
         this.pvMax=ptVie;
+        
+        this.setSolide(true);
     }
 
     /**
@@ -67,6 +70,7 @@ public class Loup extends Monstre implements Combattant{
         this.degAtt=10;
         this.distAMax=1;
         this.pvMax=ptVie;
+        this.setSolide(true);
     }
 
     public int getPageAtt() {

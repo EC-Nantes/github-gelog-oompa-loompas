@@ -20,12 +20,12 @@ public class Nourriture extends Objet implements Utilisable{
     /**
      * création nourriture consaommable uniquement par les joueurs
      * @param nom
-     * @param effet
+     * @param effet //1 = distance att,2 = pageAtt,3 = pagePar,4 = degatt,5 = ptpar,6 = pv
      * @param valeurEffet
      * @param estBonus
      * @param duration
      */
-    //1 = distance att,2 = pageAtt,3 = pagePar,4 = degatt,5 = ptpar,6 = pv
+    
     public Nourriture(String nom,int effet,int valeurEffet,boolean estBonus, int duration){
         this.duree=duration;
         this.nom=nom;
@@ -35,14 +35,13 @@ public class Nourriture extends Objet implements Utilisable{
         this.residu=0;
         this.creaturisable=false;
         this.setPos(new Point2D());
-        this.getPos().randomPos();
         this.setSolide(false);
     }
 
     /**
-     * création d'une nourriture applicable à tous
+     * création d'une nourriture applicable à tous, permanent
      * @param nom
-     * @param effet
+     * @param effet //1 = distance att,2 = pageAtt,3 = pagePar,4 = degatt,5 = ptpar,6 = pv
      * @param valeurEffet
      * @param estBonus
      */
@@ -55,6 +54,7 @@ public class Nourriture extends Objet implements Utilisable{
         this.residu=0;
         this.creaturisable=true;
         this.setPos(new Point2D());
+        this.setSolide(false);
     }
     
     /**
@@ -196,7 +196,7 @@ public class Nourriture extends Objet implements Utilisable{
             }
             if (effet==1){
                 if (c instanceof Archer){
-                    nouveauSet=Math.max(valeur,0);
+                    nouveauSet=Math.max(c.getDistAMax()+valeur,0);
                     c.setDistAMax(nouveauSet);
                 }
             }

@@ -16,6 +16,8 @@ public abstract class ElementDeJeu {
     
     public ElementDeJeu(){
         pos=new Point2D();
+        estSolide=true;
+        nom = "Sans nom 1";
     }
     
     public Point2D getPos() {

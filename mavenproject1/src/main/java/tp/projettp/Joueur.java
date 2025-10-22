@@ -120,7 +120,7 @@ public final class Joueur{
                 }
             }
         }
-        for (int j=0;j<i;j++){
+        for (int j=1;j<i;j++){
             int a=2+j;
             if(a==Integer.parseInt(action)){
                 int k=0;

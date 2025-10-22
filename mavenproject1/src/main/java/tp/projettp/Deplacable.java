@@ -9,5 +9,9 @@ package tp.projettp;
  * @author julda
  */
 public interface Deplacable {
+
+    /**
+     * déplacer aléatoirement l'élément sur une case libre adjacente
+     */
     public void deplacer();
 }

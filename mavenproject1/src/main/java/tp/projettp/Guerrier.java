@@ -59,7 +59,7 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
     public Guerrier() {
         Random tirage=new Random();
         int rand;
-        this.nom="Guerrier aguerri";
+        this.setNom("Guerrier aguerri");
         this.ptVie=60;
         rand=tirage.nextInt(5)+1;
         this.pagePar=10+rand;
