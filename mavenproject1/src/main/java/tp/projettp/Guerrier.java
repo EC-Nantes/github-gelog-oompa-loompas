@@ -33,6 +33,10 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
         this.pvMax=ptVie;
     }
     
+    /**
+     *
+     * @param dA
+     */
     @Override
     public void setDistAMax(int dA){//redéfinition pour ne pas pouvoir la modifier
         this.distAMax=1;
@@ -103,6 +107,13 @@ public class Guerrier extends Personnage implements Combattant, Jouable{
             System.out.println("Attaque hors de portée");
         }
     }
+
+    /**
+     * Méthode d'attaque pour un joueur, avec la possibilité d'utiliser les objets épées dans son inventaire
+     * @param c créature attaquée
+     * @param inventaire inventaire du joueur
+     */
+    @Override
     public void combattre(Creature c,ArrayList<Objet> inventaire){
         System.out.println("Attaque de "+this.getNom()+" sur "+c.getNom());
         if (this.getPos().distance(c.getPos())<=1){

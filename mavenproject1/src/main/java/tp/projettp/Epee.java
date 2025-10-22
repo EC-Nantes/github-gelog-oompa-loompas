@@ -10,10 +10,10 @@ package tp.projettp;
  */
 public class Epee extends Objet implements Utilisable{
     private int degat;
-    private int resiste;
+    private int resiste;//, prouve que tu existes !
     
     /**
-     * @param nom
+     * @param nom nom de l'épée
      * @param resistance nombre de tours pouvant être utilisé
      * @param degatsupp dégâts supplémentaires avec l'épée
      */
@@ -27,13 +27,26 @@ public class Epee extends Objet implements Utilisable{
         this.pos=new Point2D();
     }
 
+    /**
+     *
+     * @return
+     */
     public int getDegat() {
         return degat;
     }
 
+    /**
+     *
+     * @param degat
+     */
     public void setDegat(int degat) {
         this.degat = degat;
     }
+
+    /**
+     * A chaque utilisation de l'objet, son état se détériore
+     * @return l'objet est il encore utilisable ?
+     */
     public boolean utilisation(){
         resiste--;
         return resiste>0;
