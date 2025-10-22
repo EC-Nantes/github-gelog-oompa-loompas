@@ -20,6 +20,10 @@ public final class Joueur{
     private ArrayList<Nourriture> effets;
     private int pvMax;
     
+    /**
+     * crée le joueur dans son monde
+     * @param world monde
+     */
     public Joueur(World world){
         System.out.println("entrez l'initiale de la classe choisie (G pour guerrier, A pour Archer)");
         Scanner choix = new Scanner(System.in);
@@ -34,34 +38,66 @@ public final class Joueur{
     
     }
 
+    /**
+     *
+     * @return
+     */
     public Personnage getPerso() {
         return perso;
     }
 
+    /**
+     *
+     * @return
+     */
     public World getMonde() {
         return monde;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Objet> getInventaire() {
         return inventaire;
     }
 
+    /**
+     *
+     * @param perso
+     */
     public void setPerso(Personnage perso) {
         this.perso = perso;
     }
 
+    /**
+     *
+     * @param monde
+     */
     public void setMonde(World monde) {
         this.monde = monde;
     }
 
+    /**
+     *
+     * @param inventaire
+     */
     public void setInventaire(ArrayList<Objet> inventaire) {
         this.inventaire = inventaire;
     }
     
+    /**
+     * ajoute un équipement dans l'inventaire du joueur
+     * @param equipement élément à ajouter
+     */
     public void ajoutInventaire(Objet equipement){
         this.inventaire.add(equipement);
     }
     
+    /**
+     * crée le personnage du joueur en fonction de son désir
+     * @param classe caractère entré par le joueur
+     */
     public void choisirClasse(String classe){
         perso = switch (classe) {
             case "A" -> new Archer();
@@ -69,9 +105,18 @@ public final class Joueur{
             default -> new Guerrier();
         };
 }
+
+    /**
+     * Association du nom du joueur à son personnage
+     * @param nom nom choisi par le joueur
+     */
     public void choisirNom(String nom){
         this.perso.setNom(nom);
     }
+
+    /**
+     * vérifie si u n objet à ramasser se trouve sur la case du joueur et l'ajoute à l'inventaire si tel est le as
+     */
     public void ramasser(){
         for(ElementDeJeu elem:elements){
                 if (elem instanceof Utilisable && elem instanceof Objet o && this.perso.getPos().distance(o.getPos())<1){
@@ -82,6 +127,10 @@ public final class Joueur{
                 }
             }
     }
+
+    /**
+     * Tour de jeu du joueur
+     */
     public void tourDeJeu(){
         this.ramasser();
         this.perso.affiche();
