@@ -14,15 +14,18 @@ public class NuageToxique extends Objet implements Deplacable, Combattant {
     int degats;
     
     /**
-     *
-     * @param position
-     * @param intensite
+     * Constructeur de Nuage toxique avec une position et des dégâts
+     * @param position position du nuage
+     * @param intensite dégâts du nuage
      */
     public NuageToxique(Point2D position, int intensite){
         this.setPos(position);
         this.degats=intensite;
         this.setSolide(false);
     }
+    /**
+     * Constructeur d'initialisation d'un nuage toxique
+     */
     public NuageToxique(){
         super();
         this.setNom("Nuage Toxique");
@@ -42,7 +45,7 @@ public class NuageToxique extends Objet implements Deplacable, Combattant {
     }
 
     /**
-     *
+     * méthode combattre adaptée au nuage toxique
      * @param c créature attaquée par le nuage toxique
      */
     public void combattre(Creature c){
