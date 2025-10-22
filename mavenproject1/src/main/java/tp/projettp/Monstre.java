@@ -9,9 +9,9 @@ package tp.projettp;
  * @author julda
  */
 public abstract class Monstre extends Creature{
-    
-    protected int distAMax;
-    protected int degAtt;
+    /**
+     * pourcentage d'attaques réussies
+     */
     protected int pAtt;
     /**
      * création d'un monstre avec les paramètres indiqués
@@ -42,11 +42,11 @@ public abstract class Monstre extends Creature{
     public Monstre(Monstre m){
     super.nom=m.getNom();
     super.ptVie=m.getPtVie();
-    this.distAMax=m.getDistAMax();
-    this.degAtt=m.getDegAtt();
+    super.distAMax=m.getDistAMax();
+    super.degAtt=m.getDegAtt();
     this.pAtt=m.getPAtt();
     super.pagePar=m.getPagePar();
-    super.pos= m.getPos();
+    super.pos= new Point2D(m.getPos());
     }
 
     /**
@@ -55,15 +55,10 @@ public abstract class Monstre extends Creature{
     public Monstre(){
         super();
     }
-
-    public int getDistAMax() {
-        return distAMax;
-    }
-
-    public int getDegAtt() {
-        return degAtt;
-    }
-
+    /**
+     *
+     * @return
+     */
     public int getPAtt() {
         return pAtt;
     }

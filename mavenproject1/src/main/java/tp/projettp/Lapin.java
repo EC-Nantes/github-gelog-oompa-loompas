@@ -15,7 +15,6 @@ public class Lapin extends Monstre {
      *
      * @param nom nom de la créature
      * @param pointV points de vie de la créature
-     * @param dAtt dist max attaque
      * @param ptPar point de parade d'attaque
      * @param degA force d'attaque
      * @param paAtt pourcentage attaque
