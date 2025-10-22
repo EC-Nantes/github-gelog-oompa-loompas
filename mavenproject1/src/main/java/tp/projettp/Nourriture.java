@@ -10,7 +10,6 @@ package tp.projettp;
  */
 public class Nourriture extends Objet implements Utilisable{
     private int duree;
-    private String nom;
     private int effet;
     private boolean bonus;
     private int valeur;
@@ -18,12 +17,12 @@ public class Nourriture extends Objet implements Utilisable{
     private boolean creaturisable;
 
     /**
-     * création nourriture consaommable uniquement par les joueurs
-     * @param nom
-     * @param effet //1 = distance att,2 = pageAtt,3 = pagePar,4 = degatt,5 = ptpar,6 = pv
-     * @param valeurEffet
-     * @param estBonus
-     * @param duration
+     * création nourriture consommable uniquement par les joueurs
+     * @param nom nom de la nourriture
+     * @param effet 1 = distance att,2 = pageAtt,3 = pagePar,4 = degatt,5 = ptpar,6 = pv
+     * @param valeurEffet bonus sur l'attribut sur lequel il s'applique (est positif y compris pour un malus)
+     * @param estBonus true si bonus, false si malus
+     * @param duration durée d'application une fois mangé
      */
     
     public Nourriture(String nom,int effet,int valeurEffet,boolean estBonus, int duration){
@@ -40,10 +39,10 @@ public class Nourriture extends Objet implements Utilisable{
 
     /**
      * création d'une nourriture applicable à tous, permanent
-     * @param nom
-     * @param effet //1 = distance att,2 = pageAtt,3 = pagePar,4 = degatt,5 = ptpar,6 = pv
-     * @param valeurEffet
-     * @param estBonus
+     * @param nom nom de la nourriture
+     * @param effet 1 = distance att,2 = pageAtt,3 = pagePar,4 = degatt,5 = ptpar,6 = pv
+     * @param valeurEffet bonus sur l'attribut sur lequel il s'applique (est positif y compris pour un malus)
+     * @param estBonus true si bonus, false si malus
      */
     public Nourriture(String nom,int effet,int valeurEffet,boolean estBonus){
         this.duree=1000;
@@ -183,8 +182,9 @@ public class Nourriture extends Objet implements Utilisable{
     }
 
     /**
-     * @return si creature est creaturisable
-     * @param c
+     * méthode utilisation pour la nourriture que les non joueurs mangent aussi, qui renvoie false si la nourriture n'est mangeable que par le joueur
+     * @return si la nourriture est creaturisable
+     * @param c creature qui utilise l'objet
      */
     public boolean utilisation(Creature c){
         //1 = distance att,pageAtt,pagePar,degatt,ptpar,
@@ -227,6 +227,11 @@ public class Nourriture extends Objet implements Utilisable{
         }
         return false;
     }
+
+    /**
+     * méthode utilisation pour la nourriture consommable uniquement par les joueurs, prennant un joueur en paramètre
+     * @param j joueur
+     */
     public void utilisation(Joueur j){
         //1 = distance att,pageAtt,pagePar,degatt,ptpar,
         int nouveauSet;
@@ -264,6 +269,11 @@ public class Nourriture extends Objet implements Utilisable{
             valeur=-valeur;
         }
     }
+
+    /**
+     *
+     * @param j
+     */
     public void finUtilisation(Joueur j){
         //1 = distance att,pageAtt,pagePar,degatt,ptpar,
         int nouveauSet;
@@ -300,6 +310,10 @@ public class Nourriture extends Objet implements Utilisable{
             valeur=-valeur;
         }
     }
+
+    /**
+     * tour de jeu passé dans les effets du joueur
+     */
     public void passe(){
         duree--;
     }
