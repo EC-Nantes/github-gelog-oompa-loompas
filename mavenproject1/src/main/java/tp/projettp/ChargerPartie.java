@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 
@@ -25,8 +26,8 @@ public final class ChargerPartie {
         source=nomFichier;
     }
     public World creerWorld(){
-        ArrayList liste;
-        ArrayList grandeListe;
+        List liste;
+        List<List> grandeListe;
         String ligne;
         World monde = null;
         int i=0;
@@ -70,12 +71,48 @@ public final class ChargerPartie {
             ligne=fichier.readLine();}
         }
         fichier.close();
-        monde=new World(largeur, hauteur, grandeListe);
+        List<ElementDeJeu> listeDeElements = new ArrayList<>();
+        for (List elementComplet : grandeListe){
+        listeDeElements.add(creerElementJeu(elementComplet));}
+        monde=new World(largeur, hauteur, listeDeElements);
         } catch (IOException ex) {
             System.getLogger(ChargerPartie.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
         finally{return monde;}
     }
     
+    /**
+     * une fonction qui renvoie un element de jeu à partir de sa description en chaine de caractere
+     * 
+     * @param elementComplet une liste de chaine de caractere qui contient en premier le nom de la classe suivie des attributs de la classe
+     * @return 
+     */
+    public ElementDeJeu creerElementJeu(List<String> elementComplet){
+            String nomClasse = (String) elementComplet.get(0);
+            ElementDeJeu element = null;
+            switch ((nomClasse)){
+                case("Guerrier"):
+                    switch(elementComplet.size()){
+                        case (10):
+//ici on enregistrera toujours de la même manière, donc il y aura peu de cas à définir
+                            int test=Integer.parseInt( elementComplet.get(2));
+                            Point2D pos = new Point2D(Integer.parseInt( elementComplet.get(8)),Integer.parseInt( elementComplet.get(9)));
+                            element =new Guerrier((String) elementComplet.get(1),Integer.parseInt(elementComplet.get(2)),Integer.parseInt(elementComplet.get(3)),Integer.parseInt(elementComplet.get(4)),Integer.parseInt(elementComplet.get(5)), pos,Integer.parseInt(elementComplet.get(7)));
+                        break;
+                        default:
+                            element= new Guerrier();
+                        break;
+                        }
+//il aurait fallu le faire pour chaque classe mais on a pas eu le temps et ce serait long et sans grand intérêt 
+                    default :
+                    System.out.println("il manque une classe");
+                            //on devrait throw une erreur mais on a manqué de temps pour tout bien définir;
+                    
+                    break;
+                    
+            }
+        return element;
+    }
+        
     
 }
