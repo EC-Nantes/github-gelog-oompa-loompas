@@ -81,13 +81,13 @@ public class World {
      * 
      * @param longueur longueur en case du monde
      * @param hauteur hauteur en case du monde
-     * @param liste liste de liste qui contiennent chacunes la classe et les attibuts de la classe de chaque entité du monde
+     * @param liste liste qui contient chaque entité du monde
      */
     
     public World(int longueur, int hauteur, List liste){ 
         World.hauteur=hauteur;
         World.longueur=longueur;
-        // il faut finir de creer les entités avec la liste 
+        World.elements=(LinkedList<ElementDeJeu>) liste;
     }
     /**
      * Génère des entités à des emplacement aléatoires dans le monde
