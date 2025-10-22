@@ -124,7 +124,7 @@ public class Point2D{
     }
 
     /**
-     *
+     * distance euclidienne entre 2 positions
      * @param autre deuxième position
      * @return distance entre les 2 positions
      */
